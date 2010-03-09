@@ -1,5 +1,7 @@
 package com.cytaxic.cyngle.view.interfaces
 {
+	import com.cytaxic.cyngle.view.CynView;
+	
 	public interface ICynComposite
 	{
 		function add(child:CynView):CynView

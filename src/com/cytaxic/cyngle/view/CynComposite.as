@@ -1,7 +1,6 @@
 package com.cytaxic.cyngle.view
 {
 	import com.cytaxic.cyngle.Cyntaxic;
-	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
 	
@@ -37,6 +36,14 @@ package com.cytaxic.cyngle.view
 		
 		public function remove(child:CynView):CynView
 		{
+			for(var i:int = 0; i < Cyntaxic.VIEWS.length; i++)
+			{
+				if(child === Cyntaxic.VIEWS[i]) 
+				{
+					Cyntaxic.VIEWS = Cyntaxic.VIEWS.slice(i, 1);
+				}
+			}
+			
 			removeChild(child as DisplayObject);
 			return child;
 		}
@@ -44,6 +51,8 @@ package com.cytaxic.cyngle.view
 		public function removeAt(index:int):CynView
 		{
 			var child:DisplayObject = getChildAt(index); 
+			
+			Cyntaxic.VIEWS = Cyntaxic.VIEWS.slice(index, 1);
 			
 			removeChildAt(index);
 			return child as CynView;

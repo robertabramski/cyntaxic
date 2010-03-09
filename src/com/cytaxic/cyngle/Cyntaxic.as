@@ -2,7 +2,7 @@
 /*/****************************************************************************************************************
 
 	CYNTAXIC FRAMEWORK
-	VERSION: 1.0.0
+	VERSION: 0.0.1
 	ACTIONSCRIPT VERSION: 3.0
 
 	AUTHOR: Robert Abramski
@@ -12,6 +12,9 @@
 	
 	TO DO:
 	- Command stack for undo and redo functionality
+	- Redraw on resize functionality
+	- Preloader functionality using Frame metatag
+	- Deep linking
 
 ******************************************************************************************************************/
 
@@ -21,11 +24,13 @@ package com.cytaxic.cyngle
 	import com.cytaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cytaxic.cyngle.model.CynModel;
+	import com.cytaxic.cyngle.view.CynView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Stage;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.events.Event;
 	import flash.ui.ContextMenu;
 	
 	public class Cyntaxic
@@ -41,6 +46,7 @@ package com.cytaxic.cyngle
 		private static var _CONTROLLER:CynController;
 		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
+		private static var _VIEWS:Array = [];
 		
 		public static const THROW_ERROR:String = "throwError";
 		
@@ -90,11 +96,15 @@ package com.cytaxic.cyngle
 			{
 				STAGE.align = StageAlign.TOP_LEFT;
 				STAGE.scaleMode = StageScaleMode.NO_SCALE;
+				
+				STAGE.addEventListener(Event.RESIZE, redrawViews);
 			}
 			else
 			{
 				STAGE.align = "";
 				STAGE.scaleMode = StageScaleMode.SHOW_ALL;
+				
+				STAGE.removeEventListener(Event.RESIZE, redrawViews);
 			}
 		}
 
@@ -192,9 +202,27 @@ package com.cytaxic.cyngle
 			else throwError(ErrorCodes.E_5000);
 		}
 		
+		public static function get VIEWS():Array
+		{
+			return _VIEWS;
+		}
+		
+		public static function set VIEWS(value:Array):void
+		{
+			_VIEWS = value;
+		}
+		
 		private static function throwError(error:ErrorCodeVO):void
 		{
 			CONTROLLER.execute(Cyntaxic.THROW_ERROR, error);
+		}
+		
+		private static function redrawViews(event:Event):void
+		{
+			for(var i:int = 0; i < _VIEWS.length; i++)
+			{
+				(_VIEWS[i] as CynView).redraw();
+			}
 		}
 	}
 }

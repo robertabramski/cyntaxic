@@ -1,20 +1,33 @@
 package net.site.cyngleapp.view
 {
-	import com.cytaxic.cyngle.view.interfaces.ICynComposite;
-	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyngle.CyntaxicEvent;
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.view.interfaces.ICynView;
 	import com.cytaxic.cyngle.view.CynComposite;
+	import com.cytaxic.cyngle.view.interfaces.ICynComposite;
+	import com.cytaxic.cyngle.view.interfaces.ICynView;
 
 	public class StickiesApp extends CynComposite implements ICynComposite, ICynView
 	{
+		private var header:StickyHeader = new StickyHeader();
+		
 		public function StickiesApp()
+		{
+			add(header);
+		}
+		
+		/*public function init(vo:CyntaxicVO):CynView
+		{
+			return null;
+		}
+		
+		public function update(event:CyntaxicEvent):void
+		{
+		}
+		
+		public function redraw():void
 		{
 			
 		}
 		
-		/*public function add(child:CynView):CynView
+		public function add(child:CynView):CynView
 		{
 			return null;
 		}
@@ -32,15 +45,6 @@ package net.site.cyngleapp.view
 		public function removeAt(index:int):CynView
 		{
 			return null;
-		}
-		
-		public function init(vo:CyntaxicVO):CynView
-		{
-			return null;
-		}
-		
-		public function update(event:CyntaxicEvent):void
-		{
 		}*/
 	}
 }

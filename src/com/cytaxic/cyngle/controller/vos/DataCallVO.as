@@ -19,5 +19,33 @@ package com.cytaxic.cyngle.controller.vos
 			this.data = append("data", data);
 			this.contentType = append("contentType", contentType);
 		}
+		
+		override public function describe():String
+		{
+			var description:String = "{";
+		
+			for(var appendedProp:String in props)
+			{
+				if(appendedProp == "data")
+				{
+					description += appendedProp + ":" + this[appendedProp].split("\n").join("").split("\t").join("") + ", ";
+				}
+				else description += appendedProp + ":" + this[appendedProp] + ", ";
+			}
+			
+			for(var dynamicProp:String in this)
+			{
+				if(dynamicProp == "data")
+				{
+					description += appendedProp + ":" + this[appendedProp].split("\n").join("").split("\t").join("") + ", ";
+				}
+				else  description += dynamicProp + ":" + this[dynamicProp] + ", ";
+			}
+			
+			description += "}";
+			description = description.replace(", }", "}");
+			
+			return description;
+		}
 	}
 }

@@ -21,6 +21,8 @@ package com.cytaxic.cyngle.view
 			
 			model.addEventListener(CyntaxicEvent.NOTIFY, update);
 			controller.addEventListener(CyntaxicEvent.NOTIFY, update);
+			
+			Cyntaxic.VIEWS.push(this);
 		}
 		
 		public function init(vo:CyntaxicVO):CynView
@@ -37,6 +39,11 @@ package com.cytaxic.cyngle.view
 				if(Cyntaxic.DEEP_DEBUG)
 					Cyntaxic.DEBUGGER.log(this, "Updated view: update(" + event.describe() + ");");
 			}
+		}
+		
+		public function redraw():void
+		{
+			
 		}
 	}
 }
