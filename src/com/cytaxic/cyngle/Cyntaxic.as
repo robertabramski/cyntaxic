@@ -16,6 +16,8 @@
 	- Preloader functionality using Frame metatag
 	- Deep linking
 	- Focus manager
+	- Tooltips on all views
+	- HTML title control
 	
 	CORE GOALS:
 	- Less abstraction
@@ -37,7 +39,6 @@ package com.cytaxic.cyngle
 	import com.cytaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cytaxic.cyngle.model.CynModel;
-	import com.cytaxic.cyngle.view.CynView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Stage;
@@ -59,7 +60,6 @@ package com.cytaxic.cyngle
 		private static var _CONTROLLER:CynController;
 		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
-		private static var _VIEWS:Array = [];
 		
 		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true)
 		{
@@ -82,8 +82,8 @@ package com.cytaxic.cyngle
 		
 		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true):Cyntaxic
 		{
-			INSTANCE = new Cyntaxic(new Key, doc, model, controller, debug);
-			return INSTANCE;
+			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, debug);
+			return _INSTANCE;
 		}
 		
 		public static function get VERSION():String
@@ -98,40 +98,27 @@ package com.cytaxic.cyngle
 		
 		public static function set CONTEXT_MENU(value:ContextMenu):void
 		{
-			ROOT["contextMenu"] = value;
+			_ROOT["contextMenu"] = value;
 		}
 		
 		public static function set FULL_SCALE_FLASH(value:Boolean):void
 		{
 			if(value)
 			{
-				STAGE.align = StageAlign.TOP_LEFT;
-				STAGE.scaleMode = StageScaleMode.NO_SCALE;
+				_STAGE.align = StageAlign.TOP_LEFT;
+				_STAGE.scaleMode = StageScaleMode.NO_SCALE;
 				
-				STAGE.addEventListener(Event.RESIZE, redrawViews);
+				_STAGE.addEventListener(Event.RESIZE, redrawViews);
 			}
 			else
 			{
-				STAGE.align = "";
-				STAGE.scaleMode = StageScaleMode.SHOW_ALL;
+				_STAGE.align = "";
+				_STAGE.scaleMode = StageScaleMode.SHOW_ALL;
 				
-				STAGE.removeEventListener(Event.RESIZE, redrawViews);
+				_STAGE.removeEventListener(Event.RESIZE, redrawViews);
 			}
 		}
 
-		public static function set INSTANCE(value:Cyntaxic):void
-		{
-			var error:ErrorCodeVO = new ErrorCodeVO(ErrorCodes.E_5000.message, ErrorCodes.E_5000.id);
-			
-			if(!_INSTANCE) _INSTANCE = value;
-			else throwError(ErrorCodes.E_5000);
-		}
-
-		public static function get INSTANCE():Cyntaxic
-		{
-			return _INSTANCE;
-		}
-		
 		public static function set STAGE(value:Stage):void
 		{
 			if(!_STAGE) _STAGE = value;
@@ -213,27 +200,14 @@ package com.cytaxic.cyngle
 			else throwError(ErrorCodes.E_5000);
 		}
 		
-		public static function get VIEWS():Array
-		{
-			return _VIEWS;
-		}
-		
-		public static function set VIEWS(value:Array):void
-		{
-			_VIEWS = value;
-		}
-		
 		private static function throwError(error:ErrorCodeVO):void
 		{
-			CONTROLLER.execute(CyntaxicHandles.THROW_ERROR, error);
+			_CONTROLLER.execute(CyntaxicHandles.THROW_ERROR, error);
 		}
 		
 		private static function redrawViews(event:Event):void
 		{
-			for(var i:int = 0; i < _VIEWS.length; i++)
-			{
-				(_VIEWS[i] as CynView).redraw();
-			}
+			_CONTROLLER.execute(CyntaxicHandles.REDRAW_VIEWS, null, true);
 		}
 	}
 }

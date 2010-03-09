@@ -4,6 +4,7 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.CyntaxicEvent;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.CynController;
+	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
 	
 	import flash.display.Sprite;
@@ -21,7 +22,7 @@ package com.cytaxic.cyngle.view
 			model.addEventListener(CyntaxicEvent.NOTIFY, update);
 			controller.addEventListener(CyntaxicEvent.NOTIFY, update);
 			
-			Cyntaxic.VIEWS.push(this);
+			model.views.push(this);
 		}
 		
 		public function init(vo:CyntaxicVO):CynView

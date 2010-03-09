@@ -4,6 +4,7 @@ package com.cytaxic.cyngle.controller
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cytaxic.cyngle.model.enums.Messages;
+	import com.cytaxic.cyngle.view.CynView;
 	
 	import flash.events.EventDispatcher;
 	
@@ -23,17 +24,28 @@ package com.cytaxic.cyngle.controller
 			return this;
 		}
 		
-		public function execute(handle:String, vo:CyntaxicVO):void
+		public function execute(handle:String, vo:CyntaxicVO, suppressDebug:Boolean = false):void
 		{
 			this[handle](vo);
 			
-			if(Cyntaxic.DEEP_DEBUG)
-				Cyntaxic.DEBUGGER.log(this, "Executed function: " + handle + "(" + (vo ? vo.describe() : "") + ");");
+			if(!suppressDebug)
+			{
+				if(Cyntaxic.DEEP_DEBUG)
+					Cyntaxic.DEBUGGER.log(this, "Executed function: " + handle + "(" + (vo ? vo.describe() : "") + ");");
+			}
 		}
 		
 		protected function throwError(vo:CyntaxicVO):void
 		{
 			throw new Error((vo as ErrorCodeVO).message, (vo as ErrorCodeVO).id);
+		}
+		
+		protected function redrawViews(vo:CyntaxicVO):void
+		{
+			for(var i:int = 0; i < model.views.length; i++)
+			{
+				(model.views[i] as CynView).redraw();
+			}
 		}
 	}
 }

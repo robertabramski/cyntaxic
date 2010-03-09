@@ -11,6 +11,8 @@ package com.cytaxic.cyngle.model
 	{
 		private var _version:VersionVO = Versions.VERSION_0_0_1;
 		
+		public var views:Array = [];
+		
 		public function CynModel()
 		{
 			
