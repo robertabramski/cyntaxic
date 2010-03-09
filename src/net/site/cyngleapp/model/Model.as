@@ -6,8 +6,6 @@ package net.site.cyngleapp.model
 	{
 		private static var instance:Model;
 		
-		public var displayText:String;
-		
 		public function Model(key:Key)
 		{
 			

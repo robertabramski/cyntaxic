@@ -23,30 +23,6 @@ package net.site.cyngleapp.controller
 			if(!instance) instance = new Controller(new Key);
 			return instance;
 		}
-		
-		public function getData(vo:CyntaxicVO):void
-		{
-			var dataCall:DataCallVO = vo as DataCallVO;
-			var call:DataCall = new DataCall(dataCall.url, dataCall.method, dataCall.data, dataCall.contentType);
-			
-			call.addEventListener(DataCallEvent.COMPLETE, test);
-		}
-		
-		private function test(event:DataCallEvent):void
-		{
-			trace(event.data.describe());
-		}
-		
-		public function changeText(vo:CyntaxicVO):void
-		{
-			model.displayText = vo.text;
-			dispatchEvent(new CyntaxicEvent(Handles.CHANGE_TEXT, vo));
-		}
-		
-		public function removeViewBox(vo:CyntaxicVO):void
-		{
-			dispatchEvent(new CyntaxicEvent(Handles.REMOVE_VIEW_BOX, vo));
-		}
 	}
 }
 

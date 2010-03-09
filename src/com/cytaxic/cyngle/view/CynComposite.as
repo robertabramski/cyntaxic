@@ -23,30 +23,30 @@ package com.cytaxic.cyngle.view
 				Cyntaxic.DEBUGGER.log(this, Messages.ADDED_TO_STAGE);
 		}
 		
-		public function add(child:ICynView):ICynView
+		public function add(child:CynView):CynView
 		{
 			addChild(child as DisplayObject);
 			return child;
 		}
 		
-		public function addAt(child:ICynView, index:int):ICynView
+		public function addAt(child:CynView, index:int):CynView
 		{
 			addChildAt(child as DisplayObject, index);
 			return child;
 		}
 		
-		public function remove(child:ICynView):ICynView
+		public function remove(child:CynView):CynView
 		{
 			removeChild(child as DisplayObject);
 			return child;
 		}
 		
-		public function removeAt(index:int):ICynView
+		public function removeAt(index:int):CynView
 		{
 			var child:DisplayObject = getChildAt(index); 
 			
 			removeChildAt(index);
-			return child as ICynView;
+			return child as CynView;
 		}
 	}
 }

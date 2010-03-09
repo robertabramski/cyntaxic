@@ -12,8 +12,6 @@
 	
 	TO DO:
 	- Command stack for undo and redo functionality
-	- Add call helpers
-	- Match error of assignment of static instance error
 
 ******************************************************************************************************************/
 

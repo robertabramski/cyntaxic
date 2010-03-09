@@ -19,9 +19,14 @@ package com.cytaxic.cyngle
 		{
 			var description:String = "{";
 		
-			for(var prop:String in props)
+			for(var appendedProp:String in props)
 			{
-				description += prop + ":" + this[prop] + ", ";
+				description += appendedProp + ":" + this[appendedProp] + ", ";
+			}
+			
+			for(var dynamicProp:String in this)
+			{
+				description += dynamicProp + ":" + this[dynamicProp] + ", ";
 			}
 			
 			description += "}";
