@@ -14,10 +14,9 @@
 	- Command stack for undo and redo functionality
 	- Redraw on resize functionality
 	- Preloader functionality using Frame metatag
-	- Deep linking
 	- Focus manager
 	- Tooltips on all views
-	- HTML title control
+	- Global CSS stylesheet
 	
 	CORE GOALS:
 	- Less abstraction
