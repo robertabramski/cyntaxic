@@ -11,7 +11,7 @@ package
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.view.StickiesApp;
 	
-	[SWF(backgroundColor="#CCCCCC")]
+	[SWF(backgroundColor="#E6E6E6")]
 	
 	public class stickies extends Sprite
 	{

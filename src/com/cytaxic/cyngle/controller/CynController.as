@@ -44,7 +44,7 @@ package com.cytaxic.cyngle.controller
 		{
 			for(var i:int = 0; i < model.views.length; i++)
 			{
-				(model.views[i] as CynView).redraw();
+				(model.views[i] as CynView).resize();
 			}
 		}
 	}

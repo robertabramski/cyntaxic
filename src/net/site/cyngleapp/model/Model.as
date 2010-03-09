@@ -1,14 +1,14 @@
 package net.site.cyngleapp.model
 {
 	import com.cytaxic.cyngle.model.CynModel;
-	import com.cytaxic.cyngle.model.vos.VersionVO;
+	
+	import net.site.cyngleapp.view.Sticky;
 
 	public class Model extends CynModel
 	{
 		private static var instance:Model;
 		
 		private var _stickies:Array = [];
-		
 		
 		public function Model(key:Key)
 		{

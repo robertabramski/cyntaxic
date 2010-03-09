@@ -28,7 +28,7 @@
 	- Strong typing with value objects
 	- Comes with many utilities out of the box
 	- Static access to top level objects anywhere
-	- Function as good as possible with code hinting
+	- Function well with code hinting without casting
 
 ******************************************************************************************************************/
 
@@ -45,6 +45,8 @@ package com.cytaxic.cyngle
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.ui.ContextMenu;
+	
+	import net.site.cyngleapp.model.Model;
 	
 	public class Cyntaxic
 	{

@@ -11,7 +11,7 @@ package com.cytaxic.cyngle.view
 
 	public class CynView extends Sprite implements ICynView
 	{
-		protected var model:*;
+		protected var model:CynModel;
 		protected var controller:CynController;
 		
 		public function CynView()
@@ -41,7 +41,7 @@ package com.cytaxic.cyngle.view
 			}
 		}
 		
-		public function redraw():void
+		public function resize():void
 		{
 			
 		}

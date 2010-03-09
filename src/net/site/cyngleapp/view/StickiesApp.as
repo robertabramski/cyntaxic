@@ -8,6 +8,9 @@ package net.site.cyngleapp.view
 	import com.cytaxic.cyngle.view.interfaces.ICynComposite;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
 	
+	import comps.header.UIStickyHeader;
+	import comps.sticky.UISticky;
+	
 	import flash.events.MouseEvent;
 	
 	import net.site.cyngleapp.Handles;
@@ -15,7 +18,7 @@ package net.site.cyngleapp.view
 
 	public class StickiesApp extends CynComposite implements ICynComposite, ICynView
 	{
-		private var header:StickyHeader = new StickyHeader();
+		private var header:UIStickyHeader = new UIStickyHeader();
 		private var call:DataCall;
 		
 		public function StickiesApp()
@@ -38,10 +41,13 @@ package net.site.cyngleapp.view
 		
 		public function addSticky(vo:CyntaxicVO):void
 		{
-			var sticky:CynView = new Sticky().init(vo as StickyVO);
+			var sticky:CynView = new UISticky().init(vo as StickyVO);
 			
 			sticky.x = (vo as StickyVO).x;
 			sticky.y = (vo as StickyVO).y;
+			add(sticky);
+			
+			model.stickies.push(sticky);
 		}
 		
 		public function removeSticky(vo:CyntaxicVO):void
@@ -58,7 +64,7 @@ package net.site.cyngleapp.view
 		{
 		}
 		
-		public function redraw():void
+		public function resize():void
 		{
 			
 		}

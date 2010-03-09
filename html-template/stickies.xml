@@ -1,5 +1,11 @@
 <stickies>
-	<sticky color="blue" x="80" y="80">Hello World.</sticky>
-	<sticky color="blue" x="100" y="100">This app uses the Cyntaxic framework features.</sticky>
-	<sticky color="red" x="150" y="150">Have fun with them and make sure to check out the code.</sticky>
+	<sticky color="yellow" x="36" y="69">Hello World!</sticky>
+	<sticky color="lightBlue" x="88" y="110">
+		<![CDATA[This app uses the Cyntaxic framework. It is a MVC based pattern created to address everyday coding, while keeping it simple by reducing abstraction.]]>
+	</sticky>
+	<sticky color="blue" x="25" y="250">
+		<![CDATA[Top level objects like root&#xD;& stage can be referenced statically from the&#xD;Cyntaxic base class. It also comes bundled with a bunch of commonly used utility functions.]]>
+	</sticky>
+	<sticky color="lime" x="346" y="250"><![CDATA[Check out the API <a href="#">here</a>.]]></sticky>
+	<sticky color="purple" x="402" y="304"><![CDATA[Download version <a href="#">0.0.1</a>.]]></sticky>
 </stickies>

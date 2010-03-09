@@ -44,7 +44,7 @@ package com.cytaxic.cyngle.controller.vos
 		
 		public function compact(value:String):String
 		{
-			return value.split("\n").join("").split("\t").join("");
+			return value.split("\n").join("").split("\t").join("").split("\r").join("");
 		}
 	}
 }

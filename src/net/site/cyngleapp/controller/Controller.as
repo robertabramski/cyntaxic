@@ -6,9 +6,9 @@ package net.site.cyngleapp.controller
 	import com.cytaxic.cyngle.controller.vos.DataCallVO;
 	
 	import net.site.cyngleapp.Handles;
-	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.enums.Colors;
 	import net.site.cyngleapp.model.vos.StickyVO;
+	import net.site.cyngleapp.view.Sticky;
 
 	public class Controller extends CynController
 	{
@@ -36,10 +36,8 @@ package net.site.cyngleapp.controller
 				var color:uint = Colors.convertNamedColor(stickies.sticky[i].@color);
 				var x:Number = stickies.sticky[i].@x.valueOf();
 				var y:Number = stickies.sticky[i].@y.valueOf();
+				var sticky:CyntaxicVO = new StickyVO(id, message, color, x, y);
 				
-				var sticky:StickyVO = new StickyVO(id, message, color, x, y);
-				
-				model.stickies.push(sticky);
 				dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky)); 
 			}
 		}
