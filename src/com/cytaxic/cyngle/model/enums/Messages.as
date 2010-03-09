@@ -6,5 +6,6 @@ package com.cytaxic.cyngle.model.enums
 	{
 		public static const ADDED_TO_STAGE:String = "Was added to stage.";
 		public static const INIT:String = "Has initialized.";
+		public static const RETURN:String = "Returned: ";
 	}
 }

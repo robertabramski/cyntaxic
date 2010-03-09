@@ -3,14 +3,13 @@ package com.cytaxic.cyngle.controller
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
-	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	
 	import flash.events.EventDispatcher;
 	
 	public class CynController extends EventDispatcher
 	{
-		protected var model:CynModel;
+		protected var model:*;
 		
 		public function CynController()
 		{

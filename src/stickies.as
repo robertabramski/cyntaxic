@@ -1,6 +1,8 @@
 package
 {
 	import com.cytaxic.cyngle.Cyntaxic;
+	import com.cytaxic.cyngle.CyntaxicVO;
+	import com.cytaxic.cyngle.view.CynView;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -13,7 +15,7 @@ package
 	
 	public class stickies extends Sprite
 	{
-		private var app:StickiesApp;
+		private var app:CynView;
 		
 		public function stickies()
 		{
@@ -26,7 +28,9 @@ package
 			Cyntaxic.FULL_SCALE_FLASH = true;
 			Cyntaxic.DEEP_DEBUG = true;
 			
-			app = new StickiesApp();
+			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
+			
+			app = new StickiesApp().init(config);
 			addChild(app);
 		}
 	}

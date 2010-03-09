@@ -4,9 +4,15 @@ package com.cytaxic.cyngle
 	{
 		protected var props:Object = new Object();
 		
-		public function CyntaxicVO()
+		public function CyntaxicVO(data:Object = null)
 		{
-			
+			if(data)
+			{
+				for(var prop:String in data)
+				{
+					this[prop] = data[prop];
+				}
+			}
 		}
 		
 		protected function append(prop:String, value:Object):*

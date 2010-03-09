@@ -4,14 +4,13 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.CyntaxicEvent;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.CynController;
-	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
 	
 	import flash.display.Sprite;
 
 	public class CynView extends Sprite implements ICynView
 	{
-		protected var model:CynModel;
+		protected var model:*;
 		protected var controller:CynController;
 		
 		public function CynView()

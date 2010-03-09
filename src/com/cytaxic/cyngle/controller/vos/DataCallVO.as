@@ -26,26 +26,25 @@ package com.cytaxic.cyngle.controller.vos
 		
 			for(var appendedProp:String in props)
 			{
-				if(appendedProp == "data")
-				{
-					description += appendedProp + ":" + this[appendedProp].split("\n").join("").split("\t").join("") + ", ";
-				}
+				if(appendedProp == "data") description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
 				else description += appendedProp + ":" + this[appendedProp] + ", ";
 			}
 			
 			for(var dynamicProp:String in this)
 			{
-				if(dynamicProp == "data")
-				{
-					description += appendedProp + ":" + this[appendedProp].split("\n").join("").split("\t").join("") + ", ";
-				}
-				else  description += dynamicProp + ":" + this[dynamicProp] + ", ";
+				if(dynamicProp == "data") description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
+				else description += dynamicProp + ":" + this[dynamicProp] + ", ";
 			}
 			
 			description += "}";
 			description = description.replace(", }", "}");
 			
 			return description;
+		}
+		
+		public function compact(value:String):String
+		{
+			return value.split("\n").join("").split("\t").join("");
 		}
 	}
 }

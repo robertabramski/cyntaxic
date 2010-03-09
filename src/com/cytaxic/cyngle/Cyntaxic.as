@@ -15,6 +15,19 @@
 	- Redraw on resize functionality
 	- Preloader functionality using Frame metatag
 	- Deep linking
+	- Focus manager
+	
+	CORE GOALS:
+	- Less abstraction
+	- Less code written for same result
+	- More dependence on the controller
+	- Works well extending Flash graphics
+	- Common tasks built right in
+	- Debugging built in
+	- Strong typing with value objects
+	- Comes with many utilities out of the box
+	- Static access to top level objects anywhere
+	- Function as good as possible with code hinting
 
 ******************************************************************************************************************/
 
@@ -47,8 +60,6 @@ package com.cytaxic.cyngle
 		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
 		private static var _VIEWS:Array = [];
-		
-		public static const THROW_ERROR:String = "throwError";
 		
 		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true)
 		{
@@ -214,7 +225,7 @@ package com.cytaxic.cyngle
 		
 		private static function throwError(error:ErrorCodeVO):void
 		{
-			CONTROLLER.execute(Cyntaxic.THROW_ERROR, error);
+			CONTROLLER.execute(CyntaxicHandles.THROW_ERROR, error);
 		}
 		
 		private static function redrawViews(event:Event):void
@@ -227,13 +238,18 @@ package com.cytaxic.cyngle
 	}
 }
 
-internal class FlashVars
+internal dynamic class FlashVars extends Object
 {
 	public var vars:Object;
 	
 	public function FlashVars(vars:Object)
 	{
 		this.vars = vars;
+		
+		for(var prop:String in vars)
+		{
+			this[prop] = vars[prop];
+		}
 		
 		com.cytaxic.cyngle.Cyntaxic.DEBUGGER.log(this, "Loaded: " + describe());
 	}

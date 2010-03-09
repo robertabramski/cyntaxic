@@ -1,6 +1,8 @@
 package com.cytaxic.cyngle.controller.helpers
 {
+	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.controller.vos.DataCallVO;
+	import com.cytaxic.cyngle.model.enums.Messages;
 	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -49,6 +51,8 @@ package com.cytaxic.cyngle.controller.helpers
 			
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			dispatchEvent(new DataCallEvent(DataCallEvent.TIMEOUT, vo));
+			
+			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
 		}
 		
 		private function handleComplete(event:Event):void
@@ -61,6 +65,8 @@ package com.cytaxic.cyngle.controller.helpers
 			
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			dispatchEvent(new DataCallEvent(DataCallEvent.COMPLETE, vo));
+			
+			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
 		}
 		
 		private function handleIOError(event:IOErrorEvent):void
@@ -71,8 +77,11 @@ package com.cytaxic.cyngle.controller.helpers
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
 			
+			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, handleIOError);
 			dispatchEvent(new DataCallEvent(DataCallEvent.IO_ERROR, vo));
+			
+			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
 		}
 		
 		public function get timeout():Number 

@@ -6,6 +6,8 @@ package net.site.cyngleapp.model
 	{
 		private static var instance:Model;
 		
+		private var _stickies:Array = [];
+		
 		public function Model(key:Key)
 		{
 			
@@ -15,6 +17,16 @@ package net.site.cyngleapp.model
 		{
 			if(!instance) instance = new Model(new Key);
 			return instance;
+		}
+		
+		public function get stickies():Array 
+		{
+			return _stickies;
+		}
+
+		public function set stickies(value:Array):void 
+		{
+			_stickies = value;
 		}
 	}
 }

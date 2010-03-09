@@ -42,7 +42,9 @@ package com.cytaxic.cyngle
 			var description:String = "";
 			
 			description += "{";
-			description += "type:" + this.type;
+			description += "handle:" + this.handle;
+			description += ", vo:" + this.vo.describe();
+			description += ", type:" + this.type;
 			description += ", bubbles:" + this.bubbles;
 			description += ", cancelable:" + this.cancelable;
 			description += ", eventPhase:" + this.eventPhase;
