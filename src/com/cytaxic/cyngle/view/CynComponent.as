@@ -4,9 +4,12 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cytaxic.cynccess.cyntaxic;
 	
 	import flash.events.Event;
-
+	
+	//use namespace cyntaxic;
+	
 	public class CynComponent extends CynView implements ICynView
 	{
 		public function CynComponent()

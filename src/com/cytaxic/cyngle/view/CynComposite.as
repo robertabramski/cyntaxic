@@ -3,9 +3,12 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cytaxic.cynccess.cyntaxic;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
+	
+	use namespace cyntaxic;
 
 	public class CynComposite extends CynView implements ICynView
 	{
@@ -38,10 +41,7 @@ package com.cytaxic.cyngle.view
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				if(child === cynModel.views[i]) 
-				{
-					cynModel.views.splice(i, 1);
-				}
+				if(child === cynModel.views[i]) cynModel.views.splice(i, 1);
 			}
 			
 			removeChild(child as DisplayObject);

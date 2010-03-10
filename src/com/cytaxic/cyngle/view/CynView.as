@@ -6,8 +6,11 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.controller.CynController;
 	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cytaxic.cynccess.cyntaxic;
 	
 	import flash.display.Sprite;
+	
+	use namespace cyntaxic;
 
 	public class CynView extends Sprite implements ICynView
 	{
@@ -43,7 +46,7 @@ package com.cytaxic.cyngle.view
 		
 		public function resize():void
 		{
-			
+						
 		}
 	}
 }

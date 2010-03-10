@@ -17,38 +17,9 @@ package net.site.cyngleapp.view
 			resize();
 		}
 		
-		/*public function init(vo:CyntaxicVO):CynView
-		{
-			return null;
-		}
-		
-		public function update(event:CyntaxicEvent):void
-		{
-		}*/
-		
 		override public function resize():void
 		{
 			back.width = Cyntaxic.STAGE.stageWidth;
 		}
-		
-		/*public function add(child:CynView):CynView
-		{
-			return null;
-		}
-		
-		public function addAt(child:CynView, index:int):CynView
-		{
-			return null;
-		}
-		
-		public function remove(child:CynView):CynView
-		{
-			return null;
-		}
-		
-		public function removeAt(index:int):CynView
-		{
-			return null;
-		}*/
 	}
 }
