@@ -14,17 +14,25 @@ package net.site.cyngleapp.view
 	import flash.events.MouseEvent;
 	
 	import net.site.cyngleapp.Handles;
+	import net.site.cyngleapp.controller.Controller;
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.vos.StickyVO;
 
 	public class StickiesApp extends CynComposite implements ICynComposite, ICynView
 	{
+		private var model:Model;
+		private var controller:Controller;
 		private var header:UIStickyHeader = new UIStickyHeader();
+		private var stickySpawn:StickySpawn = new StickySpawn();
 		private var call:DataCall;
 		
 		public function StickiesApp()
 		{
+			model = (_model as Model);
+			controller = (_controller as Controller);
+			
 			add(header);
+			add(stickySpawn);
 		}
 		
 		override public function init(vo:CyntaxicVO):CynView

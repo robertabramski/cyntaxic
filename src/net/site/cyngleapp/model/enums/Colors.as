@@ -13,6 +13,8 @@ package net.site.cyngleapp.model.enums
 		public static const WHITE:String = "white";
 		public static const GREY:String = "grey";
 		
+		public static var colors:Array = [YELLOW, ORANGE, LIME, GREEN, LIGHT_BLUE, BLUE, PURPLE, VIOLET, WHITE, GREY];
+		
 		public static function convertNamedColor(color:String):uint
 		{
 			switch(color)
@@ -24,6 +26,8 @@ package net.site.cyngleapp.model.enums
 				case LIGHT_BLUE: 	return 0x9CF1FD;
 				case BLUE: 			return 0x79ACFC;
 				case PURPLE:		return 0xB38CFC;
+				case VIOLET:		return 0xCC99FF;
+				case WHITE:			return 0xFFFFFF;
 				case GREY:			return 0xC9C9C9;
 			}
 			
