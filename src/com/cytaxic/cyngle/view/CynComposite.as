@@ -36,11 +36,11 @@ package com.cytaxic.cyngle.view
 		
 		public function remove(child:CynView):CynView
 		{
-			for(var i:int = 0; i < _model.views.length; i++)
+			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				if(child === _model.views[i]) 
+				if(child === cynModel.views[i]) 
 				{
-					_model.views = _model.views.slice(i, 1);
+					cynModel.views = cynModel.views.slice(i, 1);
 				}
 			}
 			
@@ -52,7 +52,7 @@ package com.cytaxic.cyngle.view
 		{
 			var child:DisplayObject = getChildAt(index); 
 			
-			_model.views = _model.views.slice(index, 1);
+			cynModel.views = cynModel.views.slice(index, 1);
 			
 			removeChildAt(index);
 			return child as CynView;

@@ -12,7 +12,6 @@
 	
 	TO DO:
 	- Command stack for undo and redo functionality
-	- Redraw on resize functionality
 	- Preloader functionality using Frame metatag
 	- Focus manager
 	- Tooltips on all views
@@ -28,7 +27,6 @@
 	- Strong typing with value objects
 	- Comes with many utilities out of the box
 	- Static access to top level objects anywhere
-	- Function well with code hinting without casting
 
 ******************************************************************************************************************/
 
@@ -46,8 +44,6 @@ package com.cytaxic.cyngle
 	import flash.events.Event;
 	import flash.ui.ContextMenu;
 	
-	import net.site.cyngleapp.model.Model;
-	
 	public class Cyntaxic
 	{
 		private static var _INSTANCE:Cyntaxic;
@@ -62,7 +58,7 @@ package com.cytaxic.cyngle
 		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
 		
-		public function Cyntaxic(key:Key, doc:DisplayObject, model:Model, controller:CynController, debug:Boolean = true)
+		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true)
 		{
 			_VERSION = model.version.number;
 			
@@ -81,7 +77,7 @@ package com.cytaxic.cyngle
 			CONTEXT_MENU = new BasicContextMenu().getMenu();
 		}
 		
-		public static function init(doc:DisplayObject, model:Model, controller:CynController, debug:Boolean = true):Cyntaxic
+		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true):Cyntaxic
 		{
 			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, debug);
 			return _INSTANCE;
@@ -95,6 +91,11 @@ package com.cytaxic.cyngle
 		public static function get STAGE():Stage 
 		{
 			return _STAGE;
+		}
+		
+		public static function get CONTEXT_MENU():ContextMenu
+		{
+			return _CONTEXT_MENU;
 		}
 		
 		public static function set CONTEXT_MENU(value:ContextMenu):void

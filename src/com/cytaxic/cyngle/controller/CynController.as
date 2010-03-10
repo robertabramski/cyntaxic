@@ -11,7 +11,7 @@ package com.cytaxic.cyngle.controller
 	
 	public class CynController extends EventDispatcher
 	{
-		protected var _model:CynModel;
+		protected var cynModel:CynModel;
 		
 		public function CynController()
 		{
@@ -21,7 +21,7 @@ package com.cytaxic.cyngle.controller
 		public function init():CynController
 		{
 			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
-			_model = Cyntaxic.MODEL;
+			cynModel = Cyntaxic.MODEL;
 			return this;
 		}
 		
@@ -43,9 +43,9 @@ package com.cytaxic.cyngle.controller
 		
 		protected function redrawViews(vo:CyntaxicVO):void
 		{
-			for(var i:int = 0; i < _model.views.length; i++)
+			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				(_model.views[i] as CynView).resize();
+				(cynModel.views[i] as CynView).resize();
 			}
 		}
 	}

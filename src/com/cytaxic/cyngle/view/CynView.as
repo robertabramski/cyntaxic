@@ -11,18 +11,18 @@ package com.cytaxic.cyngle.view
 
 	public class CynView extends Sprite implements ICynView
 	{
-		protected var _model:CynModel;
-		protected var _controller:CynController;
+		protected var cynModel:CynModel;
+		protected var cynController:CynController;
 		
 		public function CynView()
 		{
-			_model = Cyntaxic.MODEL;
-			_controller = Cyntaxic.CONTROLLER;
+			cynModel = Cyntaxic.MODEL;
+			cynController = Cyntaxic.CONTROLLER;
 			
-			_model.addEventListener(CyntaxicEvent.NOTIFY, update);
-			_controller.addEventListener(CyntaxicEvent.NOTIFY, update);
+			cynModel.addEventListener(CyntaxicEvent.NOTIFY, update);
+			cynController.addEventListener(CyntaxicEvent.NOTIFY, update);
 			
-			_model.views.push(this);
+			cynModel.views.push(this);
 		}
 		
 		public function init(vo:CyntaxicVO):CynView

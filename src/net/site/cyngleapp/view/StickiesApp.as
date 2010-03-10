@@ -30,8 +30,8 @@ package net.site.cyngleapp.view
 		
 		public function StickiesApp()
 		{
-			model = (_model as Model);
-			controller = (_controller as Controller);
+			model = (cynModel as Model);
+			controller = (cynController as Controller);
 			
 			add(header);
 			add(stickySpawn);
@@ -66,7 +66,7 @@ package net.site.cyngleapp.view
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
-			
+			remove(vo.sticky as Sticky);
 		}
 		
 		private function handleRemoveSticky(event:MouseEvent):void

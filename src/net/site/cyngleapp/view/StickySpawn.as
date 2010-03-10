@@ -22,8 +22,8 @@ package net.site.cyngleapp.view
 		
 		public function StickySpawn()
 		{
-			model = (_model as Model);
-			controller = (_controller as Controller);
+			model = (cynModel as Model);
+			controller = (cynController as Controller);
 			
 			for(var i:int = 0; i < model.colors.length; i++)
 			{
