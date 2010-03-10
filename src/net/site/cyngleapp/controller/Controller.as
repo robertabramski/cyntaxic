@@ -5,6 +5,8 @@ package net.site.cyngleapp.controller
 	import com.cytaxic.cyngle.controller.CynController;
 	import com.cytaxic.cyngle.controller.vos.DataCallVO;
 	
+	import flash.geom.Point;
+	
 	import net.site.cyngleapp.Handles;
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.enums.Colors;
@@ -46,11 +48,15 @@ package net.site.cyngleapp.controller
 			}
 			
 			model.id = i;
+			model.currentSticky = model.stickies[i - 1];
 		}
 		
 		public function addSticky(vo:CyntaxicVO):void
 		{
-			var sticky:StickyVO = new StickyVO(model.id++, "", vo.color, 100, 100);
+			var offset:Number = model.stickyOffset;
+			var point:Point = new Point(model.currentSticky.x + offset, model.currentSticky.y + offset);
+			var sticky:StickyVO = new StickyVO(model.id++, "", vo.color, point.x, point.y);
+			
 			dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky));
 		}
 		

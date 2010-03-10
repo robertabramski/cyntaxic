@@ -18,7 +18,7 @@ package net.site.cyngleapp.view
 		
 		private var colorTransform:ColorTransform;
 		private var stickyShape:Shape;
-		private var dropShadow:DropShadowFilter = new DropShadowFilter(2, 90, 0, .6, 3, 3, 1, 3);
+		private var dropShadow:DropShadowFilter = new DropShadowFilter(2, 90, 0, .4, 3, 3, 1, 3);
 		
 		public function MiniSticky()
 		{
@@ -26,6 +26,7 @@ package net.site.cyngleapp.view
 			
 			this.filters = [dropShadow];
 			this.mouseChildren = false;
+			this.buttonMode = true;
 		}
 		
 		override public function init(vo:CyntaxicVO):CynView

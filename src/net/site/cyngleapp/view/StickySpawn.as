@@ -18,7 +18,7 @@ package net.site.cyngleapp.view
 	{
 		private var model:Model;
 		private var controller:Controller;
-		private var margin:Number = 6;
+		private var margin:Number = 8;
 		
 		public function StickySpawn()
 		{

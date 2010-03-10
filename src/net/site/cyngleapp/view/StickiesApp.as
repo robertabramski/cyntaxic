@@ -1,5 +1,6 @@
 package net.site.cyngleapp.view
 {
+	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.helpers.DataCall;
 	import com.cytaxic.cyngle.controller.helpers.DataCallEvent;
@@ -22,6 +23,7 @@ package net.site.cyngleapp.view
 	{
 		private var model:Model;
 		private var controller:Controller;
+		private var margin:Number = 10;
 		private var header:UIStickyHeader = new UIStickyHeader();
 		private var stickySpawn:StickySpawn = new StickySpawn();
 		private var call:DataCall;
@@ -33,6 +35,8 @@ package net.site.cyngleapp.view
 			
 			add(header);
 			add(stickySpawn);
+			
+			resize();
 		}
 		
 		override public function init(vo:CyntaxicVO):CynView
@@ -57,6 +61,7 @@ package net.site.cyngleapp.view
 			add(sticky);
 			
 			model.stickies.push(sticky);
+			model.currentSticky = sticky as Sticky;
 		}
 		
 		public function removeSticky(vo:CyntaxicVO):void
@@ -66,36 +71,13 @@ package net.site.cyngleapp.view
 		
 		private function handleRemoveSticky(event:MouseEvent):void
 		{
-			//controller.execute(Handles.REMOVE_STICKY, event.target.vo);
+			//controller.execute(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:event.currentTarget}));
 		}
 		
-		/*public function update(event:CyntaxicEvent):void
+		override public function resize():void
 		{
+			stickySpawn.x = Cyntaxic.STAGE.stageWidth - stickySpawn.width - margin;
+			stickySpawn.y = margin;
 		}
-		
-		public function resize():void
-		{
-			
-		}
-		
-		public function add(child:CynView):CynView
-		{
-			return null;
-		}
-		
-		public function addAt(child:CynView, index:int):CynView
-		{
-			return null;
-		}
-		
-		public function remove(child:CynView):CynView
-		{
-			return null;
-		}
-		
-		public function removeAt(index:int):CynView
-		{
-			return null;
-		}*/
 	}
 }
