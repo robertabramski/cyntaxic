@@ -10,6 +10,8 @@ package com.cytaxic.cyngle.model
 	
 	public dynamic class CynModel extends EventDispatcher
 	{
+		use namespace cyntaxic;
+		
 		private var _version:VersionVO = Versions.VERSION_0_0_1;
 		private var _views:Array = [];
 		

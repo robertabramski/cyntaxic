@@ -10,10 +10,10 @@ package com.cytaxic.cyngle.view
 	
 	import flash.display.Sprite;
 	
-	use namespace cyntaxic;
-
 	public class CynView extends Sprite implements ICynView
 	{
+		use namespace cyntaxic;
+		
 		protected var cynModel:CynModel;
 		protected var cynController:CynController;
 		

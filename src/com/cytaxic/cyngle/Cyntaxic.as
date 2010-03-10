@@ -123,7 +123,7 @@ package com.cytaxic.cyngle
 				_STAGE.removeEventListener(Event.RESIZE, redrawViews);
 			}
 		}
-
+		
 		public static function set STAGE(value:Stage):void
 		{
 			if(!_STAGE) _STAGE = value;

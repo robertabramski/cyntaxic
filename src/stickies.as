@@ -3,6 +3,7 @@ package
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.view.CynView;
+	import com.cytaxic.cyntils.CynRandom;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;

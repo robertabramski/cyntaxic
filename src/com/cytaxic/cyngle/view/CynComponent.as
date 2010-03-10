@@ -8,8 +8,6 @@ package com.cytaxic.cyngle.view
 	
 	import flash.events.Event;
 	
-	//use namespace cyntaxic;
-	
 	public class CynComponent extends CynView implements ICynView
 	{
 		public function CynComponent()

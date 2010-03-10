@@ -12,8 +12,6 @@ package com.cytaxic.cyngle.controller
 	
 	public class CynController extends EventDispatcher
 	{
-		use namespace cyntaxic;
-		
 		protected var cynModel:CynModel;
 		
 		public function CynController()
