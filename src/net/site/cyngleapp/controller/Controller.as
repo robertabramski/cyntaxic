@@ -63,15 +63,7 @@ package net.site.cyngleapp.controller
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
-			var sticky:Sticky = vo.sticky as Sticky;
-			var deletedSticky:Sticky;
-			
-			for(var i:int = 0; i < model.stickies.length; i++)
-			{
-				if(model.stickies[i] === sticky) deletedSticky = model.stickies[i];
-			}
-			
-			dispatchEvent(new CyntaxicEvent(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:deletedSticky})));
+			dispatchEvent(new CyntaxicEvent(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:vo.sticky})));
 		}
 	}
 }

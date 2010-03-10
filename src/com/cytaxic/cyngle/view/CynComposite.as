@@ -40,7 +40,7 @@ package com.cytaxic.cyngle.view
 			{
 				if(child === cynModel.views[i]) 
 				{
-					cynModel.views = cynModel.views.slice(i, 1);
+					cynModel.views.splice(i, 1);
 				}
 			}
 			

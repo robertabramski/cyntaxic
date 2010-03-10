@@ -69,11 +69,6 @@ package net.site.cyngleapp.view
 			remove(vo.sticky as Sticky);
 		}
 		
-		private function handleRemoveSticky(event:MouseEvent):void
-		{
-			//controller.execute(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:event.currentTarget}));
-		}
-		
 		override public function resize():void
 		{
 			stickySpawn.x = Cyntaxic.STAGE.stageWidth - stickySpawn.width - margin;
