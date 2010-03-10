@@ -13,10 +13,5 @@ package net.site.cyngleapp.view
 		{
 			
 		}
-		
-		override public function resize():void
-		{
-			
-		}
 	}
 }

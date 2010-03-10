@@ -62,7 +62,7 @@ package com.cytaxic.cyngle
 		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
 		
-		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true)
+		public function Cyntaxic(key:Key, doc:DisplayObject, model:Model, controller:CynController, debug:Boolean = true)
 		{
 			_VERSION = model.version.number;
 			
@@ -81,7 +81,7 @@ package com.cytaxic.cyngle
 			CONTEXT_MENU = new BasicContextMenu().getMenu();
 		}
 		
-		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true):Cyntaxic
+		public static function init(doc:DisplayObject, model:Model, controller:CynController, debug:Boolean = true):Cyntaxic
 		{
 			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, debug);
 			return _INSTANCE;

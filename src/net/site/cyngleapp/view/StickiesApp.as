@@ -14,6 +14,7 @@ package net.site.cyngleapp.view
 	import flash.events.MouseEvent;
 	
 	import net.site.cyngleapp.Handles;
+	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.vos.StickyVO;
 
 	public class StickiesApp extends CynComposite implements ICynComposite, ICynView
@@ -52,7 +53,7 @@ package net.site.cyngleapp.view
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
-			remove(getChildAt((vo as StickyVO).id + 1) as CynView);
+			
 		}
 		
 		private function handleRemoveSticky(event:MouseEvent):void

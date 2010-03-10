@@ -3,6 +3,7 @@ package com.cytaxic.cyngle.controller
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
+	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.CynView;
 	
@@ -10,7 +11,7 @@ package com.cytaxic.cyngle.controller
 	
 	public class CynController extends EventDispatcher
 	{
-		protected var model:*;
+		protected var model:CynModel;
 		
 		public function CynController()
 		{
