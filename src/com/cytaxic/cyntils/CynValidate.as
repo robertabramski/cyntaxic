@@ -33,12 +33,70 @@ package com.cytaxic.cyntils
 		
 		public static var passFail:Boolean = false;
 		
+		/** 
+		 * Casts a string as a number. If it fails, returns false.
+		 *
+		 * @param n The String of the number to validate
+		 * @return A Boolean true value if the data is valid
+		 * 
+		 */
+		public static function digit(value:String):Boolean
+		{
+			if(value == "" || value == null || value.length != 1)
+			{
+				return false;
+			}
+			
+			return ! isNaN(parseInt(value));
+		}
+
+		/**
+		 * Determines if n is within A-Z or a-z
+		 *
+		 * @param n The character to validate
+		 * @return A Boolean true value if the data is valid
+		 * 
+		 */
+		public static function letter(value:String):Boolean
+		{
+			if(value == "" || value == null || value.length != 1)
+			{
+				return false;
+			}
+			
+			return LC_ROMAN_LETTERS.indexOf(value.toLowerCase()) != -1;
+		}
+
+		/**
+		 * Determines whether the string contains only alphabetic and numeric characters
+		 *
+		 * @param str The string to validate
+		 * @return A Boolean true value if the data is valid
+		 */
+		public static function alphaNumeric(value:String):Boolean 
+		{
+			return validChars(value, DECIMAL_DIGITS + LC_ROMAN_LETTERS);
+		}
+
+		/**
+		 * Does the character contain an alphabetic character or number
+		 *
+		 * @param n The character to validate
+		 * @return A Boolean true value if the data is valid
+		 * 
+		 */
+		public static function letterOrDigit(value:String):Boolean
+		{
+			if (value.length != 1) return false;
+			var result:Boolean = (letter(value) || digit(value)); 
+			return result;
+		}
+		
 		/**
 		 * Is a String a valid Social Security Number
 		 * Valid examples are 111-11-1111 or 111111111
 		 *
 		 * @param inStr The string that will be validated
-		 * @param dashOpt This boolean is set to true if the dash character is optional? (optional)
 		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
 		 * as3Validation.result is set to false and the errorStr provides a brief description.
 		 * 
