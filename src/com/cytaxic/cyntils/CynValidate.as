@@ -2,7 +2,7 @@ package com.cytaxic.cyntils
 {
 	public class CynValidate
 	{
-		public static const VALID:int = 0;
+		public static const VALID:int = 6000;
 		public static const DATE_MONTH_OUT_OF_RANGE:int = 6001;
 		public static const DATE_DAY_OUT_OF_RANGE:int = 6002;
 		public static const DATE_INCORRECT_FORMAT:int = 6003;
@@ -10,7 +10,62 @@ package com.cytaxic.cyntils
 		public static const DATE_INCORRECT_YEAR:int = 6005;
 		public static const DATE_CANT_CONVERT_TO_DATE:int = 6006;
 		
-		public static function date(value:String, dayFirst:Boolean = false):CynValidator
+		private static const DECIMAL_DIGITS:String = "01234567890";
+		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
+		
+		public static var passFail:Boolean = false;
+		
+		/**
+		 * Compare a string against a list of characters to determine if the string does not
+		 * contain those characters. This comparison is not case-senstive and it does not
+		 * validate that the characters are in a particular order.
+		 *
+		 * @param value The string that needs to be validated.
+		 * @param chars The list of valid characters for that string.
+		 * 
+		 * @return A Boolean true value if the data is valid.
+		 * 
+		 */
+		public static function invalidChars(value:String, chars:String):Boolean
+		{
+			for(var i:int = 0; i < value.length; i++)
+			{
+				if(chars.indexOf(value.charAt(i))) return true;
+			}
+			
+			return false;
+		}
+
+		/**
+		 * Compare a string against a list of characters to determine if the string contains
+		 * only those characters. This comparison is not case-sensitive and does not validate
+		 * the order of the characters.
+		 *
+		 * @param value The string that needs to be validated.
+		 * @param chars The list of valid characters for that string.
+		 * 
+		 * @return A Boolean true value if the data is valid.
+		 * 
+		 */
+		public static function validChars(value:String, chars:String):Boolean
+		{
+			var value:String = value.toLowerCase();
+			if(value.length == 0) return false;
+
+			var chars:String = chars.toLowerCase();
+			var arr:Array = value.split("");
+			var len:int = arr.length;
+
+			for(var i:int = 0; i < len; i++)
+			{
+				var valid:Boolean = (chars.indexOf(arr[i]) != -1);
+				if(!valid) return false;
+			}
+			
+			return true;
+		}
+		
+		public static function date(value:String, dayFirst:Boolean = false):Object
 		{
 			var value:String = value.split(" ").join("");
 
@@ -24,7 +79,8 @@ package com.cytaxic.cyntils
 			if(period && !dash && !slash) parts = value.split(".");
 			else return new CynValidator(false, DATE_INCORRECT_FORMAT, "The string is in an incorrect format.");
 			
-			if(parts.length != 3) return new CynValidator(false, DATE_TOO_MANY_SEPARATORS, "Too many separators.");
+			if(parts.length != 3) 
+				return passFail ? false : new CynValidator(false, DATE_TOO_MANY_SEPARATORS, "Too many separators.");
 			
 			var month:int, day:int;
 
@@ -43,26 +99,26 @@ package com.cytaxic.cyntils
 			var yearLen:int = parts[2].length;
 
 			if(yearLen == 2) year = parseInt("20" + parts[2]);
-			else if(yearLen != 4) return new CynValidator(false, DATE_INCORRECT_YEAR, "Incorrect year.");
+			else if(yearLen != 4) return passFail ? false : new CynValidator(false, DATE_INCORRECT_YEAR, "Incorrect year.");
 			
 			if(!integerInRange(month.toString(), 1, 12))
 			{
-				return new CynValidator(false, DATE_MONTH_OUT_OF_RANGE, "The month is out of range.");
+				return passFail ? false : new CynValidator(false, DATE_MONTH_OUT_OF_RANGE, "The month is out of range.");
 			}
 			
 			if(!integerInRange(day.toString(), 1, 31))
 			{
-				return new CynValidator(false, DATE_DAY_OUT_OF_RANGE, "The day is out of range.");
+				return passFail ? false : new CynValidator(false, DATE_DAY_OUT_OF_RANGE, "The day is out of range.");
 			}
 			
 			var dt:Date = new Date(year, month - 1, day);
 
 			if(dt.getMonth() != month - 1)
 			{
-				return new CynValidator(false, DATE_CANT_CONVERT_TO_DATE, "Could not convert to a valid date.");
+				return passFail? false : new CynValidator(false, DATE_CANT_CONVERT_TO_DATE, "Could not convert to a valid date.");
 			}
 			
-			return new CynValidator(true, VALID);
+			return passFail ? true : new CynValidator(true, VALID);
 		}
 		
 		/**
@@ -88,7 +144,7 @@ package com.cytaxic.cyntils
 		/**
 		 * Determines whether the string contains data
 		 *
-		 * @param str The character to Valid
+		 * @param str The character to validate
 		 * @param white A boolean when set to false will ignore white space (space, newline, tab)
 		 * @return A Boolean true value if the string is not empty
 		 */
