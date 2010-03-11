@@ -18,6 +18,11 @@ package com.cytaxic.cyntils
 		public static const URL_INVALID_CHARS:int = 6013;
 		public static const URL_INVALID_DOMAIN_NAME:int = 6014;
 		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 6015;
+		public static const EMAIL_INVALID_CHARS:int = 6016;
+		public static const EMAIL_CAN_HAVE_1_AT_SIGN:int = 6017;
+		public static const EMAIL_USERNAME_BLANK:int = 6018;
+		public static const EMAIL_INVALID_DOMAIN:int = 6019;
+		public static const EMAIL_INVALID_DOMAIN_EXT:int = 6020;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
@@ -38,27 +43,27 @@ package com.cytaxic.cyntils
 			value = value.toLowerCase();
 
 			if(!validChars(value, DECIMAL_DIGITS + LC_ROMAN_LETTERS + "-_.@"))
-				return passFail ? false : new Result(false, 6016, "The email address contains invalid characters.");
+				return passFail ? false : new Result(false, EMAIL_INVALID_CHARS, "The email address contains invalid characters.");
 			
 			var parts:Array = value.split("@");
 
 			if(parts.length != 2)
-				return passFail ? false : new Result(false, 6017, 'The email address can contain only one "@" character.');
+				return passFail ? false : new Result(false, EMAIL_CAN_HAVE_1_AT_SIGN, 'The email address can contain only one "@" character.');
 			
 			var username:String = parts[0];
 			
 			if(username.length == 0)
-				return passFail ? false : new Result(false, 6018, "The username can not be blank."); 
+				return passFail ? false : new Result(false, EMAIL_USERNAME_BLANK, "The username can not be blank.");
 			
 			var domain:Array = parts[1].split(".");
 
 			if(domain.length < 2 || domain[0].length < 1)
-				return passFail ? false : new Result(false, 6019, "Invalid domain name."); 
+				return passFail ? false : new Result(false, EMAIL_INVALID_DOMAIN, "Invalid domain name."); 
 			
 			var ext:Object = domain.pop();
 			
 			if(ext.toString().length < 2 || ext.toString().length == 5 || ext.toString().length > 6)
-				return passFail ? false : new Result(false, 6020, "Invalid domain extension.");
+				return passFail ? false : new Result(false, EMAIL_INVALID_DOMAIN_EXT, "Invalid domain extension.");
 			
 			return passFail ? true : new Result(true, VALID);
 		}
@@ -86,7 +91,7 @@ package com.cytaxic.cyntils
 		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
 		 * as3Validation.result is set to false and the errorStr provides a brief description.
 		 */
-		public static function url(value:String, ssl:Boolean = false):Object 
+		public static function url(value:String, ssl:Boolean = false):Object
 		{
 			var value:String = value.toLowerCase();
 
@@ -199,6 +204,28 @@ package com.cytaxic.cyntils
 			return true;
 		}
 		
+		/**
+		 * Determines whether the string contains a valid day-first format date
+		 *
+		 * @param str The string containing a date in a day-first format
+		 * @return A Boolean true value if the date is a valid day-first date
+		 * 
+		 */
+		public static function worldDate(value:String):Object
+		{
+			return date(value, true);
+		}
+		
+		/**
+		 * Determines if the string contains a valid date.
+		 * Valid Examples include 9/30/09, 9-30-09 or 9.30.09
+		 *
+		 * @param str The String containing the date
+		 * @param dayFirst Whether the date is in a day first format
+		 * @return An as3ValidationResult.result true value if the data is valid.  If the data is invalid, then
+		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * 
+		 */
 		public static function date(value:String, dayFirst:Boolean = false):Object
 		{
 			var value:String = value.split(" ").join("");
