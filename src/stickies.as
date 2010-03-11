@@ -3,7 +3,7 @@ package
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyntils.CynRandom;
+	import com.cytaxic.cyntils.CynValidate;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -25,9 +25,9 @@ package
 		
 		private function init(event:Event):void
 		{
-			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance());
+			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), false);
 			Cyntaxic.FULL_SCALE_FLASH = true;
-			Cyntaxic.DEEP_DEBUG = true;
+			Cyntaxic.DEEP_DEBUG = false;
 			
 			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
 			
