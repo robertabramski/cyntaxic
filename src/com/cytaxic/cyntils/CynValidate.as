@@ -23,11 +23,51 @@ package com.cytaxic.cyntils
 		public static const EMAIL_USERNAME_BLANK:int = 6018;
 		public static const EMAIL_INVALID_DOMAIN:int = 6019;
 		public static const EMAIL_INVALID_DOMAIN_EXT:int = 6020;
+		public static const SSN_INVALID_CHARS:int = 6021;
+		public static const SSN_INVALID_FORMAT:int = 6022;
+		public static const SSN_TOO_MANY_DASHES:int = 6023;
+		public static const SSN_TOO_LONG:int = 6024;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
 		
 		public static var passFail:Boolean = false;
+		
+		/**
+		 * Is a String a valid Social Security Number
+		 * Valid examples are 111-11-1111 or 111111111
+		 *
+		 * @param inStr The string that will be validated
+		 * @param dashOpt This boolean is set to true if the dash character is optional? (optional)
+		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
+		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * 
+		 */
+		public static function socialSecurity(value:String):Object
+		{
+			var ss:String = value.toString();
+
+			if(!validChars(ss, DECIMAL_DIGITS + "-"))
+				return passFail ? false : new Result(false, SSN_INVALID_CHARS, 'The SSN contains invalid characters. Only 0-9 and "-" are allowed.');
+			
+			if(ss.indexOf("-") > -1)
+			{
+				if(ss.charAt(3) != "-" || ss.charAt(6) != "-")
+					return passFail ? false : new Result(false, SSN_INVALID_FORMAT, "The SSN does not adhere to a ###-##-#### format."); 
+				
+				var parts:Array = ss.split("-");
+				
+				if(parts.length != 3)
+					return passFail ? false : new Result(false, SSN_TOO_MANY_DASHES, "Too many dashes are in the string."); 
+				
+				ss = parts.join("");
+			}
+			
+			if(ss.length != 9)
+				return passFail ? false : new Result(false, SSN_TOO_LONG, "The SSN is too long."); 
+			
+			return passFail ? true : new Result(true, VALID);
+		}
 		
 		/**
 		 * Determines whether a string is an email address.
@@ -36,6 +76,7 @@ package com.cytaxic.cyntils
 		 * @param str The string containing the email address
 		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
 		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * 
 		 */
 		public static function email(value:String):Object
 		{
@@ -90,6 +131,7 @@ package com.cytaxic.cyntils
 		 * @param isSSL A boolean value that is set to true for HTTPS URLs (optional)
 		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
 		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * 
 		 */
 		public static function url(value:String, ssl:Boolean = false):Object
 		{
@@ -308,6 +350,7 @@ package com.cytaxic.cyntils
 		 * @param str The character to validate
 		 * @param white A boolean when set to false will ignore white space (space, newline, tab)
 		 * @return A Boolean true value if the string is not empty
+		 * 
 		 */
 		public static function notEmpty(value:String, white:Boolean = false):Boolean
 		{

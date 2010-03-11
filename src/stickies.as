@@ -4,6 +4,7 @@ package
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.view.CynView;
 	import com.cytaxic.cyntils.CynFormat;
+	import com.cytaxic.cyntils.CynValidate;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -34,10 +35,10 @@ package
 			app = new StickiesApp().init(config);
 			addChild(app);
 			
-			//CynValidate.passFail = true;
-			//trace(CynValidate.email(""));
+			CynValidate.passFail = true;
+			trace(CynValidate.socialSecurity("146-72-5680"));
 			
-			trace(CynFormat.cash(1046652.55454354564231861, "$", true, "."));
+			//trace(CynFormat.cash(1046652.55454354564231861, "$", true, "."));
 		}
 	}
 }
