@@ -9,11 +9,46 @@ package com.cytaxic.cyntils
 		public static const DATE_TOO_MANY_SEPARATORS:int = 6004;
 		public static const DATE_INCORRECT_YEAR:int = 6005;
 		public static const DATE_CANT_CONVERT_TO_DATE:int = 6006;
+		public static const IP_CONTAINS_INVALID_CHARS:int = 6007;
+		public static const IP_INCORRECT_PERIODS:int = 6008;
+		public static const IP_FIRST_VALUE_ZERO:int = 6009;
+		public static const IP_PART_NOT_VALID_NUM:int = 6010;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
 		
 		public static var passFail:Boolean = false;
+		
+		/**
+		 * Determine whether a string is a valid IP address
+		 *
+		 * @param value The string containing the IP address
+		 * @return An result true value if the data is valid.  If the data is invalid, then
+		 * result is set to false and the errorStr provides a brief description.
+		 * 
+		 */
+		public static function ip(value:String):Object
+		{
+			if(!validChars(value, DECIMAL_DIGITS + "."))
+			{
+				return passFail ? false : new Result(false, IP_CONTAINS_INVALID_CHARS, "The string contains invalid characters.");
+			}
+			
+			var parts:Array = value.split(".");
+			
+			if(parts.length != 4) return passFail ? false : new Result(false, IP_INCORRECT_PERIODS, "There are an incorrect amount of periods in the string.");
+			if(parseInt(parts[0]) == 0) return passFail ? false : new Result(false, IP_FIRST_VALUE_ZERO, "The first value can not be zero.");
+			
+			for(var i:int = 0; i < parts.length; i++) 
+			{
+				if((parts[i].length == 0) || (parseInt(parts[i]) > 255 || parseInt(parts[i]) < 0))
+				{
+					return passFail ? false : new Result(false, IP_PART_NOT_VALID_NUM, "The value " + parts[i] + " is not a valid number.");
+				}
+			}
+			
+			return passFail ? true : new Result(true, VALID);
+		}
 		
 		/**
 		 * Compare a string against a list of characters to determine if the string does not
@@ -77,10 +112,10 @@ package com.cytaxic.cyntils
 			if(dash && !slash && !period) parts = value.split("-"); else 
 			if(slash && !dash && !period) parts = value.split("/"); else 
 			if(period && !dash && !slash) parts = value.split(".");
-			else return new CynValidator(false, DATE_INCORRECT_FORMAT, "The string is in an incorrect format.");
+			else return new Result(false, DATE_INCORRECT_FORMAT, "The string is in an incorrect format.");
 			
 			if(parts.length != 3) 
-				return passFail ? false : new CynValidator(false, DATE_TOO_MANY_SEPARATORS, "Too many separators.");
+				return passFail ? false : new Result(false, DATE_TOO_MANY_SEPARATORS, "Too many separators.");
 			
 			var month:int, day:int;
 
@@ -99,26 +134,26 @@ package com.cytaxic.cyntils
 			var yearLen:int = parts[2].length;
 
 			if(yearLen == 2) year = parseInt("20" + parts[2]);
-			else if(yearLen != 4) return passFail ? false : new CynValidator(false, DATE_INCORRECT_YEAR, "Incorrect year.");
+			else if(yearLen != 4) return passFail ? false : new Result(false, DATE_INCORRECT_YEAR, "Incorrect year.");
 			
 			if(!integerInRange(month.toString(), 1, 12))
 			{
-				return passFail ? false : new CynValidator(false, DATE_MONTH_OUT_OF_RANGE, "The month is out of range.");
+				return passFail ? false : new Result(false, DATE_MONTH_OUT_OF_RANGE, "The month is out of range.");
 			}
 			
 			if(!integerInRange(day.toString(), 1, 31))
 			{
-				return passFail ? false : new CynValidator(false, DATE_DAY_OUT_OF_RANGE, "The day is out of range.");
+				return passFail ? false : new Result(false, DATE_DAY_OUT_OF_RANGE, "The day is out of range.");
 			}
 			
 			var dt:Date = new Date(year, month - 1, day);
 
 			if(dt.getMonth() != month - 1)
 			{
-				return passFail? false : new CynValidator(false, DATE_CANT_CONVERT_TO_DATE, "Could not convert to a valid date.");
+				return passFail? false : new Result(false, DATE_CANT_CONVERT_TO_DATE, "Could not convert to a valid date.");
 			}
 			
-			return passFail ? true : new CynValidator(true, VALID);
+			return passFail ? true : new Result(true, VALID);
 		}
 		
 		/**
@@ -162,13 +197,13 @@ package com.cytaxic.cyntils
 	}
 }
 
-internal class CynValidator extends Object
+internal class Result extends Object
 {
 	public var valid:Boolean;
 	public var code:int;
 	public var text:String = "";
 	
-	public function CynValidator(valid:Boolean, code:int, text:String = "")
+	public function Result(valid:Boolean, code:int, text:String = "")
 	{
 		this.valid = valid;
 		this.code = code;

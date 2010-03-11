@@ -34,8 +34,8 @@ package
 			app = new StickiesApp().init(config);
 			addChild(app);
 			
-			CynValidate.passFail = true;
-			trace(CynValidate.invalidChars("1", "0123456"));
+			CynValidate.passFail = false;
+			trace(CynValidate.ip("127.0.255.100"));
 		}
 	}
 }

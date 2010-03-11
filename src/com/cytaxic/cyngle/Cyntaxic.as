@@ -27,6 +27,7 @@
 	- Strong typing with value objects
 	- Comes with many utilities out of the box
 	- Static access to top level objects anywhere
+	- Ultilies completely autonomous from framework
 
 ******************************************************************************************************************/
 
