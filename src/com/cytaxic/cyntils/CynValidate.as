@@ -13,11 +13,72 @@ package com.cytaxic.cyntils
 		public static const IP_INCORRECT_PERIODS:int = 6008;
 		public static const IP_FIRST_VALUE_ZERO:int = 6009;
 		public static const IP_PART_NOT_VALID_NUM:int = 6010;
+		public static const URL_LENGTH_INVALID:int = 6011;
+		public static const URL_INVALID_PROTOCOL:int = 6012;
+		public static const URL_INVALID_CHARS:int = 6013;
+		public static const URL_INVALID_DOMAIN_NAME:int = 6014;
+		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 6015;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
 		
 		public static var passFail:Boolean = false;
+		
+		/**
+		 * Performs basic checks to determine if a string is a valid HTTPS URL
+		 *
+		 * @param str The string containing the HTTPS URL
+		 * @param domain The expected domain for the URL (optional)
+		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
+		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * 
+		 */
+		public static function urlSecure(value:String):Object
+		{
+			return url(value, true);
+		}
+		
+		/**
+		 * Performs basic checks to determine if a string is a valid HTTP or HTTPS URL
+		 *
+		 * @param str The string containing the URL
+		 * @param domain The expected domain for the URL (optional)
+		 * @param isSSL A boolean value that is set to true for HTTPS URLs (optional)
+		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
+		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 */
+		public static function url(value:String, ssl:Boolean = false):Object 
+		{
+			var value:String = value.toLowerCase();
+
+			if(value.length < (ssl ? 12 : 11) || value.length > 4096) 
+				return passFail ? false : new Result(false, URL_LENGTH_INVALID, "The string is an invalid length.");
+
+			var startIndex:int;
+			var startLen:int;
+			
+			if(ssl) { startIndex = value.indexOf("https://"); startLen = 8; }
+			else { startIndex = value.indexOf("http://"); startLen = 7; }
+
+			if(startIndex != 0)
+				return passFail ? false : new Result(false, URL_INVALID_PROTOCOL, "The URL contains an invalid protocol."); 
+
+			if(!validChars(value, DECIMAL_DIGITS + LC_ROMAN_LETTERS + "-_.:/?&%#=+~"))
+				return passFail ? false : new Result(false, URL_INVALID_CHARS, "The URL contains invalid characters.");
+			
+			var tempDomain:String;
+			
+			if(value.indexOf("/", startLen + 1) > 0) tempDomain = value.substr(startLen, value.indexOf("/", startLen + 1) - startLen);
+			else tempDomain = value.substring(startLen, value.length);
+			
+			if(!validChars(tempDomain, DECIMAL_DIGITS + LC_ROMAN_LETTERS + "-."))
+				return passFail ? false : new Result(false, URL_INVALID_DOMAIN_NAME, "The URL contans an invalid domain name.");
+			
+			if((value.indexOf("?") > startLen + 1) && (value.indexOf("?") != value.lastIndexOf("?")))
+				return passFail ? false : new Result(false, URL_CAN_HAVE_1_QUESTION_MARK, 'The URL can contain only one "?" seperator.');
+			
+			return passFail ? true : new Result(true, VALID);
+		}
 		
 		/**
 		 * Determine whether a string is a valid IP address
@@ -30,21 +91,20 @@ package com.cytaxic.cyntils
 		public static function ip(value:String):Object
 		{
 			if(!validChars(value, DECIMAL_DIGITS + "."))
-			{
 				return passFail ? false : new Result(false, IP_CONTAINS_INVALID_CHARS, "The string contains invalid characters.");
-			}
 			
 			var parts:Array = value.split(".");
 			
-			if(parts.length != 4) return passFail ? false : new Result(false, IP_INCORRECT_PERIODS, "There are an incorrect amount of periods in the string.");
-			if(parseInt(parts[0]) == 0) return passFail ? false : new Result(false, IP_FIRST_VALUE_ZERO, "The first value can not be zero.");
+			if(parts.length != 4)
+				return passFail ? false : new Result(false, IP_INCORRECT_PERIODS, "There are an incorrect amount of periods in the string.");
+				
+			if(parseInt(parts[0]) == 0)
+				return passFail ? false : new Result(false, IP_FIRST_VALUE_ZERO, "The first value can not be zero.");
 			
 			for(var i:int = 0; i < parts.length; i++) 
 			{
 				if((parts[i].length == 0) || (parseInt(parts[i]) > 255 || parseInt(parts[i]) < 0))
-				{
 					return passFail ? false : new Result(false, IP_PART_NOT_VALID_NUM, "The value " + parts[i] + " is not a valid number.");
-				}
 			}
 			
 			return passFail ? true : new Result(true, VALID);
@@ -199,15 +259,43 @@ package com.cytaxic.cyntils
 
 internal class Result extends Object
 {
+	private var props:Object = new Object();
+	
 	public var valid:Boolean;
 	public var code:int;
 	public var text:String = "";
 	
 	public function Result(valid:Boolean, code:int, text:String = "")
 	{
-		this.valid = valid;
-		this.code = code;
-		this.text = text;
+		this.valid = append("valid", valid);
+		this.code = append("code", code);
+		this.text = append("text", text);
+	}
+	
+	private function append(prop:String, value:Object):*
+	{	
+		props[prop] = value;
+		return value;
+	}
+	
+	public function describe():String
+	{
+		var description:String = "{";
+	
+		for(var appendedProp:String in props)
+		{
+			description += appendedProp + ":" + this[appendedProp] + ", ";
+		}
+		
+		for(var dynamicProp:String in this)
+		{
+			description += dynamicProp + ":" + this[dynamicProp] + ", ";
+		}
+		
+		description += "}";
+		description = description.replace(", }", "}");
+		
+		return description;
 	}
 }
 

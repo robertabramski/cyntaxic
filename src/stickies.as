@@ -35,7 +35,7 @@ package
 			addChild(app);
 			
 			CynValidate.passFail = false;
-			trace(CynValidate.ip("127.0.255.100"));
+			trace(CynValidate.urlSecure("https://a.cs").text);
 		}
 	}
 }
