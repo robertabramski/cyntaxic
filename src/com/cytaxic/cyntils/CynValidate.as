@@ -25,6 +25,45 @@ package com.cytaxic.cyntils
 		public static var passFail:Boolean = false;
 		
 		/**
+		 * Determines whether a string is an email address.
+		 * Checks for common email address formats but it does not support the full RFC definition
+		 *
+		 * @param str The string containing the email address
+		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
+		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 */
+		public static function email(value:String):Object
+		{
+			var vResult:Object = new Object();
+			value = value.toLowerCase();
+
+			if(!validChars(value, DECIMAL_DIGITS + LC_ROMAN_LETTERS + "-_.@"))
+				return passFail ? false : new Result(false, 6016, "The email address contains invalid characters.");
+			
+			var parts:Array = value.split("@");
+
+			if(parts.length != 2)
+				return passFail ? false : new Result(false, 6017, 'The email address can contain only one "@" character.');
+			
+			var username:String = parts[0];
+			
+			if(username.length == 0)
+				return passFail ? false : new Result(false, 6018, "The username can not be blank."); 
+			
+			var domain:Array = parts[1].split(".");
+
+			if(domain.length < 2 || domain[0].length < 1)
+				return passFail ? false : new Result(false, 6019, "Invalid domain name."); 
+			
+			var ext:Object = domain.pop();
+			
+			if(ext.toString().length < 2 || ext.toString().length == 5 || ext.toString().length > 6)
+				return passFail ? false : new Result(false, 6020, "Invalid domain extension.");
+			
+			return passFail ? true : new Result(true, VALID);
+		}
+		
+		/**
 		 * Performs basic checks to determine if a string is a valid HTTPS URL
 		 *
 		 * @param str The string containing the HTTPS URL

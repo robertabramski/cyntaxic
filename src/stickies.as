@@ -34,8 +34,8 @@ package
 			app = new StickiesApp().init(config);
 			addChild(app);
 			
-			CynValidate.passFail = false;
-			trace(CynValidate.urlSecure("https://a.cs").text);
+			CynValidate.passFail = true;
+			trace(CynValidate.email(""));
 		}
 	}
 }
