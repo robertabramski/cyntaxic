@@ -37,7 +37,7 @@ package
 			//CynValidate.passFail = true;
 			//trace(CynValidate.email(""));
 			
-			trace(CynFormat.cash(28.2646545646846, "$", true, "."));
+			trace(CynFormat.cash(1046652.55454354564231861, "$", true, "."));
 		}
 	}
 }

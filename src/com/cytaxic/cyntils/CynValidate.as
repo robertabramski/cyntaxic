@@ -353,11 +353,6 @@ internal class Result extends Object
 			description += appendedProp + ":" + this[appendedProp] + ", ";
 		}
 		
-		for(var dynamicProp:String in this)
-		{
-			description += dynamicProp + ":" + this[dynamicProp] + ", ";
-		}
-		
 		description += "}";
 		description = description.replace(", }", "}");
 		
