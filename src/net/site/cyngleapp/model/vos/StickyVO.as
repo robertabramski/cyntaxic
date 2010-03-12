@@ -1,6 +1,6 @@
 package net.site.cyngleapp.model.vos
 {
-	import com.cytaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.CyntaxicVO;
 
 	public class StickyVO extends CyntaxicVO
 	{

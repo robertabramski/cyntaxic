@@ -1,9 +1,9 @@
 package net.site.cyngleapp.view
 {
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.view.CynComposite;
-	import com.cytaxic.cyngle.view.interfaces.ICynComposite;
-	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.view.CynComposite;
+	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
+	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import comps.sticky.UIMiniSticky;
 	

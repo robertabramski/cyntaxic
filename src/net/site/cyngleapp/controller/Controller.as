@@ -1,9 +1,9 @@
 package net.site.cyngleapp.controller
 {
-	import com.cytaxic.cyngle.CyntaxicEvent;
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.controller.CynController;
-	import com.cytaxic.cyngle.controller.vos.DataCallVO;
+	import com.cyntaxic.cyngle.CyntaxicEvent;
+	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.controller.CynController;
+	import com.cyntaxic.cyngle.controller.vos.DataCallVO;
 	
 	import flash.geom.Point;
 	

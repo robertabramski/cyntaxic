@@ -1,13 +1,13 @@
 package net.site.cyngleapp.view
 {
-	import com.cytaxic.cyngle.Cyntaxic;
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.controller.helpers.DataCall;
-	import com.cytaxic.cyngle.controller.helpers.DataCallEvent;
-	import com.cytaxic.cyngle.view.CynComposite;
-	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyngle.view.interfaces.ICynComposite;
-	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cyngle.Cyntaxic;
+	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.controller.helpers.DataCall;
+	import com.cyntaxic.cyngle.controller.helpers.DataCallEvent;
+	import com.cyntaxic.cyngle.view.CynComposite;
+	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
+	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import comps.header.UIStickyHeader;
 	import comps.sticky.UISticky;

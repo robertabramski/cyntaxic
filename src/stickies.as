@@ -1,9 +1,9 @@
 package
 {
-	import com.cytaxic.cyngle.Cyntaxic;
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyntils.CynFormat;
+	import com.cyntaxic.cyngle.Cyntaxic;
+	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cyntils.CynFormat;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;

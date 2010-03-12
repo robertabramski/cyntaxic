@@ -1,6 +1,6 @@
 package net.site.cyngleapp.model
 {
-	import com.cytaxic.cyngle.model.CynModel;
+	import com.cyntaxic.cyngle.model.CynModel;
 	
 	import net.site.cyngleapp.model.enums.Colors;
 	import net.site.cyngleapp.view.Sticky;

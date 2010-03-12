@@ -1,9 +1,9 @@
 package net.site.cyngleapp.view
 {
-	import com.cytaxic.cyngle.CyntaxicVO;
-	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyngle.view.interfaces.ICynComponent;
-	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cyngle.view.interfaces.ICynComponent;
+	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import flash.display.Shape;
 	import flash.filters.DropShadowFilter;

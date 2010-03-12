@@ -1,8 +1,8 @@
 package net.site.cyngleapp.view
 {
-	import com.cytaxic.cyngle.view.CynComponent;
-	import com.cytaxic.cyngle.view.interfaces.ICynComponent;
-	import com.cytaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cyngle.view.CynComponent;
+	import com.cyntaxic.cyngle.view.interfaces.ICynComponent;
+	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import comps.close.CloseImage;
 	
