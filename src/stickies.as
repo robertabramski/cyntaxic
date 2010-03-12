@@ -3,7 +3,7 @@ package
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cyntils.CynValidate;
+	import com.cytaxic.cyntils.CynFormat;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -36,9 +36,9 @@ package
 			
 			//CynValidate.passFail = true;
 			//trace(CynValidate.socialSecurity("146-72-5680"));
-			trace(CynValidate.letterOrDigit("1"));
 			
-			//trace(CynFormat.cash(1046652.55454354564231861, "$", true, "."));
+			trace(CynFormat.cash(1046652, "$", true, "."));
+			trace(CynFormat.decimalNumber(1000622, 5));
 		}
 	}
 }
