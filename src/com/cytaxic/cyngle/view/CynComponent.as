@@ -4,7 +4,7 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.CyntaxicVO;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
-	import com.cytaxic.cynccess.cyntaxic;
+	import com.cytaxic.cynccess.cynternal;
 	
 	import flash.events.Event;
 	

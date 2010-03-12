@@ -6,13 +6,13 @@ package com.cytaxic.cyngle.controller
 	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.CynView;
-	import com.cytaxic.cynccess.cyntaxic;
+	import com.cytaxic.cynccess.cynternal;
 	
 	import flash.events.EventDispatcher;
 	
 	public class CynController extends EventDispatcher
 	{
-		use namespace cyntaxic;
+		use namespace cynternal;
 		
 		protected var cynModel:CynModel;
 		
@@ -21,7 +21,7 @@ package com.cytaxic.cyngle.controller
 			
 		}
 		
-		cyntaxic function init():CynController
+		cynternal function init():CynController
 		{
 			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
 			cynModel = Cyntaxic.MODEL;
@@ -39,12 +39,12 @@ package com.cytaxic.cyngle.controller
 			}
 		}
 		
-		cyntaxic function throwError(vo:CyntaxicVO):void
+		cynternal function throwError(vo:CyntaxicVO):void
 		{
 			throw new Error((vo as ErrorCodeVO).message, (vo as ErrorCodeVO).id);
 		}
 		
-		cyntaxic function redrawViews(vo:CyntaxicVO):void
+		cynternal function redrawViews(vo:CyntaxicVO):void
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{

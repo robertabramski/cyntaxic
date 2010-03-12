@@ -37,7 +37,7 @@ package com.cytaxic.cyngle
 	import com.cytaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cytaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cytaxic.cyngle.model.CynModel;
-	import com.cytaxic.cynccess.cyntaxic;
+	import com.cytaxic.cynccess.cynternal;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Stage;
@@ -46,7 +46,7 @@ package com.cytaxic.cyngle
 	import flash.events.Event;
 	import flash.ui.ContextMenu;
 	
-	use namespace cyntaxic;
+	use namespace cynternal;
 	
 	public class Cyntaxic
 	{

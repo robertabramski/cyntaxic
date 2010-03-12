@@ -3,12 +3,12 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.Cyntaxic;
 	import com.cytaxic.cyngle.model.enums.Messages;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
-	import com.cytaxic.cynccess.cyntaxic;
+	import com.cytaxic.cynccess.cynternal;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
 	
-	use namespace cyntaxic;
+	use namespace cynternal;
 
 	public class CynComposite extends CynView implements ICynView
 	{

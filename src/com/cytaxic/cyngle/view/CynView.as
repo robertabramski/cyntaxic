@@ -6,13 +6,13 @@ package com.cytaxic.cyngle.view
 	import com.cytaxic.cyngle.controller.CynController;
 	import com.cytaxic.cyngle.model.CynModel;
 	import com.cytaxic.cyngle.view.interfaces.ICynView;
-	import com.cytaxic.cynccess.cyntaxic;
+	import com.cytaxic.cynccess.cynternal;
 	
 	import flash.display.Sprite;
 	
 	public class CynView extends Sprite implements ICynView
 	{
-		use namespace cyntaxic;
+		use namespace cynternal;
 		
 		protected var cynModel:CynModel;
 		protected var cynController:CynController;
