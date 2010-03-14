@@ -1,8 +1,8 @@
 package com.cyntaxic.cyngle.view
 {
 	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;

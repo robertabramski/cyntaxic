@@ -16,6 +16,9 @@
 	- Focus manager
 	- Tooltips on all views
 	- Global CSS stylesheet
+	- Deep describe for CyntaxicVO
+	- Try to get rid of first param in append
+	- Monkey script for writing special VO get/set
 	
 	CORE GOALS:
 	- Less abstraction
@@ -114,14 +117,14 @@ package com.cyntaxic.cyngle
 				_STAGE.align = StageAlign.TOP_LEFT;
 				_STAGE.scaleMode = StageScaleMode.NO_SCALE;
 				
-				_STAGE.addEventListener(Event.RESIZE, redrawViews);
+				_STAGE.addEventListener(Event.RESIZE, resizeViews);
 			}
 			else
 			{
 				_STAGE.align = "";
 				_STAGE.scaleMode = StageScaleMode.SHOW_ALL;
 				
-				_STAGE.removeEventListener(Event.RESIZE, redrawViews);
+				_STAGE.removeEventListener(Event.RESIZE, resizeViews);
 			}
 		}
 		
@@ -211,9 +214,9 @@ package com.cyntaxic.cyngle
 			_CONTROLLER.execute(CyntaxicHandles.THROW_ERROR, error);
 		}
 		
-		private static function redrawViews(event:Event):void
+		private static function resizeViews(event:Event):void
 		{
-			_CONTROLLER.execute(CyntaxicHandles.REDRAW_VIEWS, null, true);
+			_CONTROLLER.execute(CyntaxicHandles.RESIZE_VIEWS, null, true);
 		}
 	}
 }

@@ -427,16 +427,16 @@ package com.cyntaxic.cyntils
 internal class Result extends Object
 {
 	private var props:Object = new Object();
-	
-	public var valid:Boolean;
-	public var code:int;
-	public var text:String = "";
-	
+
+	private var _valid:Boolean;
+	private var _code:int;
+	private var _text:String;
+
 	public function Result(valid:Boolean, code:int, text:String = "")
 	{
-		this.valid = append("valid", valid);
-		this.code = append("code", code);
-		this.text = append("text", text);
+		_valid = append("valid", valid);
+		_code = append("code", code);
+		_text = append("text", text);
 	}
 	
 	private function append(prop:String, value:Object):*
@@ -458,6 +458,21 @@ internal class Result extends Object
 		description = description.replace(", }", "}");
 		
 		return description;
+	}
+	
+	public function get valid():Boolean 
+	{
+		return _valid;
+	}
+
+	public function get code():int 
+	{
+		return _code;
+	}
+
+	public function get text():String 
+	{
+		return _text;
 	}
 }
 

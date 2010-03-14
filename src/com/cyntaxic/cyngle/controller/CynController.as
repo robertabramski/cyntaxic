@@ -44,7 +44,7 @@ package com.cyntaxic.cyngle.controller
 			throw new Error((vo as ErrorCodeVO).message, (vo as ErrorCodeVO).id);
 		}
 		
-		cynternal function redrawViews(vo:CyntaxicVO):void
+		cynternal function resizeViews(vo:CyntaxicVO):void
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
