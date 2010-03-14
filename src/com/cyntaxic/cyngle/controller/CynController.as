@@ -23,7 +23,7 @@ package com.cyntaxic.cyngle.controller
 		
 		cynternal function init():CynController
 		{
-			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
+			if(Cyntaxic.DEEP_DEBUG) Cyntaxic.DEBUGGER.log(this, Messages.INIT);
 			cynModel = Cyntaxic.MODEL;
 			return this;
 		}
@@ -34,8 +34,7 @@ package com.cyntaxic.cyngle.controller
 			
 			if(!suppressDebug)
 			{
-				if(Cyntaxic.DEEP_DEBUG)
-					Cyntaxic.DEBUGGER.log(this, "Executed function: " + handle + "(" + (vo ? vo.describe() : "") + ");");
+				Cyntaxic.DEBUGGER.log(this, "Executed function: " + handle + "(" + (vo ? (Cyntaxic.DEEP_DESCRIBE ? vo.describe() : vo) : "") + ");");
 			}
 		}
 		

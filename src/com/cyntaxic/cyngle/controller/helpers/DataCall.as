@@ -66,7 +66,8 @@ package com.cyntaxic.cyngle.controller.helpers
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			dispatchEvent(new DataCallEvent(DataCallEvent.COMPLETE, vo));
 			
-			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
+			if(Cyntaxic.DEEP_DEBUG)
+				Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
 		}
 		
 		private function handleIOError(event:IOErrorEvent):void

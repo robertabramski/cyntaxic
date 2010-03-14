@@ -2,6 +2,7 @@ package com.cyntaxic.cyngle.controller.vos
 {
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cynccess.cynternal;
+	import com.cyntaxic.cyngle.Cyntaxic;
 
 	public class DataCallVO extends CyntaxicVO
 	{
@@ -23,19 +24,37 @@ package com.cyntaxic.cyngle.controller.vos
 			this.contentType = contentType;
 		}
 		
-		override public function describe(deep:Boolean = false):String
+		override public function describe():String
 		{
 			var description:String = "{";
 		
 			for(var appendedProp:String in props)
 			{
-				if(appendedProp == "data") description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
+				if(appendedProp == "data") 
+				{
+					if(Cyntaxic.DEEP_DESCRIBE) description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
+					else
+					{
+						description += 	appendedProp + ':'; 
+						description += compact(this[appendedProp]).substr(0, 20) + '...'; 
+						description += compact(this[appendedProp]).substr(-20, 20) + ', ';
+					}
+				}
 				else description += appendedProp + ":" + this[appendedProp] + ", ";
 			}
 			
 			for(var dynamicProp:String in this)
 			{
-				if(dynamicProp == "data") description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
+				if(dynamicProp == "data")
+				{
+					if(Cyntaxic.DEEP_DESCRIBE) description += dynamicProp + ":" + compact(this[dynamicProp]) + ", ";
+					else
+					{
+						description += 	dynamicProp + ':'; 
+						description += compact(this[dynamicProp]).substr(0, 20) + '...'; 
+						description += compact(this[dynamicProp]).substr(-20, 20) + ', ';
+					}
+				}
 				else description += dynamicProp + ":" + this[dynamicProp] + ", ";
 			}
 			

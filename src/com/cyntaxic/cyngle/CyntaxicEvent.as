@@ -43,7 +43,7 @@ package com.cyntaxic.cyngle
 			
 			description += "{";
 			description += "handle:" + this.handle;
-			description += ", vo:" + this.vo.describe();
+			description += ", vo:" + (Cyntaxic.DEEP_DESCRIBE ? this.vo.describe() : vo);
 			description += ", type:" + this.type;
 			description += ", bubbles:" + this.bubbles;
 			description += ", cancelable:" + this.cancelable;

@@ -17,6 +17,7 @@
 	- Tooltips on all views
 	- Global CSS stylesheet
 	- Deep describe for CyntaxicVO
+	- String detection for describe
 	- Try to get rid of first param in append
 	- Monkey script for writing special VO get/set
 	
@@ -60,6 +61,7 @@ package com.cyntaxic.cyngle
 		private static var _DEBUGGER:Debugger;
 		private static var _DEBUG:Boolean = true;
 		private static var _DEEP_DEBUG:Boolean = false;
+		private static var _DEEP_DESCRIBE:Boolean = false;
 		private static var _MODEL:CynModel;
 		private static var _CONTROLLER:CynController;
 		private static var _CONTEXT_MENU:ContextMenu;
@@ -187,6 +189,16 @@ package com.cyntaxic.cyngle
 			_DEEP_DEBUG = DEBUGGER.deepDebug = value;
 		}
 		
+		public static function get DEEP_DESCRIBE():Boolean 
+		{
+			return _DEEP_DESCRIBE;
+		}
+
+		public static function set DEEP_DESCRIBE(value:Boolean):void 
+		{
+			_DEEP_DESCRIBE = value;
+		}
+		
 		public static function get MODEL():CynModel
 		{
 			return _MODEL;
@@ -260,20 +272,63 @@ internal dynamic class FlashVars extends Object
 
 internal class Debugger
 {
-	public var debug:Boolean;
-	public var deepDebug:Boolean;
+	private var props:Object = new Object();	
+
+	private var _debug:Boolean;
+	private var _deepDebug:Boolean;
 	
 	public function Debugger(debug:Boolean, deepDebug:Boolean = false)
 	{
-		this.debug = debug;
-		this.deepDebug = deepDebug;
+		this.debug = props.debug = debug;
+		this.deepDebug = props.deepDebug = deepDebug;
 		
-		if(debug) this.log(this, "Debug: " + debug + ". Deep debug: " + deepDebug + ".");
+		if(debug) this.log(this, "Loaded: " + describe());
 	}
 	
 	public function log(messenger:Object, message:String):void
 	{
 		if(debug) trace(messenger + " " + message);
+	}
+	
+	private function append(prop:String, value:Object):*
+	{	
+		props[prop] = value;
+		return value;
+	}
+	
+	public function describe():String
+	{
+		var description:String = "{";
+		
+		for(var param:String in props)
+		{
+			description += param + ":" + props[param] + ", ";
+		}
+		
+		description += "}";
+		description = description.replace(", }", "}");
+		
+		return description;
+	}
+	
+	public function get debug():Boolean
+	{
+		return _debug;
+	}
+
+	public function set debug(value:Boolean):void 
+	{
+		_debug = append("debug", value);
+	}
+
+	public function get deepDebug():Boolean 
+	{
+		return _deepDebug;
+	}
+
+	public function set deepDebug(value:Boolean):void 
+	{
+		_deepDebug = append("deepDebug", value);
 	}
 }
 

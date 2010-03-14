@@ -25,27 +25,17 @@ package com.cyntaxic.cyngle
 			return value;
 		}
 		
-		public function describe(deep:Boolean = false):String
+		public function describe():String
 		{
 			var description:String = "{";
 		
 			for(var appendedProp:String in props)
 			{
-				if(deep && this[appendedProp].hasOwnProperty("describe"))
-				{
-					description += this[appendedProp].describe();
-				}
-				
 				description += appendedProp + ":" + this[appendedProp] + ", ";
 			}
 			
 			for(var dynamicProp:String in this)
 			{
-				if(deep && this[dynamicProp].hasOwnProperty("describe"))
-				{
-					description += this[dynamicProp].describe();
-				}
-				
 				description += dynamicProp + ":" + this[dynamicProp] + ", ";
 			}
 			

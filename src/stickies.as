@@ -29,6 +29,7 @@ package
 			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance());
 			Cyntaxic.FULL_SCALE_FLASH = true;
 			Cyntaxic.DEEP_DEBUG = true;
+			Cyntaxic.DEEP_DESCRIBE = false;
 			
 			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
 			
@@ -36,10 +37,11 @@ package
 			addChild(app);
 			
 			//CynValidate.passFail = true;
-			trace(CynValidate.socialSecurity("146-725680").text);
+			//trace(CynValidate.socialSecurity("146-725680").text);
 			
-			trace(CynFormat.cash(1046652, "$", true, "."));
-			trace(CynFormat.decimalNumber(1000622.1215, 2));
+			//trace(CynFormat.cash(1046652, "$", true, "."));
+			//trace(CynFormat.decimalNumber(1000622.1215, 2));
+			
 		}
 	}
 }

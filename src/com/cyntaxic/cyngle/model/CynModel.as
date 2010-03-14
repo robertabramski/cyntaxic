@@ -22,7 +22,7 @@ package com.cyntaxic.cyngle.model
 		
 		cynternal function init():CynModel
 		{
-			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
+			if(Cyntaxic.DEEP_DEBUG) Cyntaxic.DEBUGGER.log(this, Messages.INIT);
 			return this;
 		}
 		
