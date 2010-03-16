@@ -39,7 +39,7 @@ package com.cyntaxic.cyngle.view
 			{
 				this[event.handle](event.vo);
 				
-				if(Cyntaxic.DEEP_DEBUG)
+				if(Cyntaxic.deepDebug)
 					Cyntaxic.DEBUGGER.log(this, "Updated view: update(" + event.describe() + ");");
 			}
 		}

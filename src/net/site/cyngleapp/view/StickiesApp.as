@@ -56,9 +56,7 @@ package net.site.cyngleapp.view
 		{
 			var sticky:CynView = new UISticky().init(vo as StickyVO);
 			
-			sticky.x = (vo as StickyVO).x;
-			sticky.y = (vo as StickyVO).y;
-			add(sticky);
+			add(sticky, {x:(vo as StickyVO).x, y:(vo as StickyVO).y});
 			
 			model.stickies.push(sticky);
 			model.currentSticky = sticky as Sticky;

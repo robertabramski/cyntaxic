@@ -7,6 +7,7 @@ package com.cyntaxic.cyngle.view
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
+	import flash.geom.Point;
 	
 	use namespace cynternal;
 
@@ -21,19 +22,31 @@ package com.cyntaxic.cyngle.view
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
 			
-			if(Cyntaxic.DEEP_DEBUG)	
+			if(Cyntaxic.deepDebug)	
 				Cyntaxic.DEBUGGER.log(this, Messages.ADDED_TO_STAGE);
 		}
 		
-		public function add(child:CynView):CynView
+		public function add(child:CynView, props:Object = null):CynView
 		{
 			addChild(child as DisplayObject);
+			
+			for(var prop:String in props)
+			{
+				child[prop] = props[prop];
+			}
+			
 			return child;
 		}
 		
-		public function addAt(child:CynView, index:int):CynView
+		public function addAt(child:CynView, index:int, props:Object = null):CynView
 		{
 			addChildAt(child as DisplayObject, index);
+			
+			for(var prop:String in props)
+			{
+				child[prop] = props[prop];
+			}
+			
 			return child;
 		}
 		

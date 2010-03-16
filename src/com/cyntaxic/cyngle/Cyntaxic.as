@@ -20,6 +20,7 @@
 	- String detection for describe
 	- Try to get rid of first param in append
 	- Monkey script for writing special VO get/set
+	- Add object as last param like TweenLite
 	
 	CORE GOALS:
 	- Less abstraction
@@ -59,15 +60,17 @@ package com.cyntaxic.cyngle
 		private static var _ROOT:DisplayObject;
 		private static var _FLASH_VARS:FlashVars;
 		private static var _DEBUGGER:Debugger;
-		private static var _DEBUG:Boolean = true;
-		private static var _DEEP_DEBUG:Boolean = false;
-		private static var _DEEP_DESCRIBE:Boolean = false;
 		private static var _MODEL:CynModel;
 		private static var _CONTROLLER:CynController;
-		private static var _CONTEXT_MENU:ContextMenu;
 		private static var _VERSION:String;
 		
-		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true)
+		private static var _debug:Boolean = true;
+		private static var _deepDebug:Boolean = false;
+		private static var _deepDescribe:Boolean = false;
+		private static var _fullScaleFlash:Boolean;
+		private static var _contextMenu:ContextMenu;
+		
+		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, props:Object = null)
 		{
 			_VERSION = model.version.number;
 			
@@ -76,19 +79,26 @@ package com.cyntaxic.cyngle
 			STAGE = doc.stage;
 			ROOT = doc;
 			
-			DEBUGGER = new Debugger(debug);
-			DEBUG = debug;
+			DEBUGGER = new Debugger();
 			
-			MODEL = model.init();
-			CONTROLLER = controller.init();
+			contextMenu = new BasicContextMenu().getMenu();
+			fullScaleFlash = false;
+			
+			for(var prop:String in props)
+			{
+				Cyntaxic[prop] = props[prop];
+			}
+			
+			DEBUGGER.log(DEBUGGER, "Loaded: " + DEBUGGER.describe());
 			
 			FLASH_VARS = new FlashVars(doc.root.loaderInfo.parameters);
-			CONTEXT_MENU = new BasicContextMenu().getMenu();
+			MODEL = model.init();
+			CONTROLLER = controller.init();
 		}
 		
-		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, debug:Boolean = true):Cyntaxic
+		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, props:Object = null):Cyntaxic
 		{
-			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, debug);
+			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, props);
 			return _INSTANCE;
 		}
 		
@@ -100,34 +110,6 @@ package com.cyntaxic.cyngle
 		public static function get STAGE():Stage 
 		{
 			return _STAGE;
-		}
-		
-		public static function get CONTEXT_MENU():ContextMenu
-		{
-			return _CONTEXT_MENU;
-		}
-		
-		public static function set CONTEXT_MENU(value:ContextMenu):void
-		{
-			_ROOT["contextMenu"] = value;
-		}
-		
-		public static function set FULL_SCALE_FLASH(value:Boolean):void
-		{
-			if(value)
-			{
-				_STAGE.align = StageAlign.TOP_LEFT;
-				_STAGE.scaleMode = StageScaleMode.NO_SCALE;
-				
-				_STAGE.addEventListener(Event.RESIZE, resizeViews);
-			}
-			else
-			{
-				_STAGE.align = "";
-				_STAGE.scaleMode = StageScaleMode.SHOW_ALL;
-				
-				_STAGE.removeEventListener(Event.RESIZE, resizeViews);
-			}
 		}
 		
 		public static function set STAGE(value:Stage):void
@@ -169,36 +151,6 @@ package com.cyntaxic.cyngle
 			else throwError(ErrorCodes.E_5000);
 		}
 		
-		public static function get DEBUG():Boolean 
-		{
-			return _DEBUG;
-		}
-
-		public static function set DEBUG(value:Boolean):void 
-		{
-			_DEBUG = DEBUGGER.debug = value;
-		}
-
-		public static function get DEEP_DEBUG():Boolean 
-		{
-			return _DEEP_DEBUG;
-		}
-
-		public static function set DEEP_DEBUG(value:Boolean):void 
-		{
-			_DEEP_DEBUG = DEBUGGER.deepDebug = value;
-		}
-		
-		public static function get DEEP_DESCRIBE():Boolean 
-		{
-			return _DEEP_DESCRIBE;
-		}
-
-		public static function set DEEP_DESCRIBE(value:Boolean):void 
-		{
-			_DEEP_DESCRIBE = value;
-		}
-		
 		public static function get MODEL():CynModel
 		{
 			return _MODEL;
@@ -219,6 +171,71 @@ package com.cyntaxic.cyngle
 		{
 			if(!_CONTROLLER) _CONTROLLER = value;
 			else throwError(ErrorCodes.E_5000);
+		}
+		
+		public static function get contextMenu():ContextMenu
+		{
+			return _contextMenu;
+		}
+		
+		public static function set contextMenu(value:ContextMenu):void
+		{
+			_ROOT["contextMenu"] = value;
+		}
+		
+		public static function set fullScaleFlash(value:Boolean):void
+		{
+			_fullScaleFlash = value;
+			
+			if(value)
+			{
+				_STAGE.align = StageAlign.TOP_LEFT;
+				_STAGE.scaleMode = StageScaleMode.NO_SCALE;
+				
+				_STAGE.addEventListener(Event.RESIZE, resizeViews);
+			}
+			else
+			{
+				_STAGE.align = "";
+				_STAGE.scaleMode = StageScaleMode.SHOW_ALL;
+				
+				_STAGE.removeEventListener(Event.RESIZE, resizeViews);
+			}
+		}
+		
+		public static function get fullScaleFlash():Boolean
+		{
+			return _fullScaleFlash;
+		}
+		
+		public static function get debug():Boolean 
+		{
+			return _debug;
+		}
+
+		public static function set debug(value:Boolean):void 
+		{
+			_debug = DEBUGGER.debug = value;
+		}
+
+		public static function get deepDebug():Boolean 
+		{
+			return _deepDebug;
+		}
+
+		public static function set deepDebug(value:Boolean):void 
+		{
+			_deepDebug = DEBUGGER.deepDebug = value;
+		}
+		
+		public static function get deepDescribe():Boolean 
+		{
+			return _deepDescribe;
+		}
+
+		public static function set deepDescribe(value:Boolean):void 
+		{
+			_deepDescribe = value;
 		}
 		
 		private static function throwError(error:ErrorCodeVO):void
@@ -277,12 +294,10 @@ internal class Debugger
 	private var _debug:Boolean;
 	private var _deepDebug:Boolean;
 	
-	public function Debugger(debug:Boolean, deepDebug:Boolean = false)
+	public function Debugger(debug:Boolean = true, deepDebug:Boolean = false)
 	{
 		this.debug = props.debug = debug;
 		this.deepDebug = props.deepDebug = deepDebug;
-		
-		if(debug) this.log(this, "Loaded: " + describe());
 	}
 	
 	public function log(messenger:Object, message:String):void

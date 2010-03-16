@@ -12,6 +12,7 @@ package
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.view.StickiesApp;
 	import com.cyntaxic.cyntils.CynValidate;
+	import com.cyntaxic.cyntils.CynString;
 	
 	[SWF(backgroundColor="#E6E6E6")]
 	
@@ -26,10 +27,8 @@ package
 		
 		private function init(event:Event):void
 		{
-			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance());
-			Cyntaxic.FULL_SCALE_FLASH = true;
-			Cyntaxic.DEEP_DEBUG = true;
-			Cyntaxic.DEEP_DESCRIBE = false;
+			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), {deepDebug:false, debug:true});
+			Cyntaxic.fullScaleFlash = true; 
 			
 			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
 			
@@ -41,7 +40,6 @@ package
 			
 			//trace(CynFormat.cash(1046652, "$", true, "."));
 			//trace(CynFormat.decimalNumber(1000622.1215, 2));
-			
 		}
 	}
 }

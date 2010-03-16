@@ -19,7 +19,7 @@ package com.cyntaxic.cyngle.view
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
 			
-			if(Cyntaxic.DEEP_DEBUG)	
+			if(Cyntaxic.deepDebug)	
 				Cyntaxic.DEBUGGER.log(this, Messages.ADDED_TO_STAGE);
 		}
 	}

@@ -32,13 +32,7 @@ package com.cyntaxic.cyngle.controller.vos
 			{
 				if(appendedProp == "data") 
 				{
-					if(Cyntaxic.DEEP_DESCRIBE) description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
-					else
-					{
-						description += 	appendedProp + ':'; 
-						description += compact(this[appendedProp]).substr(0, 20) + '...'; 
-						description += compact(this[appendedProp]).substr(-20, 20) + ', ';
-					}
+					description += appendedProp + ":" + compact(this[appendedProp]) + ", ";
 				}
 				else description += appendedProp + ":" + this[appendedProp] + ", ";
 			}
@@ -47,13 +41,7 @@ package com.cyntaxic.cyngle.controller.vos
 			{
 				if(dynamicProp == "data")
 				{
-					if(Cyntaxic.DEEP_DESCRIBE) description += dynamicProp + ":" + compact(this[dynamicProp]) + ", ";
-					else
-					{
-						description += 	dynamicProp + ':'; 
-						description += compact(this[dynamicProp]).substr(0, 20) + '...'; 
-						description += compact(this[dynamicProp]).substr(-20, 20) + ', ';
-					}
+					description += dynamicProp + ":" + compact(this[dynamicProp]) + ", ";
 				}
 				else description += dynamicProp + ":" + this[dynamicProp] + ", ";
 			}

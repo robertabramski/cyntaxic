@@ -6,5 +6,10 @@ package com.cyntaxic.cyntils
 		{
 			return original.split(find).join(replace);
 		}
+		
+		public static function compact(value:String):String
+		{
+			return value.split("\n").join("").split("\t").join("").split("\r").join("");
+		}
 	}
 }
