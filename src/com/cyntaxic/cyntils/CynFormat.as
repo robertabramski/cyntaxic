@@ -26,5 +26,23 @@ package com.cyntaxic.cyntils
 			
 			return neg + (frontSymbol ? symbol : "") + bigBills + changeSplit + change + (!frontSymbol ? symbol : "");
 		}
+		
+		public static function time(seconds:Number):String
+		{
+			seconds = decimalNumber(seconds, 0);
+			
+			var sec:Number = seconds % 60;
+			var min:Number = Math.floor((seconds % 3600)/60);
+			var hour:Number = Math.floor(seconds/(60 * 60));
+			
+			var hourString:String = hour < 10 ? "0" + hour + ":" : hour + ":";
+			
+			if(hour == 0) hourString = "";
+			
+			var minuteString:String = min < 10 ? "0" + min + ":" : min + ":";
+			var secondString:String = sec < 10 ? "0" + sec : sec.toString();
+			
+			return hourString + minuteString + secondString;
+		}
 	}
 }

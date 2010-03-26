@@ -11,8 +11,6 @@ package
 	import net.site.cyngleapp.controller.Controller;
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.view.StickiesApp;
-	import com.cyntaxic.cyntils.CynValidate;
-	import com.cyntaxic.cyntils.CynString;
 	
 	[SWF(backgroundColor="#E6E6E6")]
 	
@@ -40,6 +38,8 @@ package
 			
 			//trace(CynFormat.cash(1046652, "$", true, "."));
 			//trace(CynFormat.decimalNumber(1000622.1215, 2));
+			
+			trace(CynFormat.time(60.056));
 		}
 	}
 }
