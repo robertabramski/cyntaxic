@@ -4,6 +4,6 @@ package com.cyntaxic.cyngle.model.enums
 	
 	public class Versions
 	{
-		public static const VERSION_0_0_1:VersionVO = new VersionVO("0.0.1", "Initial release");
+		public static const VERSION_1_0_0:VersionVO = new VersionVO("1.0.0", "Initial release");
 	}
 }

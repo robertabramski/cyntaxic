@@ -1,12 +1,11 @@
 package com.cyntaxic.cyngle.controller
 {
+	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cyngle.model.CynModel;
-	import com.cyntaxic.cyngle.model.enums.Messages;
 	import com.cyntaxic.cyngle.view.CynView;
-	import com.cyntaxic.cynccess.cynternal;
 	
 	import flash.events.EventDispatcher;
 	
@@ -23,21 +22,18 @@ package com.cyntaxic.cyngle.controller
 		
 		cynternal function init():CynController
 		{
-			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
 			cynModel = Cyntaxic.MODEL;
-			
 			return this;
 		}
 		
-		public function execute(handle:String, vo:CyntaxicVO, suppressDebug:Boolean = false):void
+		public function execute(handle:String, vo:CyntaxicVO):void
 		{
 			this[handle](vo);
-			
-			if(!suppressDebug)
-			{
-				var data:Object = (vo ? (Cyntaxic.deepDescribe ? vo.describe() : vo) : "");
-				Cyntaxic.DEBUGGER.log(this, "Executed function: " + handle + "(" + data + ");");
-			}
+		}
+		
+		protected function debug(message:Object):void
+		{
+			Cyntaxic.DEBUGGER.log(this, message);
 		}
 		
 		cynternal function throwError(vo:CyntaxicVO):void

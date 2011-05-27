@@ -1,12 +1,12 @@
 package com.cyntaxic.cyngle.view
 {
+	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.CyntaxicEvent;
+	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
-	import com.cyntaxic.cynccess.cynternal;
 	
 	import flash.display.Sprite;
 	
@@ -33,14 +33,16 @@ package com.cyntaxic.cyngle.view
 			return this;
 		}
 		
+		protected function debug(message:Object):void
+		{
+			Cyntaxic.DEBUGGER.log(this, message);
+		}
+		
 		public function update(event:CyntaxicEvent):void
 		{
 			if(this.hasOwnProperty(event.handle))
 			{
 				this[event.handle](event.vo);
-				
-				if(Cyntaxic.deepDebug)
-					Cyntaxic.DEBUGGER.log(this, "Updated view: update(" + event.describe() + ");");
 			}
 		}
 		

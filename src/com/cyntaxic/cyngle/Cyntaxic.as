@@ -2,7 +2,7 @@
 /*/****************************************************************************************************************
 
 	CYNTAXIC FRAMEWORK
-	VERSION: 0.0.1
+	VERSION: 1.0.0
 	ACTIONSCRIPT VERSION: 3.0
 
 	AUTHOR: Robert Abramski
@@ -16,8 +16,6 @@
 	- Focus manager
 	- Tooltips on all views
 	- Global CSS stylesheet
-	- Monkey script for writing special VO get/set
-	- Add object as last param like TweenLite
 	
 	CORE GOALS:
 	- Less abstraction
@@ -56,15 +54,13 @@ package com.cyntaxic.cyngle
 		private static var _INSTANCE:Cyntaxic;
 		private static var _STAGE:Stage;
 		private static var _ROOT:DisplayObject;
-		private static var _FLASH_VARS:FlashVars;
+		private static var _FLASH_VARS:FlashVarsVO;
 		private static var _DEBUGGER:Debugger;
 		private static var _MODEL:CynModel;
 		private static var _CONTROLLER:CynController;
 		private static var _VERSION:String;
 		
 		private static var _debug:Boolean = true;
-		private static var _deepDebug:Boolean = false;
-		private static var _deepDescribe:Boolean = false;
 		private static var _fullScaleFlash:Boolean;
 		private static var _contextMenu:ContextMenu;
 		
@@ -78,7 +74,6 @@ package com.cyntaxic.cyngle
 			_ROOT = doc;
 			
 			_DEBUGGER = new Debugger();
-			_DEBUGGER.log(_DEBUGGER, "Loaded: " + Cyntaxic.describe(_DEBUGGER));
 			
 			contextMenu = new BasicContextMenu().getMenu();
 			fullScaleFlash = false;
@@ -88,8 +83,9 @@ package com.cyntaxic.cyngle
 				Cyntaxic[prop] = props[prop];
 			}
 			
-			_FLASH_VARS = new FlashVars(doc.root.loaderInfo.parameters);
-			_DEBUGGER.log(_FLASH_VARS, "Loaded: " + Cyntaxic.describe(_FLASH_VARS));
+			_DEBUGGER.log(_DEBUGGER, "Debugger is running.");
+			
+			_FLASH_VARS = new FlashVarsVO(doc.root.loaderInfo.parameters);
 			
 			_MODEL = model.init();
 			_CONTROLLER = controller.init();
@@ -166,12 +162,12 @@ package com.cyntaxic.cyngle
 			else throwError(ErrorCodes.E_5000);
 		}
 
-		public static function get FLASH_VARS():FlashVars
+		public static function get FLASH_VARS_VO():FlashVarsVO
 		{
 			return _FLASH_VARS;
 		}
 
-		public static function set FLASH_VARS(value:FlashVars):void 
+		public static function set FLASH_VARS_VO(value:FlashVarsVO):void 
 		{
 			if(!_FLASH_VARS) _FLASH_VARS = value;
 			else throwError(ErrorCodes.E_5000);
@@ -255,26 +251,6 @@ package com.cyntaxic.cyngle
 			_debug = DEBUGGER.debug = value;
 		}
 
-		public static function get deepDebug():Boolean 
-		{
-			return _deepDebug;
-		}
-
-		public static function set deepDebug(value:Boolean):void 
-		{
-			_deepDebug = DEBUGGER.deepDebug = value;
-		}
-		
-		public static function get deepDescribe():Boolean 
-		{
-			return _deepDescribe;
-		}
-
-		public static function set deepDescribe(value:Boolean):void 
-		{
-			_deepDescribe = value;
-		}
-		
 		private static function throwError(error:ErrorCodeVO):void
 		{
 			_CONTROLLER.execute(CyntaxicHandles.THROW_ERROR, error);
@@ -282,14 +258,14 @@ package com.cyntaxic.cyngle
 		
 		private static function resizeViews(event:Event):void
 		{
-			_CONTROLLER.execute(CyntaxicHandles.RESIZE_VIEWS, null, true);
+			_CONTROLLER.execute(CyntaxicHandles.RESIZE_VIEWS, null);
 		}
 	}
 }
 
-internal dynamic class FlashVars extends Object
+internal dynamic class FlashVarsVO extends com.cyntaxic.cyngle.CyntaxicVO
 {
-	public function FlashVars(vars:Object)
+	public function FlashVarsVO(vars:Object)
 	{
 		for(var prop:String in vars)
 		{
@@ -306,15 +282,13 @@ internal dynamic class FlashVars extends Object
 internal class Debugger
 {
 	public var debug:Boolean;
-	public var deepDebug:Boolean;
 	
-	public function Debugger(debug:Boolean = true, deepDebug:Boolean = false)
+	public function Debugger(debug:Boolean = true)
 	{
 		this.debug =  debug;
-		this.deepDebug = deepDebug;
 	}
 	
-	public function log(messenger:Object, message:String):void
+	public function log(messenger:Object, message:Object):void
 	{
 		if(debug) trace(messenger + " " + message);
 	}

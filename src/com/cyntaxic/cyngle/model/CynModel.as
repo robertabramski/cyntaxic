@@ -1,7 +1,5 @@
 package com.cyntaxic.cyngle.model
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.model.enums.Messages;
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	import com.cyntaxic.cynccess.cynternal;
@@ -12,7 +10,7 @@ package com.cyntaxic.cyngle.model
 	{
 		use namespace cynternal;
 		
-		private var _version:VersionVO = Versions.VERSION_0_0_1;
+		private var _version:VersionVO = Versions.VERSION_1_0_0;
 		private var _views:Array = [];
 		
 		public function CynModel()
@@ -22,23 +20,12 @@ package com.cyntaxic.cyngle.model
 		
 		cynternal function init():CynModel
 		{
-			Cyntaxic.DEBUGGER.log(this, Messages.INIT);
 			return this;
 		}
 		
-		cynternal function get version():VersionVO
-		{
-			return _version;
-		}
+		cynternal function get version():VersionVO { return _version; }
 		
-		cynternal function get views():Array 
-		{
-			return _views;
-		}
-
-		cynternal function set views(value:Array):void 
-		{
-			_views = value;
-		}
+		cynternal function get views():Array { return _views; }
+		cynternal function set views(value:Array):void { _views = value; }
 	}
 }

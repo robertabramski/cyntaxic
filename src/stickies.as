@@ -27,19 +27,14 @@ package
 		
 		private function init(event:Event):void
 		{
-			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance());//, {deepDebug:false, debug:true});
-			Cyntaxic.fullScaleFlash = true; 
+			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), 
+			{
+				debug:true,
+				fullScaleFlash:true
+			});
 			
-			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
-			
-			app = new StickiesApp().init(config);
+			app = new StickiesApp().init(Cyntaxic.FLASH_VARS_VO);
 			addChild(app);
-			
-			//CynValidate.passFail = true;
-			//trace(CynValidate.socialSecurity("146-725680").text);
-			
-			//trace(CynFormat.cash(1046652, "$", true, "."));
-			//trace(CynFormat.decimalNumber(1000622.1215, 2));
 		}
 	}
 }

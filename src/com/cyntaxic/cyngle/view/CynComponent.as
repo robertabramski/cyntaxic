@@ -1,10 +1,6 @@
 package com.cyntaxic.cyngle.view
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.model.enums.Messages;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
-	import com.cyntaxic.cynccess.cynternal;
 	
 	import flash.events.Event;
 	
@@ -18,9 +14,6 @@ package com.cyntaxic.cyngle.view
 		private function addToStage(event:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
-			
-			if(Cyntaxic.deepDebug)	
-				Cyntaxic.DEBUGGER.log(this, Messages.ADDED_TO_STAGE);
 		}
 	}
 }

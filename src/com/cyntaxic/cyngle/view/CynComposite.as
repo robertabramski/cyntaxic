@@ -1,13 +1,10 @@
 package com.cyntaxic.cyngle.view
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.model.enums.Messages;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	import com.cyntaxic.cynccess.cynternal;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
-	import flash.geom.Point;
 	
 	use namespace cynternal;
 
@@ -21,9 +18,6 @@ package com.cyntaxic.cyngle.view
 		private function addToStage(event:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
-			
-			if(Cyntaxic.deepDebug)	
-				Cyntaxic.DEBUGGER.log(this, Messages.ADDED_TO_STAGE);
 		}
 		
 		public function add(child:CynView, props:Object = null):CynView

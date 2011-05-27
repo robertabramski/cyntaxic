@@ -11,7 +11,6 @@ package net.site.cyngleapp.controller
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.enums.Colors;
 	import net.site.cyngleapp.model.vos.StickyVO;
-	import net.site.cyngleapp.view.Sticky;
 
 	public class Controller extends CynController
 	{
