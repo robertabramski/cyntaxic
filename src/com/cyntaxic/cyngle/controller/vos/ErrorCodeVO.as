@@ -9,8 +9,8 @@ package com.cyntaxic.cyngle.controller.vos
 		
 		public function ErrorCodeVO(message:String, id:int)
 		{
-			this.message = append("message", message);
-			this.id = append("id", id);
+			this.message = message;
+			this.id = id;
 		}
 	}
 }

@@ -6,8 +6,6 @@ package com.cyntaxic.cyngle
 	{
 		use namespace cynternal;
 		
-		cynternal var props:Object = new Object();
-		
 		public function CyntaxicVO(data:Object = null)
 		{
 			if(data)
@@ -19,30 +17,9 @@ package com.cyntaxic.cyngle
 			}
 		}
 		
-		protected function append(prop:String, value:Object):*
-		{	
-			props[prop] = value;
-			return value;
-		}
-		
-		public function describe():String
+		public function describe(compact:Boolean = true):String
 		{
-			var description:String = "{";
-		
-			for(var appendedProp:String in props)
-			{
-				description += appendedProp + ":" + this[appendedProp] + ", ";
-			}
-			
-			for(var dynamicProp:String in this)
-			{
-				description += dynamicProp + ":" + this[dynamicProp] + ", ";
-			}
-			
-			description += "}";
-			description = description.replace(", }", "}");
-			
-			return description;
+			return Cyntaxic.describe(this, compact);
 		}
 	}
 }

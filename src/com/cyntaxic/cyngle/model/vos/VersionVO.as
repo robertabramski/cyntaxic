@@ -13,24 +13,10 @@ package com.cyntaxic.cyngle.model.vos
 			this.description = description;
 		}
 		
-		public function get number():String 
-		{
-			return _number;
-		}
+		public function get number():String { return _number; }
+		public function set number(value:String):void { _number = value; }
 
-		public function set number(value:String):void 
-		{
-			_number = append("number", value);
-		}
-
-		public function get description():String 
-		{
-			return _description;
-		}
-
-		public function set description(value:String):void 
-		{
-			_description = append("description", value);
-		}
+		public function get description():String { return _description; }
+		public function set description(value:String):void { _description = value; }
 	}
 }

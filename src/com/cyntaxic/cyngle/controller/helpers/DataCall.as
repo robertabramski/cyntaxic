@@ -52,7 +52,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			dispatchEvent(new DataCallEvent(DataCallEvent.TIMEOUT, vo));
 			
-			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
+			Cyntaxic.DEBUGGER.log(this, Messages.RETURNED + vo.describe());
 		}
 		
 		private function handleComplete(event:Event):void
@@ -67,7 +67,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			dispatchEvent(new DataCallEvent(DataCallEvent.COMPLETE, vo));
 			
 			if(Cyntaxic.deepDebug)
-				Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
+				Cyntaxic.DEBUGGER.log(this, Messages.RETURNED + vo.describe());
 		}
 		
 		private function handleIOError(event:IOErrorEvent):void
@@ -82,7 +82,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, handleIOError);
 			dispatchEvent(new DataCallEvent(DataCallEvent.IO_ERROR, vo));
 			
-			Cyntaxic.DEBUGGER.log(this, Messages.RETURN + vo.describe());
+			Cyntaxic.DEBUGGER.log(this, Messages.RETURNED + vo.describe());
 		}
 		
 		public function get timeout():Number 

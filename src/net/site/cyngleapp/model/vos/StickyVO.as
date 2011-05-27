@@ -19,54 +19,19 @@ package net.site.cyngleapp.model.vos
 			this.y = y;
 		}
 		
-		public function get id():int 
-		{
-			return _id;
-		}
+		public function get id():int { return _id; }
+		public function set id(value:int):void { _id = value; }
 
-		public function set id(value:int):void 
-		{
-			_id = append("id", value);
-		}
+		public function get message():String { return _message; }
+		public function set message(value:String):void { _message = value; }
 
-		public function get message():String 
-		{
-			return _message;
-		}
+		public function get color():uint { return _color; }
+		public function set color(value:uint):void { _color = value; }
 
-		public function set message(value:String):void 
-		{
-			_message = append("message", value);
-		}
+		public function get x():Number { return _x; }
+		public function set x(value:Number):void { _x = value; }
 
-		public function get color():uint 
-		{
-			return _color;
-		}
-
-		public function set color(value:uint):void 
-		{
-			_color = append("color", value);
-		}
-
-		public function get x():Number 
-		{
-			return _x;
-		}
-
-		public function set x(value:Number):void 
-		{
-			_x = append("x", value);
-		}
-
-		public function get y():Number 
-		{
-			return _y;
-		}
-
-		public function set y(value:Number):void 
-		{
-			_y = append("y", value);
-		}
+		public function get y():Number { return _y; }
+		public function set y(value:Number):void { _y = value; }
 	}
 }

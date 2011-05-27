@@ -1,6 +1,7 @@
 package com.cyntaxic.cyngle
 {
 	import flash.events.Event;
+	import flash.utils.describeType;
 
 	public class CyntaxicEvent extends Event
 	{
@@ -37,20 +38,9 @@ package com.cyntaxic.cyngle
 			_vo = value;
 		}
 		
-		public function describe():String
+		public function describe(compact:Boolean = true):String
 		{
-			var description:String = "";
-			
-			description += "{";
-			description += "handle:" + this.handle;
-			description += ", vo:" + (Cyntaxic.deepDescribe ? this.vo.describe() : vo);
-			description += ", type:" + this.type;
-			description += ", bubbles:" + this.bubbles;
-			description += ", cancelable:" + this.cancelable;
-			description += ", eventPhase:" + this.eventPhase;
-			description += "}";
-			
-			return description;
+			return Cyntaxic.describe(this, compact);
 		}
 	}
 }

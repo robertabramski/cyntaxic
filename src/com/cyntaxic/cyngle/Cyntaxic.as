@@ -16,9 +16,6 @@
 	- Focus manager
 	- Tooltips on all views
 	- Global CSS stylesheet
-	- Deep describe for CyntaxicVO
-	- String detection for describe
-	- Try to get rid of first param in append
 	- Monkey script for writing special VO get/set
 	- Add object as last param like TweenLite
 	
@@ -38,11 +35,11 @@
 
 package com.cyntaxic.cyngle
 {
+	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cyngle.model.CynModel;
-	import com.cyntaxic.cynccess.cynternal;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Stage;
@@ -50,6 +47,7 @@ package com.cyntaxic.cyngle
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.ui.ContextMenu;
+	import flash.utils.describeType;
 	
 	use namespace cynternal;
 	
@@ -76,10 +74,11 @@ package com.cyntaxic.cyngle
 			
 			trace(this + " Started version " + _VERSION + ".");
 			
-			STAGE = doc.stage;
-			ROOT = doc;
+			_STAGE = doc.stage;
+			_ROOT = doc;
 			
-			DEBUGGER = new Debugger();
+			_DEBUGGER = new Debugger();
+			_DEBUGGER.log(_DEBUGGER, "Loaded: " + Cyntaxic.describe(_DEBUGGER));
 			
 			contextMenu = new BasicContextMenu().getMenu();
 			fullScaleFlash = false;
@@ -89,17 +88,55 @@ package com.cyntaxic.cyngle
 				Cyntaxic[prop] = props[prop];
 			}
 			
-			DEBUGGER.log(DEBUGGER, "Loaded: " + DEBUGGER.describe());
+			_FLASH_VARS = new FlashVars(doc.root.loaderInfo.parameters);
+			_DEBUGGER.log(_FLASH_VARS, "Loaded: " + Cyntaxic.describe(_FLASH_VARS));
 			
-			FLASH_VARS = new FlashVars(doc.root.loaderInfo.parameters);
-			MODEL = model.init();
-			CONTROLLER = controller.init();
+			_MODEL = model.init();
+			_CONTROLLER = controller.init();
 		}
 		
 		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, props:Object = null):Cyntaxic
 		{
 			_INSTANCE = new Cyntaxic(new Key, doc, model, controller, props);
 			return _INSTANCE;
+		}
+		
+		public static function describe(object:Object, compact:Boolean = true):String
+		{
+			var xml:XML = describeType(object);
+			var properties:XMLList = xml..variable.@name + xml..accessor.@name;
+			var property:String;
+			
+			var description:String = "\n{\n";
+			var i:int = 0;
+			
+			for(property in object)
+			{
+				description += "\t" + property + ":" + displayType(object[property]) + ", \n";
+			}
+			
+			for each(property in properties)
+			{
+				description += "\t" + property + ":" + displayType(object[property]) + ", \n";
+			}
+			
+			description += "}";
+			description = description.replace(/, \n}/, "\n}");
+			
+			return compact ? description.split("\n").join("").split("\t").join("") : description;
+		}
+		
+		private static function displayType(property:Object):Object
+		{
+			switch(true)
+			{
+				case !property: 			return property;
+				case property is String: 	return '"' + property + '"';
+				case property is Array:		return '[' + property + ']';
+				case property is Function:	return '[object Function]';
+			}
+			
+			return property.toString();
 		}
 		
 		public static function get VERSION():String
@@ -252,98 +289,34 @@ package com.cyntaxic.cyngle
 
 internal dynamic class FlashVars extends Object
 {
-	public var vars:Object;
-	
 	public function FlashVars(vars:Object)
 	{
-		this.vars = vars;
-		
 		for(var prop:String in vars)
 		{
 			this[prop] = vars[prop];
 		}
-		
-		com.cyntaxic.cyngle.Cyntaxic.DEBUGGER.log(this, "Loaded: " + describe());
-	}
-	
-	public function describe():String
-	{
-		var description:String = "{";
-		
-		for(var param:String in vars)
-		{
-			description += param + ":" + vars[param] + ", ";
-		}
-		
-		description += "}";
-		description = description.replace(", }", "}");
-		
-		return description;
 	}
 	
 	public function getVarByName(varName:String):Object
 	{
-		return vars[varName];
+		return this[varName];
 	}
 } 
 
 internal class Debugger
 {
-	private var props:Object = new Object();	
-
-	private var _debug:Boolean;
-	private var _deepDebug:Boolean;
+	public var debug:Boolean;
+	public var deepDebug:Boolean;
 	
 	public function Debugger(debug:Boolean = true, deepDebug:Boolean = false)
 	{
-		this.debug = props.debug = debug;
-		this.deepDebug = props.deepDebug = deepDebug;
+		this.debug =  debug;
+		this.deepDebug = deepDebug;
 	}
 	
 	public function log(messenger:Object, message:String):void
 	{
 		if(debug) trace(messenger + " " + message);
-	}
-	
-	private function append(prop:String, value:Object):*
-	{	
-		props[prop] = value;
-		return value;
-	}
-	
-	public function describe():String
-	{
-		var description:String = "{";
-		
-		for(var param:String in props)
-		{
-			description += param + ":" + props[param] + ", ";
-		}
-		
-		description += "}";
-		description = description.replace(", }", "}");
-		
-		return description;
-	}
-	
-	public function get debug():Boolean
-	{
-		return _debug;
-	}
-
-	public function set debug(value:Boolean):void 
-	{
-		_debug = append("debug", value);
-	}
-
-	public function get deepDebug():Boolean 
-	{
-		return _deepDebug;
-	}
-
-	public function set deepDebug(value:Boolean):void 
-	{
-		_deepDebug = append("deepDebug", value);
 	}
 }
 

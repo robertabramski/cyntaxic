@@ -4,6 +4,8 @@ package
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.view.CynView;
 	import com.cyntaxic.cyntils.CynFormat;
+	import com.cyntaxic.cyntils.CynString;
+	import com.cyntaxic.cyntils.CynValidate;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -25,7 +27,7 @@ package
 		
 		private function init(event:Event):void
 		{
-			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), {deepDebug:false, debug:true});
+			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance());//, {deepDebug:false, debug:true});
 			Cyntaxic.fullScaleFlash = true; 
 			
 			var config:CyntaxicVO = new CyntaxicVO(Cyntaxic.FLASH_VARS);
@@ -38,8 +40,6 @@ package
 			
 			//trace(CynFormat.cash(1046652, "$", true, "."));
 			//trace(CynFormat.decimalNumber(1000622.1215, 2));
-			
-			trace(CynFormat.time(60.056));
 		}
 	}
 }

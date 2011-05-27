@@ -322,8 +322,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param str The String containing the date
 		 * @param dayFirst Whether the date is in a day first format
-		 * @return An as3ValidationResult.result true value if the data is valid.  If the data is invalid, then
-		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * @return A result object or boolean value
 		 * 
 		 */
 		public static function date(value:String, dayFirst:Boolean = false):Object
@@ -426,54 +425,20 @@ package com.cyntaxic.cyntils
 
 internal class Result extends Object
 {
-	private var props:Object = new Object();
-
 	private var _valid:Boolean;
 	private var _code:int;
 	private var _text:String;
 
 	public function Result(valid:Boolean, code:int, text:String = "")
 	{
-		_valid = append("valid", valid);
-		_code = append("code", code);
-		_text = append("text", text);
+		_valid = valid;
+		_code = code;
+		_text = text;
 	}
 	
-	private function append(prop:String, value:Object):*
-	{	
-		props[prop] = value;
-		return value;
-	}
-	
-	public function describe():String
-	{
-		var description:String = "{";
-	
-		for(var appendedProp:String in props)
-		{
-			description += appendedProp + ":" + this[appendedProp] + ", ";
-		}
-		
-		description += "}";
-		description = description.replace(", }", "}");
-		
-		return description;
-	}
-	
-	public function get valid():Boolean 
-	{
-		return _valid;
-	}
-
-	public function get code():int 
-	{
-		return _code;
-	}
-
-	public function get text():String 
-	{
-		return _text;
-	}
+	public function get valid():Boolean { return _valid; }
+	public function get code():int { return _code; }
+	public function get text():String { return _text; }
 }
 
 
