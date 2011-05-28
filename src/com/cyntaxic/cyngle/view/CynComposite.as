@@ -1,6 +1,8 @@
 package com.cyntaxic.cyngle.view
 {
 	import com.cyntaxic.cynccess.cynternal;
+	import com.cyntaxic.cyngle.Cyntaxic;
+	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
@@ -40,11 +42,38 @@ package com.cyntaxic.cyngle.view
 			return child;
 		}
 		
-		public function remove(child:CynView):CynView
+		private function removeChildren(composite:CynComposite):void
 		{
+			if(composite.hasEventListener(CyntaxicEvent.NOTIFY)) 
+				composite.removeEventListener(CyntaxicEvent.NOTIFY, update);
+			
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				if(child === cynModel.views[i]) { cynModel.views.splice(i, 1); trace(cynModel.views); }
+				var view:CynView = cynModel.views[i] as CynView;
+				
+				if(composite.contains(view))
+				{
+					cynModel.views.splice(i, 1);
+					trace('recursive ' + cynModel.views);
+					
+					if(view is CynComposite) removeChildren(view as CynComposite);
+				}
+			}
+		}
+		
+		public function remove(child:CynView):CynView
+		{
+			var view:CynView = child;
+			
+			for(var i:int = 0; i < cynModel.views.length; i++)
+			{
+				if(view == cynModel.views[i])
+				{
+					cynModel.views.splice(i, 1); 
+					trace(cynModel.views);
+					
+					if(view is CynComposite) removeChildren(view as CynComposite);
+				}
 			}
 			
 			removeChild(child as DisplayObject);

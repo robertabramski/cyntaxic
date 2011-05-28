@@ -79,7 +79,7 @@ package net.site.cyngleapp.view
 		public function removeSticky(vo:CyntaxicVO):void
 		{
 			debug('Removed sticky #' + vo.sticky.id + ' from view.');
-			removeAt(0);//vo.sticky as Sticky);
+			remove(vo.sticky as Sticky);
 		}
 		
 		/**

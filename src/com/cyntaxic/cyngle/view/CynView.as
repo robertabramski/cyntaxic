@@ -16,6 +16,7 @@ package com.cyntaxic.cyngle.view
 		
 		protected var cynModel:CynModel;
 		protected var cynController:CynController;
+		protected var suppressDebug:Boolean = false;
 		
 		public function CynView()
 		{
@@ -33,7 +34,7 @@ package com.cyntaxic.cyngle.view
 		
 		protected function debug(message:Object):void
 		{
-			Cyntaxic.DEBUGGER.log(this, message);
+			if(!suppressDebug) Cyntaxic.DEBUGGER.log(this, message);
 		}
 		
 		public function update(event:CyntaxicEvent):void
