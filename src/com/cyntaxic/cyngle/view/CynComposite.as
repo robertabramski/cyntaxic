@@ -1,7 +1,8 @@
 package com.cyntaxic.cyngle.view
 {
-	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	import com.cyntaxic.cynccess.cynternal;
+	import com.cyntaxic.cyngle.model.CynModel;
+	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
@@ -43,7 +44,7 @@ package com.cyntaxic.cyngle.view
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				if(child === cynModel.views[i]) cynModel.views.splice(i, 1);
+				if(child === cynModel.views[i]) { cynModel.views.splice(i, 1); trace(cynModel.views); }
 			}
 			
 			removeChild(child as DisplayObject);
@@ -54,7 +55,8 @@ package com.cyntaxic.cyngle.view
 		{
 			var child:DisplayObject = getChildAt(index); 
 			
-			cynModel.views = cynModel.views.slice(index, 1);
+			cynModel.views.splice(index, 1);
+			trace(cynModel.views);
 			
 			removeChildAt(index);
 			return child as CynView;

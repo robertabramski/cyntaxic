@@ -11,6 +11,8 @@ package net.site.cyngleapp.controller
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.enums.Colors;
 	import net.site.cyngleapp.model.vos.StickyVO;
+	import net.site.cyngleapp.view.Sticky;
+	import net.site.cyngleapp.view.StickyHeader;
 
 	public class Controller extends CynController
 	{
@@ -62,8 +64,28 @@ package net.site.cyngleapp.controller
 			dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky));
 		}
 		
+		public function addStickyToStickies(vo:CyntaxicVO):void
+		{
+			var sticky:Sticky = vo.sticky as Sticky;
+			
+			model.stickies.push(sticky);
+			model.currentSticky = sticky;
+			debug("Added sticky #" + sticky.id + " to model.stickies.");
+		}
+		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
+			var sticky:Sticky = vo.sticky as Sticky;
+			
+			for(var i:int = 0; i < model.stickies.length; i++)
+			{
+				if(model.stickies[i].id == sticky.id)
+				{
+					model.stickies.splice(i, 1);
+					debug("Removed sticky #" + sticky.id + " from model.stickies.");
+				}
+			}
+			
 			debug("Dispatched " + Handles.REMOVE_STICKY + " to views.");
 			dispatchEvent(new CyntaxicEvent(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:vo.sticky})));
 		}

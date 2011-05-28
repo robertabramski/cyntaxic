@@ -18,7 +18,14 @@ package net.site.cyngleapp.view
 	import net.site.cyngleapp.controller.Controller;
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.model.vos.StickyVO;
-
+	
+	/**
+	 * All views should extend either CynComposite or CynComponent. CynComposite is used for
+	 * views that have other views inside of it. CynComposite has functions like add, addAt, remove
+	 * and removeAt which work just like addChild and removeChild except for some added functionality
+	 * for the framework.
+	 * 
+	 */	
 	public class StickiesApp extends CynComposite implements ICynComposite, ICynView
 	{
 		private var model:Model;
@@ -27,15 +34,17 @@ package net.site.cyngleapp.view
 		private var header:UIStickyHeader = new UIStickyHeader();
 		private var stickySpawn:StickySpawn = new StickySpawn();
 		private var call:DataCall;
-		
+				
 		public function StickiesApp()
 		{
+			// Cast model and controller for your application.
 			model = (cynModel as Model);
 			controller = (cynController as Controller);
 			
+			// Add views with CynComposite add function.
 			add(header);
 			add(stickySpawn);
-			
+			  
 			resize();
 		}
 		
@@ -61,19 +70,23 @@ package net.site.cyngleapp.view
 		{
 			var sticky:CynView = new UISticky().init(vo);
 			
-			debug('Added sticky #' + vo.id + '.');
+			debug('Added sticky #' + vo.id + ' to view.');
 			add(sticky, {x:vo.x, y:vo.y});
 			
-			model.stickies.push(sticky);
-			model.currentSticky = sticky as Sticky;
+			controller.execute(Handles.ADD_STICKY_TO_STICKIES, new CyntaxicVO({sticky:sticky}));
 		}
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
-			debug('Removed sticky #' + vo.sticky.id + '.');
-			remove(vo.sticky as Sticky);
+			debug('Removed sticky #' + vo.sticky.id + ' from view.');
+			removeAt(0);//vo.sticky as Sticky);
 		}
 		
+		/**
+		 * The resize function is overridden from CynView. This works in conjunction with
+		 * the Cyntaxic.fullScaleFlash option which sets up the application for liquid layout.
+		 * 
+		 */
 		override public function resize():void
 		{
 			stickySpawn.x = Cyntaxic.STAGE.stageWidth - stickySpawn.width - margin;
