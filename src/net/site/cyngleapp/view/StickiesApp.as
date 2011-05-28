@@ -41,22 +41,28 @@ package net.site.cyngleapp.view
 		
 		override public function init(vo:CyntaxicVO):CynView
 		{
+			debug("Received FlashVars: " + vo.describe());
+			
 			call = new DataCall(vo.config);
 			call.addEventListener(DataCallEvent.COMPLETE, addConfigStickies);
+			debug('DataCall for "' + vo.config + '".');
 			
 			return this;
 		}
 		
 		private function addConfigStickies(event:DataCallEvent):void
 		{
+			debug('Loaded "' + event.data.url + '": ' + event.data.describe());
+			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
 			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
-		public function addSticky(vo:CyntaxicVO):void
+		public function addSticky(vo:StickyVO):void
 		{
-			var sticky:CynView = new UISticky().init(vo as StickyVO);
+			var sticky:CynView = new UISticky().init(vo);
 			
-			add(sticky, {x:(vo as StickyVO).x, y:(vo as StickyVO).y});
+			debug('Added sticky #' + vo.id + '.');
+			add(sticky, {x:vo.x, y:vo.y});
 			
 			model.stickies.push(sticky);
 			model.currentSticky = sticky as Sticky;
@@ -64,6 +70,7 @@ package net.site.cyngleapp.view
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
+			debug('Removed sticky #' + vo.sticky.id + '.');
 			remove(vo.sticky as Sticky);
 		}
 		

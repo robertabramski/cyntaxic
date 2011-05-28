@@ -18,6 +18,7 @@ package com.cyntaxic.cyngle.controller.helpers
 		public static const POST:String = "post";
 		
 		private var _timeout:Number = 5;
+		private var _url:String;
 		
 		private var loader:URLLoader;
 		private var request:URLRequest;
@@ -25,6 +26,8 @@ package com.cyntaxic.cyngle.controller.helpers
 		
 		public function DataCall(url:String, method:String = "get", data:Object = null, contentType:String = "text/plain")
 		{
+			_url = url;
+			
 			request = new URLRequest(url);
 			loader = new URLLoader();
 			
@@ -44,6 +47,7 @@ package com.cyntaxic.cyngle.controller.helpers
 		{
 			var vo:DataCallVO = new DataCallVO();
 			vo.data = "Call timed out after " + timeout + " seconds.";
+			vo.url = _url;
 			
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
@@ -56,6 +60,7 @@ package com.cyntaxic.cyngle.controller.helpers
 		{
 			var vo:DataCallVO = new DataCallVO();
 			vo.data = event.target.data as String;
+			vo.url = _url;
 			
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
@@ -68,6 +73,7 @@ package com.cyntaxic.cyngle.controller.helpers
 		{
 			var vo:DataCallVO = new DataCallVO();
 			vo.data = event.text;
+			vo.url = _url;
 			
 			timer.stop();
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
@@ -75,6 +81,11 @@ package com.cyntaxic.cyngle.controller.helpers
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, handleIOError);
 			dispatchEvent(new DataCallEvent(DataCallEvent.IO_ERROR, vo));
+		}
+		
+		public function get url():String 
+		{
+			return _url;
 		}
 		
 		public function get timeout():Number 

@@ -22,9 +22,7 @@ package com.cyntaxic.cyngle.view
 			cynModel = Cyntaxic.MODEL;
 			cynController = Cyntaxic.CONTROLLER;
 			
-			cynModel.addEventListener(CyntaxicEvent.NOTIFY, update);
 			cynController.addEventListener(CyntaxicEvent.NOTIFY, update);
-			
 			cynModel.views.push(this);
 		}
 		

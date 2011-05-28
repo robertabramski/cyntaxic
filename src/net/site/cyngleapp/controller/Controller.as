@@ -44,10 +44,11 @@ package net.site.cyngleapp.controller
 				var y:Number = stickies.sticky[i].@y.valueOf();
 				var sticky:CyntaxicVO = new StickyVO(id, message, color, x, y);
 				
-				dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky)); 
+				debug("Dispatched " + Handles.ADD_STICKY + " to views.");
+				dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky));
 			}
 			
-			model.id = i;
+			model.id = i + 1;
 			model.currentSticky = model.stickies[i - 1];
 		}
 		
@@ -57,11 +58,13 @@ package net.site.cyngleapp.controller
 			var point:Point = new Point(model.currentSticky.x + offset, model.currentSticky.y + offset);
 			var sticky:StickyVO = new StickyVO(model.id++, "", vo.color, point.x, point.y);
 			
+			debug("Dispatched " + Handles.ADD_STICKY + " to views.");
 			dispatchEvent(new CyntaxicEvent(Handles.ADD_STICKY, sticky));
 		}
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
+			debug("Dispatched " + Handles.REMOVE_STICKY + " to views.");
 			dispatchEvent(new CyntaxicEvent(Handles.REMOVE_STICKY, new CyntaxicVO({sticky:vo.sticky})));
 		}
 	}

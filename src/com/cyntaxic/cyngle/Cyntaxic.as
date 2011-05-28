@@ -7,27 +7,6 @@
 
 	AUTHOR: Robert Abramski
 	WEBSITE: http://www.robertabramski.com/
-	
-	BUG LIST:
-	
-	TO DO:
-	- Command stack for undo and redo functionality
-	- Preloader functionality using Frame metatag
-	- Focus manager
-	- Tooltips on all views
-	- Global CSS stylesheet
-	
-	CORE GOALS:
-	- Less abstraction
-	- Less code written for same result
-	- More dependence on the controller
-	- Works well extending Flash graphics
-	- Common tasks built right in
-	- Debugging built in
-	- Strong typing with value objects
-	- Comes with many utilities out of the box
-	- Static access to top level objects anywhere
-	- Ultilies completely autonomous from framework
 
 ******************************************************************************************************************/
 

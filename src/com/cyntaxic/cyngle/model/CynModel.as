@@ -4,9 +4,7 @@ package com.cyntaxic.cyngle.model
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	import com.cyntaxic.cynccess.cynternal;
 	
-	import flash.events.EventDispatcher;
-	
-	public dynamic class CynModel extends EventDispatcher
+	public dynamic class CynModel
 	{
 		use namespace cynternal;
 		

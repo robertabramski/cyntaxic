@@ -12,12 +12,7 @@ package com.cyntaxic.cyngle.view
 	{
 		public function CynComposite()
 		{
-			addEventListener(Event.ADDED_TO_STAGE, addToStage);
-		}
-		
-		private function addToStage(event:Event):void
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
+			
 		}
 		
 		public function add(child:CynView, props:Object = null):CynView

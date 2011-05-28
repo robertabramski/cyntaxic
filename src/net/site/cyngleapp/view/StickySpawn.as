@@ -40,6 +40,7 @@ package net.site.cyngleapp.view
 		
 		private function spawnSticky(event:MouseEvent):void
 		{
+			debug('Execute command ' + Handles.ADD_STICKY + ' in controller.');
 			controller.execute(Handles.ADD_STICKY, new CyntaxicVO({color:event.target.color}));
 		}
 	}

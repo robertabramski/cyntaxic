@@ -8,12 +8,8 @@ package com.cyntaxic.cyngle.view
 	{
 		public function CynComponent()
 		{
-			addEventListener(Event.ADDED_TO_STAGE, addToStage);
+			
 		}
 		
-		private function addToStage(event:Event):void
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, addToStage);
-		}
 	}
 }
