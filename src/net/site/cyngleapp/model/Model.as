@@ -9,7 +9,7 @@ package net.site.cyngleapp.model
 	{
 		private static var instance:Model;
 		
-		private var _id:int;
+		private var _id:int = 0;
 		private var _stickies:Array = [];
 		private var _colors:Array = Colors.colors;
 		private var _currentSticky:Sticky;

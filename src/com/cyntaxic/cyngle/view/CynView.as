@@ -45,9 +45,27 @@ package com.cyntaxic.cyngle.view
 			}
 		}
 		
+		public function removeChildren():void
+		{
+			while(this.numChildren > 0)
+			{
+				this.removeChildAt(0);
+			}
+		}
+		
+		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
+		{
+			super.addEventListener(type, listener, useCapture, priority, useWeakReference);
+		}
+		
+		public function describe(compact:Boolean = true):String
+		{
+			return Cyntaxic.describe(this, compact);
+		}
+		
 		public function resize():void
 		{
-						
+					
 		}
 	}
 }

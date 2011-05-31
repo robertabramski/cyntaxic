@@ -4,6 +4,7 @@ package net.site.cyngleapp.view
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.helpers.DataCall;
 	import com.cyntaxic.cyngle.controller.helpers.DataCallEvent;
+	import com.cyntaxic.cyngle.view.CynComponent;
 	import com.cyntaxic.cyngle.view.CynComposite;
 	import com.cyntaxic.cyngle.view.CynView;
 	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
@@ -12,6 +13,7 @@ package net.site.cyngleapp.view
 	import comps.header.UIStickyHeader;
 	import comps.sticky.UISticky;
 	
+	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
 	
 	import net.site.cyngleapp.Handles;
@@ -61,9 +63,13 @@ package net.site.cyngleapp.view
 		
 		private function addConfigStickies(event:DataCallEvent):void
 		{
+			call.removeEventListener(DataCallEvent.COMPLETE, addConfigStickies); call = null;
+			
 			debug('Loaded "' + event.data.url + '": ' + event.data.describe());
 			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
-			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
+			
+			// Data is loaded. Send to controller to process. Handle matches function name in controller.
+			//controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
 		public function addSticky(vo:StickyVO):void
@@ -73,13 +79,15 @@ package net.site.cyngleapp.view
 			debug('Added sticky #' + vo.id + ' to view.');
 			add(sticky, {x:vo.x, y:vo.y});
 			
+			// Add to the sticky array. Handle matches function name in controller.
 			controller.execute(Handles.ADD_STICKY_TO_STICKIES, new CyntaxicVO({sticky:sticky}));
 		}
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
 			debug('Removed sticky #' + vo.sticky.id + ' from view.');
-			remove(vo.sticky as Sticky);
+			//remove(vo.sticky as Sticky);
+			removeAt(0);
 		}
 		
 		/**
@@ -89,6 +97,7 @@ package net.site.cyngleapp.view
 		 */
 		override public function resize():void
 		{
+			// The static Cyntaxic.STAGE property allows access to stage properties anywhere.
 			stickySpawn.x = Cyntaxic.STAGE.stageWidth - stickySpawn.width - margin;
 			stickySpawn.y = margin;
 		}

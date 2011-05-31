@@ -3,46 +3,48 @@ package com.cyntaxic.cyngle.view
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicEvent;
+	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
+	import flash.system.System;
 	
-	use namespace cynternal;
-
 	public class CynComposite extends CynView implements ICynView
 	{
+		use namespace cynternal;
+		
 		public function CynComposite()
 		{
 			
 		}
 		
-		public function add(child:CynView, props:Object = null):CynView
+		public function add(view:CynView, props:Object = null):CynView
 		{
-			addChild(child as DisplayObject);
+			addChild(view as DisplayObject);
+			addProps(view, props);
 			
-			for(var prop:String in props)
-			{
-				child[prop] = props[prop];
-			}
-			
-			return child;
+			return view;
 		}
 		
-		public function addAt(child:CynView, index:int, props:Object = null):CynView
+		public function addAt(view:CynView, index:int, props:Object = null):CynView
 		{
-			addChildAt(child as DisplayObject, index);
+			addChildAt(view as DisplayObject, index);
+			addProps(view, props);
 			
-			for(var prop:String in props)
-			{
-				child[prop] = props[prop];
-			}
-			
-			return child;
+			return view;
 		}
 		
-		private function removeChildren(composite:CynComposite):void
+		private function addProps(view:CynView, props:Object):void
+		{
+			for(var prop:String in props)
+			{
+				view[prop] = props[prop];
+			}
+		}
+		
+		private function removeChildViews(composite:CynComposite):void
 		{
 			if(composite.hasEventListener(CyntaxicEvent.NOTIFY)) 
 				composite.removeEventListener(CyntaxicEvent.NOTIFY, update);
@@ -54,41 +56,48 @@ package com.cyntaxic.cyngle.view
 				if(composite.contains(view))
 				{
 					cynModel.views.splice(i, 1);
-					trace('recursive ' + cynModel.views);
-					
-					if(view is CynComposite) removeChildren(view as CynComposite);
+					if(view is CynComposite) removeChildViews(view as CynComposite);
+					trace('recursive ' + view);
 				}
 			}
+			
+			composite = null;
 		}
 		
-		public function remove(child:CynView):CynView
+		public function remove(view:CynView):void
 		{
-			var view:CynView = child;
-			
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
 				if(view == cynModel.views[i])
 				{
-					cynModel.views.splice(i, 1); 
-					trace(cynModel.views);
-					
-					if(view is CynComposite) removeChildren(view as CynComposite);
+					cynModel.views.splice(i, 1);
+					if(view is CynComposite) removeChildViews(view as CynComposite);
 				}
 			}
 			
-			removeChild(child as DisplayObject);
-			return child;
+			removeChild(view as DisplayObject); 
+			view = null; System.gc();
 		}
 		
-		public function removeAt(index:int):CynView
+		public function removeAt(index:int):void
 		{
-			var child:DisplayObject = getChildAt(index); 
-			
-			cynModel.views.splice(index, 1);
-			trace(cynModel.views);
-			
-			removeChildAt(index);
-			return child as CynView;
+			if(getChildAt(index) is CynView)
+			{
+				var view:CynView = getChildAt(index) as CynView; 
+				
+				cynModel.views.splice(index, 1);
+				if(view is CynComposite) removeChildViews(view as CynComposite);
+				trace(view);
+				
+				removeChildAt(index); 
+				view = null; System.gc();
+				
+				trace(cynModel.views);
+			}
+			else
+			{
+				throw new Error(ErrorCodes.E_5001);
+			}
 		}
 	}
 }

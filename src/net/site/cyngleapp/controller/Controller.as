@@ -56,8 +56,10 @@ package net.site.cyngleapp.controller
 		
 		public function addSticky(vo:CyntaxicVO):void
 		{
+			if(!model) model = (cynModel as Model);
+			
 			var offset:Number = model.stickyOffset;
-			var point:Point = new Point(model.currentSticky.x + offset, model.currentSticky.y + offset);
+			var point:Point = model.currentSticky ? new Point(model.currentSticky.x + offset, model.currentSticky.y + offset) : new Point(100, 100);
 			var sticky:StickyVO = new StickyVO(model.id++, "", vo.color, point.x, point.y);
 			
 			debug("Dispatched " + Handles.ADD_STICKY + " to views.");
@@ -70,6 +72,7 @@ package net.site.cyngleapp.controller
 			
 			model.stickies.push(sticky);
 			model.currentSticky = sticky;
+			
 			debug("Added sticky #" + sticky.id + " to model.stickies.");
 		}
 		

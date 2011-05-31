@@ -18,25 +18,11 @@ package com.cyntaxic.cyngle
 			super(NOTIFY, bubbles, cancelable);
 		}
 		
-		public function get handle():String 
-		{
-			return _handle;
-		}
+		public function get handle():String { return _handle; }
+		public function set handle(value:String):void { _handle = value; }
 
-		public function set handle(value:String):void
-		{
-			_handle = value;
-		}
-
-		public function get vo():CyntaxicVO 
-		{
-			return _vo;
-		}
-
-		public function set vo(value:CyntaxicVO):void 
-		{
-			_vo = value;
-		}
+		public function get vo():CyntaxicVO { return _vo; }
+		public function set vo(value:CyntaxicVO):void { _vo = value; }
 		
 		public function describe(compact:Boolean = true):String
 		{

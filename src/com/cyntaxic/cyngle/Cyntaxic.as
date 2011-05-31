@@ -87,12 +87,12 @@ package com.cyntaxic.cyngle
 			
 			for(property in object)
 			{
-				description += "\t" + property + ":" + displayType(object[property]) + ", \n";
+				description = writeProperty(description, object, property);
 			}
 			
 			for each(property in properties)
 			{
-				description += "\t" + property + ":" + displayType(object[property]) + ", \n";
+				description = writeProperty(description, object, property);
 			}
 			
 			description += "}";
@@ -101,17 +101,25 @@ package com.cyntaxic.cyngle
 			return compact ? description.split("\n").join("").split("\t").join("") : description;
 		}
 		
-		private static function displayType(property:Object):Object
+		private static function writeProperty(description:String, object:Object, property:String):String
 		{
-			switch(true)
+			function displayType(property:Object):Object
 			{
-				case !property: 			return property;
-				case property is String: 	return '"' + property + '"';
-				case property is Array:		return '[' + property + ']';
-				case property is Function:	return '[object Function]';
+				switch(true)
+				{
+					case !property: 			return property;
+					case property is String: 	return '"' + property + '"';
+					case property is Array:		return '[' + property + ']';
+					case property is Function:	return '[object Function]';
+				}
+				
+				return property.toString();
 			}
 			
-			return property.toString();
+			try { description += "\t" + property + ":" + displayType(object[property]) + ", \n"; }
+			catch(error:Error) { description += "\t" + property + ":[write-only], \n"; }
+			
+			return description;
 		}
 		
 		public static function get VERSION():String

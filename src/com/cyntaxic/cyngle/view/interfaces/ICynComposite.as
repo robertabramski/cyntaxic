@@ -6,7 +6,7 @@ package com.cyntaxic.cyngle.view.interfaces
 	{
 		function add(child:CynView, props:Object = null):CynView
 		function addAt(child:CynView, index:int, props:Object = null):CynView
-		function remove(child:CynView):CynView
-		function removeAt(index:int):CynView
+		function remove(child:CynView):void
+		function removeAt(index:int):void
 	}
 }

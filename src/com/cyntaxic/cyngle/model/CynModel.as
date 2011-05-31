@@ -1,8 +1,8 @@
 package com.cyntaxic.cyngle.model
 {
+	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
-	import com.cyntaxic.cynccess.cynternal;
 	
 	public dynamic class CynModel
 	{
@@ -25,5 +25,10 @@ package com.cyntaxic.cyngle.model
 		
 		cynternal function get views():Array { return _views; }
 		cynternal function set views(value:Array):void { _views = value; }
+		
+		public function get cynViews():Array
+		{
+			return _views.slice();
+		}
 	}
 }
