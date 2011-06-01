@@ -45,17 +45,24 @@ package com.cyntaxic.cyngle.view
 			}
 		}
 		
-		public function removeChildren():void
+		public function listen(type:String, listener:Function, props:Object = null):void
 		{
-			while(this.numChildren > 0)
-			{
-				this.removeChildAt(0);
-			}
+			if(!props.useCapture) props.useCapture = false; 
+			if(!props.priority) props.priority = 0; 
+			if(!props.useWeakReference) props.priority = false; 
+			
+			addEventListener(type, listener, props.useCapture, props.priority, props.useWeakReference);
 		}
 		
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
 			super.addEventListener(type, listener, useCapture, priority, useWeakReference);
+		}
+		
+		public function clearListeners():void
+		{
+			if(this.hasEventListener(CyntaxicEvent.NOTIFY))
+				this.removeEventListener(CyntaxicEvent.NOTIFY, update);
 		}
 		
 		public function describe(compact:Boolean = true):String
