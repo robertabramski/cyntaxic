@@ -32,7 +32,7 @@ package net.site.cyngleapp.view
 				
 				miniSticky.init(new CyntaxicVO(color));
 				miniSticky.x = (miniSticky.width + margin) * i;
-				miniSticky.addEventListener(MouseEvent.CLICK, spawnSticky);
+				miniSticky.listen(MouseEvent.CLICK, spawnSticky);
 				
 				add(miniSticky);
 			}

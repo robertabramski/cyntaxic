@@ -12,6 +12,7 @@
 
 package com.cyntaxic.cyngle
 {
+	import com.adobe.serialization.json.JSON;
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
@@ -78,48 +79,7 @@ package com.cyntaxic.cyngle
 		
 		public static function describe(object:Object, compact:Boolean = true):String
 		{
-			var xml:XML = describeType(object);
-			var properties:XMLList = xml..variable.@name + xml..accessor.@name;
-			var property:String;
-			
-			var description:String = "\n{\n";
-			var i:int = 0;
-			
-			for(property in object)
-			{
-				description = writeProperty(description, object, property);
-			}
-			
-			for each(property in properties)
-			{
-				description = writeProperty(description, object, property);
-			}
-			
-			description += "}";
-			description = description.replace(/, \n}/, "\n}");
-			
-			return compact ? description.split("\n").join("").split("\t").join("") : description;
-		}
-		
-		private static function writeProperty(description:String, object:Object, property:String):String
-		{
-			function displayType(property:Object):Object
-			{
-				switch(true)
-				{
-					case !property: 			return property;
-					case property is String: 	return '"' + property + '"';
-					case property is Array:		return '[' + property + ']';
-					case property is Function:	return '[object Function]';
-				}
-				
-				return property.toString();
-			}
-			
-			try { description += "\t" + property + ":" + displayType(object[property]) + ", \n"; }
-			catch(error:Error) { description += "\t" + property + ":[write-only], \n"; }
-			
-			return description;
+			return ObjectDescriptor.getString(object, compact);
 		}
 		
 		public static function get VERSION():String
@@ -249,6 +209,9 @@ package com.cyntaxic.cyngle
 		}
 	}
 }
+import flash.utils.describeType;
+
+import spark.primitives.Line;
 
 internal dynamic class FlashVarsVO extends com.cyntaxic.cyngle.CyntaxicVO
 {
@@ -299,4 +262,150 @@ internal class BasicContextMenu
 
 internal class Key { }
 
-
+internal class ObjectDescriptor 
+{
+	public function ObjectDescriptor()
+	{
+		
+	}
+	
+	public static function getString(object:Object, compact:Boolean):String
+	{
+		return compact ? convertToString(object) : format(convertToString(object));
+	}
+	
+	private static function format(val:String):String
+	{
+		var retval:String = '';
+		var str:String = val;
+		var pos:int = 0;
+		var strLen:int = str.length;
+		var indentStr:String = '\t';
+		var newLine:String = '\n';
+		var char:String = '';
+		var inString:Boolean = false;
+		
+		for(var i:int = 0; i < strLen; i++) 
+		{
+			char = str.substring(i, i + 1);
+			
+			if(char == '"' && !inString) inString = true;
+			else if(char == '"' && inString) inString = false;
+			
+			if(char == '}' || char == ']')
+			{
+				if(!inString) retval = retval + newLine;
+				pos = pos - 1;
+				
+				for(var j:int = 0; j < pos; j++) 
+				{
+					if(!inString) retval = retval + indentStr;
+				}
+			}
+			
+			retval = retval + char;
+			
+			if(char == '{' || char == '[' || char == ',')
+			{
+				if(!inString) retval = retval + newLine;
+				
+				if(char == '{' || char == '[')
+				{
+					pos = pos + 1;
+				}
+				
+				for(var k:int = 0; k < pos; k++)
+				{
+					if(!inString) retval = retval + indentStr;
+				}
+			}
+		}
+		
+		return newLine + retval;
+	}
+	
+	private static function convertToString(value:Object):String 
+	{
+		switch(true)
+		{
+			case (value is String): 					return escapeString(value as String);
+			case (value is Number): 					return isFinite(value as Number) ? value.toString() : "null";
+			case (value is Function): 					return escapeString(value.toString());
+			case (value is Boolean):					return value ? "true" : "false";
+			case (value is Array):						return arrayToString(value as Array);
+			case (value is Object && value != null): 	return objectToString(value);
+			
+			default: 									return "null";
+		}
+	}
+	
+	private static function escapeString(str:String):String 
+	{
+		var s:String = "";
+		var ch:String;
+		var len:Number = str.length;
+		
+		for(var i:int = 0; i < len; i++) 
+		{
+			ch = str.charAt(i);
+			
+			switch(ch)
+			{
+				case '"': 	s += "\\\""; 	break; // quotation mark
+				case '\\': 	s += "\\\\"; 	break; // reverse solidus
+				case '\b': 	s += "\\b"; 	break; // bell
+				case '\f':	s += "\\f";		break; // form feed
+				case '\n':	s += "\\n";		break; // newline
+				case '\r':	s += "\\r";		break; // carriage return
+				case '\t':	s += "\\t";		break; // horizontal tab
+				
+				default:
+					
+				if(ch < ' ')
+				{
+					var hexCode:String = ch.charCodeAt(0).toString(16);
+					var zeroPad:String = hexCode.length == 2 ? "00" : "000";
+					s += "\\u" + zeroPad + hexCode;
+				}
+				else s += ch;
+			}
+		}
+		
+		return "\"" + s + "\"";
+	}
+	
+	private static function arrayToString(a:Array):String 
+	{
+		var s:String = "";
+		
+		for(var i:int = 0; i < a.length; i++)
+		{
+			if(s.length > 0) s += ", "; 
+			s +=  convertToString(a[i]);	
+		}
+		
+		return "[" + s + "]";
+	}
+	
+	private static function objectToString(o:Object):String
+	{
+		var s:String = "";
+		var classInfo:XML = flash.utils.describeType(o);
+		
+		for(var key:String in o)
+		{
+			if(s.length > 0) s += ", ";
+			
+			var value:Object = o[key];
+			s += escapeString(key) + ":" + convertToString(value);
+		}
+		
+		for each(var v:XML in classInfo..*.(name() == "variable" || name() == "accessor"))
+		{
+			if(s.length > 0) s += ", "; 
+			s += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]);
+		}
+		
+		return "{" + s + "}";
+	}
+}

@@ -1,5 +1,6 @@
 package com.cyntaxic.cyngle.view
 {
+	import com.adobe.serialization.json.JSON;
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicEvent;
@@ -17,6 +18,8 @@ package com.cyntaxic.cyngle.view
 		protected var cynModel:CynModel;
 		protected var cynController:CynController;
 		protected var suppressDebug:Boolean = false;
+		
+		public var listeners:Array = [];
 		
 		public function CynView()
 		{
@@ -47,9 +50,11 @@ package com.cyntaxic.cyngle.view
 		
 		public function listen(type:String, listener:Function, props:Object = null):void
 		{
+			if(!props) props = new Object();
+			
 			if(!props.useCapture) props.useCapture = false; 
 			if(!props.priority) props.priority = 0; 
-			if(!props.useWeakReference) props.priority = false; 
+			if(!props.useWeakReference) props.priority = false;
 			
 			addEventListener(type, listener, props.useCapture, props.priority, props.useWeakReference);
 		}
@@ -57,12 +62,21 @@ package com.cyntaxic.cyngle.view
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
 			super.addEventListener(type, listener, useCapture, priority, useWeakReference);
+			listeners.push({type:type, listener:listener, useCapture:useCapture, priority:priority, useWeakReference:useWeakReference});
 		}
 		
 		public function clearListeners():void
 		{
-			if(this.hasEventListener(CyntaxicEvent.NOTIFY))
-				this.removeEventListener(CyntaxicEvent.NOTIFY, update);
+			for(var i:int = 0; i < listeners.length; i++)
+			{
+				if(this.hasEventListener(listeners[i].type)) 
+					this.removeEventListener(listeners[i].type, listeners[i].listener);
+			}
+		}
+		
+		public function getListeners():Array
+		{
+			return listeners.slice();
 		}
 		
 		public function describe(compact:Boolean = true):String

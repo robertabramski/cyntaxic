@@ -69,7 +69,7 @@ package net.site.cyngleapp.view
 			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
 			
 			// Data is loaded. Send to controller to process. Handle matches function name in controller.
-			//controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
+			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
 		public function addSticky(vo:StickyVO):void

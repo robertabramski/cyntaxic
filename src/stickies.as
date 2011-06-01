@@ -33,7 +33,7 @@ package
 			// Next init the framework passing in extended CynController and CynModel classes.
 			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), 
 			{
-				debug:false,
+				debug:true,
 				fullScaleFlash:true
 			});
 			
