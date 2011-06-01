@@ -12,7 +12,6 @@
 
 package com.cyntaxic.cyngle
 {
-	import com.adobe.serialization.json.JSON;
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
@@ -209,6 +208,8 @@ package com.cyntaxic.cyngle
 		}
 	}
 }
+import com.cyntaxic.cyngle.Cyntaxic;
+
 import flash.utils.describeType;
 
 import spark.primitives.Line;
@@ -264,11 +265,6 @@ internal class Key { }
 
 internal class ObjectDescriptor 
 {
-	public function ObjectDescriptor()
-	{
-		
-	}
-	
 	public static function getString(object:Object, compact:Boolean):String
 	{
 		return compact ? convertToString(object) : format(convertToString(object));
@@ -276,7 +272,7 @@ internal class ObjectDescriptor
 	
 	private static function format(val:String):String
 	{
-		var retval:String = '';
+		var formatted:String = '';
 		var str:String = val;
 		var pos:int = 0;
 		var strLen:int = str.length;
@@ -294,20 +290,20 @@ internal class ObjectDescriptor
 			
 			if(char == '}' || char == ']')
 			{
-				if(!inString) retval = retval + newLine;
+				if(!inString) formatted = formatted + newLine;
 				pos = pos - 1;
 				
 				for(var j:int = 0; j < pos; j++) 
 				{
-					if(!inString) retval = retval + indentStr;
+					if(!inString) formatted = formatted + indentStr;
 				}
 			}
 			
-			retval = retval + char;
+			formatted = formatted + char;
 			
 			if(char == '{' || char == '[' || char == ',')
 			{
-				if(!inString) retval = retval + newLine;
+				if(!inString) formatted = formatted + newLine;
 				
 				if(char == '{' || char == '[')
 				{
@@ -316,12 +312,25 @@ internal class ObjectDescriptor
 				
 				for(var k:int = 0; k < pos; k++)
 				{
-					if(!inString) retval = retval + indentStr;
+					if(!inString) formatted = formatted + indentStr;
+				}
+			}
+			
+			if(char == ':')
+			{
+				var nextChar:String = str.substring(i + 1, i + 2);
+				var tokenIsNext:Boolean = (nextChar == '{' || nextChar == '[');
+				
+				if(!inString && tokenIsNext) formatted = formatted + newLine;
+				
+				for(var l:int = 0; l < pos; l++)
+				{
+					if(!inString && tokenIsNext) formatted = formatted + indentStr;
 				}
 			}
 		}
 		
-		return newLine + retval;
+		return newLine + formatted;
 	}
 	
 	private static function convertToString(value:Object):String 
@@ -330,7 +339,7 @@ internal class ObjectDescriptor
 		{
 			case (value is String): 					return escapeString(value as String);
 			case (value is Number): 					return isFinite(value as Number) ? value.toString() : "null";
-			case (value is Function): 					return escapeString(value.toString());
+			case (value is Function): 					return escapeString("[object Function]");
 			case (value is Boolean):					return value ? "true" : "false";
 			case (value is Array):						return arrayToString(value as Array);
 			case (value is Object && value != null): 	return objectToString(value);
@@ -380,11 +389,11 @@ internal class ObjectDescriptor
 		
 		for(var i:int = 0; i < a.length; i++)
 		{
-			if(s.length > 0) s += ", "; 
+			if(s.length > 0) s += ","; 
 			s +=  convertToString(a[i]);	
 		}
 		
-		return "[" + s + "]";
+		return '{"type":"[object Array]","data":[' + s + ']}';
 	}
 	
 	private static function objectToString(o:Object):String
@@ -394,7 +403,7 @@ internal class ObjectDescriptor
 		
 		for(var key:String in o)
 		{
-			if(s.length > 0) s += ", ";
+			if(s.length > 0) s += ",";
 			
 			var value:Object = o[key];
 			s += escapeString(key) + ":" + convertToString(value);
@@ -402,10 +411,10 @@ internal class ObjectDescriptor
 		
 		for each(var v:XML in classInfo..*.(name() == "variable" || name() == "accessor"))
 		{
-			if(s.length > 0) s += ", "; 
+			if(s.length > 0) s += ","; 
 			s += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]);
 		}
 		
-		return "{" + s + "}";
+		return '{"type":' + escapeString(o.toString()) + ',"data":{' + s + '}}';
 	}
 }

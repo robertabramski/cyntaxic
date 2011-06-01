@@ -1,6 +1,5 @@
 package com.cyntaxic.cyngle.view
 {
-	import com.adobe.serialization.json.JSON;
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicEvent;
@@ -19,7 +18,7 @@ package com.cyntaxic.cyngle.view
 		protected var cynController:CynController;
 		protected var suppressDebug:Boolean = false;
 		
-		public var listeners:Array = [];
+		private var listeners:Array = [];
 		
 		public function CynView()
 		{
@@ -77,6 +76,11 @@ package com.cyntaxic.cyngle.view
 		public function getListeners():Array
 		{
 			return listeners.slice();
+		}
+		
+		public function describeListeners(compact:Boolean = true):String
+		{
+			return Cyntaxic.describe(listeners, compact);
 		}
 		
 		public function describe(compact:Boolean = true):String
