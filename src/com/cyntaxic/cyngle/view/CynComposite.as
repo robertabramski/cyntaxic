@@ -44,7 +44,7 @@ package com.cyntaxic.cyngle.view
 			}
 		}
 		
-		private function destroy(view:CynView):void
+		private function removeCompletely(view:CynView):void
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
@@ -59,23 +59,29 @@ package com.cyntaxic.cyngle.view
 						
 						if(childView is CynView)
 						{ 
-							destroy(childView as CynView);
+							removeCompletely(childView as CynView);
 						}
 					}
 				}
 			}
 		}
 		
-		public function remove(view:CynView):void
+		public function remove(view:CynView, completely:Boolean = false):CynView
 		{
-			destroy(view);
-			removeChild(view as DisplayObject); 
-			view = null; System.gc();
+			if(completely)
+			{
+				removeCompletely(view);
+				removeChild(view as DisplayObject);
+				view = null; System.gc();
+			}
+			else removeChild(view as DisplayObject);
+			
+			return view;
 		}
 		
-		public function removeAt(index:int):void
+		public function removeAt(index:int, completely:Boolean = false):CynView
 		{
-			if(getChildAt(index) is CynView) remove(getChildAt(index) as CynView);
+			if(getChildAt(index) is CynView) return remove(getChildAt(index) as CynView, completely);
 			else throw new Error(ErrorCodes.E_5001);
 		}
 	}

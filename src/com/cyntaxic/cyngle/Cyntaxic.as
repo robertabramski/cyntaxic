@@ -386,6 +386,9 @@ internal class ObjectDescriptor
 	private static function arrayToString(a:Array):String 
 	{
 		var s:String = "";
+		var classInfo:XML = flash.utils.describeType(a);
+		var className:String = classInfo.@name;
+		var baseClass:String = classInfo.@base;
 		
 		for(var i:int = 0; i < a.length; i++)
 		{
@@ -393,13 +396,15 @@ internal class ObjectDescriptor
 			s +=  convertToString(a[i]);	
 		}
 		
-		return '{"type":"[object Array]","data":[' + s + ']}';
+		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"object":[' + s + ']}';
 	}
 	
 	private static function objectToString(o:Object):String
 	{
 		var s:String = "";
 		var classInfo:XML = flash.utils.describeType(o);
+		var className:String = classInfo.@name;
+		var baseClass:String = classInfo.@base;
 		
 		for(var key:String in o)
 		{
@@ -412,9 +417,10 @@ internal class ObjectDescriptor
 		for each(var v:XML in classInfo..*.(name() == "variable" || name() == "accessor"))
 		{
 			if(s.length > 0) s += ","; 
-			s += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]);
+			try { s += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]); }
+			catch(error:Error) { s += escapeString(v.@name.toString()) + ':"[write-only]"'; }
 		}
 		
-		return '{"type":' + escapeString(o.toString()) + ',"data":{' + s + '}}';
+		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"object":{' + s + '}}';
 	}
 }
