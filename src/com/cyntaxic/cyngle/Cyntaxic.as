@@ -79,7 +79,7 @@ package com.cyntaxic.cyngle
 		
 		public static function describe(object:Object, compact:Boolean = true):String
 		{
-			return ObjectDescriptor.getString(object, compact);
+			return ObjectDescriptor.describe(object, compact);
 		}
 		
 		public static function get VERSION():String
@@ -276,7 +276,7 @@ internal class Key { }
 
 internal class ObjectDescriptor 
 {
-	public static function getString(object:Object, compact:Boolean):String
+	public static function describe(object:Object, compact:Boolean):String
 	{
 		return compact ? convertToString(object) : format(convertToString(object));
 	}

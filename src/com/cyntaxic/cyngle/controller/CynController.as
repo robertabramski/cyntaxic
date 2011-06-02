@@ -2,6 +2,7 @@ package com.cyntaxic.cyngle.controller
 {
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;
+	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cyngle.model.CynModel;
@@ -29,6 +30,11 @@ package com.cyntaxic.cyngle.controller
 		public function execute(handle:String, vo:CyntaxicVO):void
 		{
 			this[handle](vo);
+		}
+		
+		protected function notify(handle:String, vo:CyntaxicVO):void
+		{
+			dispatchEvent(new CyntaxicEvent(handle, vo));
 		}
 		
 		protected function debug(message:Object):void

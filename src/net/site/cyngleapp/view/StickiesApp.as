@@ -69,7 +69,7 @@ package net.site.cyngleapp.view
 			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
 			
 			// Data is loaded. Send to controller to process. Handle matches function name in controller.
-			//controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
+			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
 		public function addSticky(vo:StickyVO):void
@@ -77,6 +77,8 @@ package net.site.cyngleapp.view
 			var sticky:CynView = new UISticky().init(vo);
 			
 			debug('Added sticky #' + vo.id + ' to view.');
+			
+			// Add the child and use the props param to position on add.
 			add(sticky, {x:vo.x, y:vo.y});
 			
 			// Add to the sticky array. Handle matches function name in controller.
@@ -85,8 +87,11 @@ package net.site.cyngleapp.view
 		
 		public function removeSticky(vo:CyntaxicVO):void
 		{
-			debug('Removed sticky #' + vo.sticky.id + ' from view.');
-			remove(vo.sticky as Sticky);
+			debug('Removed and deleted sticky #' + vo.sticky.id + ' from view.');
+			
+			// Remove will just remove from display list unless the completely flag is set.
+			// This will do the same as destroy() which removes all reference and sets it to null.
+			remove(vo.sticky as Sticky, true);
 		}
 		
 		/**

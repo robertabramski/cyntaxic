@@ -58,6 +58,11 @@ package com.cyntaxic.cyngle.view
 			addEventListener(type, listener, props.useCapture, props.priority, props.useWeakReference);
 		}
 		
+		public function removeAllChildren():void
+		{
+			while(this.numChildren > 0) this.removeChildAt(0);
+		}
+		
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
 			super.addEventListener(type, listener, useCapture, priority, useWeakReference);

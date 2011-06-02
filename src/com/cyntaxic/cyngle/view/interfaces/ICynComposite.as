@@ -8,5 +8,7 @@ package com.cyntaxic.cyngle.view.interfaces
 		function addAt(child:CynView, index:int, props:Object = null):CynView
 		function remove(child:CynView, completely:Boolean = false):CynView
 		function removeAt(index:int, completely:Boolean = false):CynView
+		function destroy(view:CynView):void
+		function destroyAt(index:int):void
 	}
 }

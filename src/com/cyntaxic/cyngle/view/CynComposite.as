@@ -71,6 +71,13 @@ package com.cyntaxic.cyngle.view
 			if(completely)
 			{
 				removeCompletely(view);
+				
+				while(view.numChildren > 0)
+				{
+					var child:DisplayObject = view.removeChildAt(0);
+					child = null;
+				}
+				
 				removeChild(view as DisplayObject);
 				view = null; System.gc();
 			}
@@ -83,6 +90,16 @@ package com.cyntaxic.cyngle.view
 		{
 			if(getChildAt(index) is CynView) return remove(getChildAt(index) as CynView, completely);
 			else throw new Error(ErrorCodes.E_5001);
+		}
+		
+		public function destroy(view:CynView):void
+		{
+			remove(view, true);
+		}
+		
+		public function destroyAt(index:int):void
+		{
+			removeAt(index, true);
 		}
 	}
 }
