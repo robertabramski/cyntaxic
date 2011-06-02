@@ -92,5 +92,23 @@ package com.cyntaxic.cyngle.view
 		{
 					
 		}
+		
+		override public function get x():Number { return super.x; }
+		override public function set x(value:Number):void { super.x = value; }
+		
+		override public function get y():Number { return super.y; }
+		override public function set y(value:Number):void { super.y = value; }
+		
+		override public function get z():Number { return super.z; }
+		override public function set z(value:Number):void { super.z = value; }
+		
+		override public function get width():Number { return super.width; }
+		override public function set width(value:Number):void { super.width = value; }
+		
+		override public function get height():Number { return super.height; }
+		override public function set height(value:Number):void { super.height = value; }
+		
+		override public function get rotation():Number { return super.rotation; }
+		override public function set rotation(value:Number):void { super.rotation = value; }
 	}
 }

@@ -40,6 +40,7 @@ package com.cyntaxic.cyngle
 		private static var _VERSION:String;
 		
 		private static var _debug:Boolean = true;
+		private static var _deepDescribe:Boolean = false;
 		private static var _fullScaleFlash:Boolean;
 		private static var _contextMenu:ContextMenu;
 		
@@ -196,6 +197,16 @@ package com.cyntaxic.cyngle
 		{
 			_debug = DEBUGGER.debug = value;
 		}
+		
+		public static function get deepDescribe():Boolean 
+		{
+			return _deepDescribe;
+		}
+
+		public static function set deepDescribe(value:Boolean):void 
+		{
+			_deepDescribe = value;
+		}
 
 		private static function throwError(error:ErrorCodeVO):void
 		{
@@ -236,7 +247,7 @@ internal class Debugger
 	
 	public function Debugger(debug:Boolean = true)
 	{
-		this.debug =  debug;
+		this.debug = debug;
 	}
 	
 	public function log(messenger:Object, message:Object):void
@@ -393,10 +404,10 @@ internal class ObjectDescriptor
 		for(var i:int = 0; i < a.length; i++)
 		{
 			if(s.length > 0) s += ","; 
-			s +=  convertToString(a[i]);	
+			s += convertToString(a[i]);	
 		}
 		
-		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"object":[' + s + ']}';
+		return '{"name":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"properties":[' + s + ']}';
 	}
 	
 	private static function objectToString(o:Object):String
@@ -405,6 +416,16 @@ internal class ObjectDescriptor
 		var classInfo:XML = flash.utils.describeType(o);
 		var className:String = classInfo.@name;
 		var baseClass:String = classInfo.@base;
+		var appendObjectString:Function = function(s:String, v:XML):String
+		{
+			var t:String = "";
+			
+			if(s.length > 0) t += ",";
+			try { t += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]); }
+			catch(error:Error) { t += escapeString(v.@name.toString()) + ':"[write-only]"';  }
+			
+			return t;
+		};
 		
 		for(var key:String in o)
 		{
@@ -416,11 +437,19 @@ internal class ObjectDescriptor
 		
 		for each(var v:XML in classInfo..*.(name() == "variable" || name() == "accessor"))
 		{
-			if(s.length > 0) s += ","; 
-			try { s += escapeString(v.@name.toString()) + ":" + convertToString(o[v.@name]); }
-			catch(error:Error) { s += escapeString(v.@name.toString()) + ':"[write-only]"'; }
+			if(Cyntaxic.deepDescribe)
+			{
+				s += appendObjectString(s, v);
+			}
+			else
+			{
+				if(v.@declaredBy.toString().indexOf('flash') == -1)
+				{
+					s += appendObjectString(s, v);
+				}
+			}
 		}
 		
-		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"object":{' + s + '}}';
+		return '{"name":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"properties":{' + s + '}}';
 	}
 }

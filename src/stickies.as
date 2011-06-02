@@ -34,6 +34,7 @@ package
 			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), 
 			{
 				debug:true,
+				deepDescribe:false,
 				fullScaleFlash:true
 			});
 			
