@@ -17,7 +17,7 @@ package net.site.cyngleapp.model
 
 		public function Model(key:Key)
 		{
-			
+			super(this);
 		}
 		
 		public static function getInstance():Model

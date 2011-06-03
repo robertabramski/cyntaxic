@@ -22,7 +22,7 @@ package net.site.cyngleapp.controller
 		
 		public function Controller(key:Key)
 		{
-			
+			super(this);
 		}
 		
 		public static function getInstance():Controller

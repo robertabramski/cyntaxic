@@ -12,8 +12,6 @@ package net.site.cyngleapp.view
 	import comps.header.UIStickyHeader;
 	import comps.sticky.UISticky;
 	
-	import flash.events.Event;
-	
 	import net.site.cyngleapp.Handles;
 	import net.site.cyngleapp.controller.Controller;
 	import net.site.cyngleapp.model.Model;

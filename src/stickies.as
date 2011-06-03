@@ -2,6 +2,7 @@ package
 {
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cyntils.CynBrowser;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;

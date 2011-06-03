@@ -18,9 +18,9 @@ package com.cyntaxic.cyngle.controller
 		
 		protected var cynModel:CynModel;
 		
-		public function CynController()
+		public function CynController(self:CynController)
 		{
-			
+			if(self != this) throwError(ErrorCodes.E_5003);
 		}
 		
 		cynternal function init():CynController

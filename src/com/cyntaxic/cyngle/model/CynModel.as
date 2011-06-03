@@ -1,7 +1,9 @@
 package com.cyntaxic.cyngle.model
 {
 	import com.cyntaxic.cynccess.cynternal;
+	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	
@@ -12,9 +14,9 @@ package com.cyntaxic.cyngle.model
 		private var _version:VersionVO = Versions.VERSION_1_0_0;
 		private var _views:Array = [];
 		
-		public function CynModel()
+		public function CynModel(self:CynModel)
 		{
-			
+			if(self != this) Cyntaxic.MODEL.throwError(ErrorCodes.E_5003);
 		}
 		
 		cynternal function init():CynModel
