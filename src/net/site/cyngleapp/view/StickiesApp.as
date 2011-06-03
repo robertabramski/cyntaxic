@@ -4,7 +4,6 @@ package net.site.cyngleapp.view
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.helpers.DataCall;
 	import com.cyntaxic.cyngle.controller.helpers.DataCallEvent;
-	import com.cyntaxic.cyngle.view.CynComponent;
 	import com.cyntaxic.cyngle.view.CynComposite;
 	import com.cyntaxic.cyngle.view.CynView;
 	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
@@ -13,8 +12,7 @@ package net.site.cyngleapp.view
 	import comps.header.UIStickyHeader;
 	import comps.sticky.UISticky;
 	
-	import flash.display.DisplayObject;
-	import flash.events.MouseEvent;
+	import flash.events.Event;
 	
 	import net.site.cyngleapp.Handles;
 	import net.site.cyngleapp.controller.Controller;
@@ -47,7 +45,7 @@ package net.site.cyngleapp.view
 			add(header);
 			add(stickySpawn);
 			  
-			resize();
+			resize(null);
 		}
 		
 		override public function init(vo:CyntaxicVO):CynView
@@ -63,13 +61,13 @@ package net.site.cyngleapp.view
 		
 		private function addConfigStickies(event:DataCallEvent):void
 		{
-			call.removeEventListener(DataCallEvent.COMPLETE, addConfigStickies); call = null;
+			call.removeEventListener(DataCallEvent.COMPLETE, addConfigStickies);
 			
 			debug('Loaded "' + event.data.url + '": ' + event.data.describe());
 			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
 			
 			// Data is loaded. Send to controller to process. Handle matches function name in controller.
-			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
+			//controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
 		public function addSticky(vo:StickyVO):void
@@ -99,7 +97,7 @@ package net.site.cyngleapp.view
 		 * the Cyntaxic.fullScaleFlash option which sets up the application for liquid layout.
 		 * 
 		 */
-		override public function resize():void
+		override public function resize(vo:CyntaxicVO):void
 		{
 			// The static Cyntaxic.STAGE property allows access to stage properties anywhere.
 			stickySpawn.x = Cyntaxic.STAGE.stageWidth - stickySpawn.width - margin;

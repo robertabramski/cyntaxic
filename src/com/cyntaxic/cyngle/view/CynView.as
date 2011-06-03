@@ -25,8 +25,10 @@ package com.cyntaxic.cyngle.view
 			cynModel = Cyntaxic.MODEL;
 			cynController = Cyntaxic.CONTROLLER;
 			
-			cynController.addEventListener(CyntaxicEvent.NOTIFY, update);
+			cynController.listen(CyntaxicEvent.NOTIFY, update);
 			cynModel.views.push(this);
+			
+			listeners.push(new ListenerVO(CyntaxicEvent.NOTIFY, update, false, 0, false));
 		}
 		
 		public function init(vo:CyntaxicVO):CynView
@@ -47,7 +49,7 @@ package com.cyntaxic.cyngle.view
 			}
 		}
 		
-		public function listen(type:String, listener:Function, props:Object = null):void
+		public function addListener(type:String, listener:Function, props:Object = null):void
 		{
 			if(!props) props = new Object();
 			
@@ -58,24 +60,59 @@ package com.cyntaxic.cyngle.view
 			addEventListener(type, listener, props.useCapture, props.priority, props.useWeakReference);
 		}
 		
+		public function removeListener(type:String):void
+		{
+			for(var i:int = 0; i < listeners.length; i++)
+			{
+				var vo:ListenerVO = listeners[i] as ListenerVO;
+				
+				if(vo.type == type)
+				{
+					removeEventListener(vo.type, vo.listener);
+					return;
+				}
+			}
+		}
+		
 		public function removeAllChildren():void
 		{
 			while(this.numChildren > 0) this.removeChildAt(0);
 		}
 		
+		override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
+		{
+			super.removeEventListener(type, listener, useCapture);
+			
+			for(var i:int = 0; i < listeners.length; i++)
+			{
+				var vo:ListenerVO = listeners[i] as ListenerVO;
+				
+				if(vo.type == type && vo.listener == listener)
+				{
+					listeners.splice(i, 1);
+				}
+			}
+		}
+		
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
 			super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-			listeners.push({type:type, listener:listener, useCapture:useCapture, priority:priority, useWeakReference:useWeakReference});
+			listeners.push(new ListenerVO(type, listener, useCapture, priority, useWeakReference));
 		}
 		
-		public function clearListeners():void
+		public function removeAllListeners():void
 		{
 			for(var i:int = 0; i < listeners.length; i++)
 			{
-				if(this.hasEventListener(listeners[i].type)) 
-					this.removeEventListener(listeners[i].type, listeners[i].listener);
+				var vo:ListenerVO = listeners[i] as ListenerVO;
+				
+				if(this.hasEventListener(vo.type))
+					this.removeEventListener(vo.type, vo.listener);
+				
+				listeners.splice(i, 1);
 			}
+			
+			listeners = [];
 		}
 		
 		public function getListeners():Array
@@ -93,9 +130,9 @@ package com.cyntaxic.cyngle.view
 			return Cyntaxic.describe(this, compact);
 		}
 		
-		public function resize():void
+		public function resize(vo:CyntaxicVO):void
 		{
-					
+				
 		}
 		
 		override public function get x():Number { return super.x; }
@@ -115,5 +152,44 @@ package com.cyntaxic.cyngle.view
 		
 		override public function get rotation():Number { return super.rotation; }
 		override public function set rotation(value:Number):void { super.rotation = value; }
+		
+		override public function get name():String { return super.name; }
+		override public function set name(value:String):void { super.name = value; }
 	}
 }
+
+internal class ListenerVO extends com.cyntaxic.cyngle.CyntaxicVO
+{
+	private var _type:String;
+	private var _listener:Function;
+	private var _useCapture:Boolean;
+	private var _priority:int;
+	private var _useWeakReference:Boolean;
+	
+	public function ListenerVO(type:String, listener:Function, useCapture:Boolean, priority:int, useWeakReference:Boolean)
+	{
+		_type = type;
+		_listener = listener;
+		_useCapture = useCapture;
+		_priority = priority;
+		_useWeakReference = useWeakReference;
+	}
+	
+	public function get type():String { return _type; }
+	public function set type(value:String):void { _type = value; }
+	
+	public function get listener():Function { return _listener; }
+	public function set listener(value:Function):void { _listener = value; }
+	
+	public function get useCapture():Boolean { return _useCapture; }
+	public function set useCapture(value:Boolean):void { _useCapture = value; }
+	
+	public function get priority():int { return _priority; }
+	public function set priority(value:int):void { _priority = value; }
+	
+	public function get useWeakReference():Boolean { return _useWeakReference; }
+	public function set useWeakReference(value:Boolean):void { _useWeakReference = value; }
+}	
+	
+	
+	

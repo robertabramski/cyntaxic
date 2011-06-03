@@ -1,6 +1,7 @@
 package net.site.cyngleapp.view
 {
 	import com.cyntaxic.cyngle.Cyntaxic;
+	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.view.CynComposite;
 	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
@@ -17,10 +18,10 @@ package net.site.cyngleapp.view
 			title = getChildByName("title") as MovieClip;
 			back = getChildByName("back") as MovieClip;
 			
-			resize();
+			resize(null);
 		}
 		
-		override public function resize():void
+		override public function resize(vo:CyntaxicVO):void
 		{
 			back.width = Cyntaxic.STAGE.stageWidth;
 			

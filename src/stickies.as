@@ -24,13 +24,13 @@ package
 		
 		public function stickies()
 		{
-			// We initialize the framework after loaderInfo is available.
+			// Initialize the framework after loaderInfo is available.
 			this.loaderInfo.addEventListener(Event.COMPLETE, init);
 		}
 		
 		private function init(event:Event):void
 		{
-			// Next init the framework passing in extended CynController and CynModel classes.
+			// Init the framework passing in extended CynController and CynModel classes.
 			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), 
 			{
 				debug:true,

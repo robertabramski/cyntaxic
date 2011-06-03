@@ -8,6 +8,7 @@
 	AUTHOR: Robert Abramski
 	WEBSITE: http://www.robertabramski.com/
 
+
 ******************************************************************************************************************/
 
 package com.cyntaxic.cyngle
@@ -219,11 +220,6 @@ package com.cyntaxic.cyngle
 		}
 	}
 }
-import com.cyntaxic.cyngle.Cyntaxic;
-
-import flash.utils.describeType;
-
-import spark.primitives.Line;
 
 internal dynamic class FlashVarsVO extends com.cyntaxic.cyngle.CyntaxicVO
 {
@@ -350,7 +346,7 @@ internal class ObjectDescriptor
 		{
 			case (value is String): 					return escapeString(value as String);
 			case (value is Number): 					return isFinite(value as Number) ? value.toString() : "null";
-			case (value is Function): 					return escapeString("[object Function]");
+			case (value is Function): 					return escapeString(value.toString());
 			case (value is Boolean):					return value ? "true" : "false";
 			case (value is Array):						return arrayToString(value as Array);
 			case (value is Object && value != null): 	return objectToString(value);
@@ -407,7 +403,7 @@ internal class ObjectDescriptor
 			s += convertToString(a[i]);	
 		}
 		
-		return '{"name":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"properties":[' + s + ']}';
+		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"length":' + a.length + ',"array":[' + s + ']}';
 	}
 	
 	private static function objectToString(o:Object):String
@@ -437,7 +433,7 @@ internal class ObjectDescriptor
 		
 		for each(var v:XML in classInfo..*.(name() == "variable" || name() == "accessor"))
 		{
-			if(Cyntaxic.deepDescribe)
+			if(com.cyntaxic.cyngle.Cyntaxic.deepDescribe)
 			{
 				s += appendObjectString(s, v);
 			}
@@ -450,6 +446,6 @@ internal class ObjectDescriptor
 			}
 		}
 		
-		return '{"name":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"properties":{' + s + '}}';
+		return '{"type":' + escapeString(className) + ',"base":' + escapeString(baseClass) + ',"object":{' + s + '}}';
 	}
 }

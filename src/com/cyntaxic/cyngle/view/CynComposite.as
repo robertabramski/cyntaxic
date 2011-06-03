@@ -51,7 +51,7 @@ package com.cyntaxic.cyngle.view
 				if(view == cynModel.views[i])
 				{
 					cynModel.views.splice(i, 1);
-					clearListeners();
+					view.removeAllListeners();
 					
 					for(var j:int = 0; j < view.numChildren; j++)
 					{

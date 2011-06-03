@@ -8,6 +8,6 @@ package com.cyntaxic.cyngle.view.interfaces
 	{
 		function init(vo:CyntaxicVO):CynView
 		function update(event:CyntaxicEvent):void
-		function resize():void
+		function resize(vo:CyntaxicVO):void
 	}
 }

@@ -4,7 +4,7 @@ package com.cyntaxic.cyngle.model
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	
-	public dynamic class CynModel
+	public dynamic class CynModel extends Object
 	{
 		use namespace cynternal;
 		
