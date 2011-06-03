@@ -11,10 +11,10 @@ package
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.view.StickiesApp;
 	
-	[SWF(backgroundColor="#E6E6E6", pageTitle="Cyntaxic Framework Demo | Stickies")]
+	[SWF(backgroundColor="#E6E6E6", pageTitle="Cyntaxic | Stickies Demo")]
 	
 	/**
-	 * The document class for the Stickies example app.
+	 * The document class for the Stickies demo app.
 	 *  
 	 * @author robertabramski
 	 * 
