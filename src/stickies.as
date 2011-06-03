@@ -10,7 +10,7 @@ package
 	import net.site.cyngleapp.model.Model;
 	import net.site.cyngleapp.view.StickiesApp;
 	
-	[SWF(backgroundColor="#E6E6E6")]
+	[SWF(backgroundColor="#E6E6E6", pageTitle="Cyntaxic Framework Demo | Stickies")]
 	
 	/**
 	 * The document class for the Stickies example app.
@@ -30,7 +30,8 @@ package
 		
 		private function init(event:Event):void
 		{
-			// Init the framework passing in extended CynController and CynModel classes.
+			// Init the framework passing in the document class and extended CynController and CynModel classes.
+			// A props object can also be passed at initialization as a final parameter.
 			Cyntaxic.init(this, Model.getInstance(), Controller.getInstance(), 
 			{
 				debug:true,

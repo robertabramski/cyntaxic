@@ -8,6 +8,7 @@ package com.cyntaxic.cyngle.view
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.interfaces.ICynView;
 	
+	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	
 	public class CynView extends Sprite implements ICynView
@@ -74,9 +75,17 @@ package com.cyntaxic.cyngle.view
 			}
 		}
 		
-		public function removeAllChildren():void
+		public function removeAllChildren():Array
 		{
-			while(this.numChildren > 0) this.removeChildAt(0);
+			var children:Array = [];
+			
+			while(this.numChildren > 0) 
+			{
+				var child:DisplayObject = this.removeChildAt(0);
+				children.push(child);
+			}
+			
+			return children;
 		}
 		
 		override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
@@ -108,8 +117,6 @@ package com.cyntaxic.cyngle.view
 				
 				if(this.hasEventListener(vo.type))
 					this.removeEventListener(vo.type, vo.listener);
-				
-				listeners.splice(i, 1);
 			}
 			
 			listeners = [];

@@ -1,10 +1,11 @@
 package com.cyntaxic.cyngle.model
 {
 	import com.cyntaxic.cynccess.cynternal;
+	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	
-	public dynamic class CynModel extends Object
+	public dynamic class CynModel extends CyntaxicVO
 	{
 		use namespace cynternal;
 		

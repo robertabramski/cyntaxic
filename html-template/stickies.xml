@@ -1,13 +1,19 @@
 <stickies>
-	<sticky color="yellow" x="36" y="69"><![CDATA[Hello World!]]></sticky>
-	<sticky color="aqua" x="88" y="110">
-		<![CDATA[This app uses the Cyntaxic framework. It is a MVC based pattern created to address everyday coding, while keeping it simple by reducing abstraction.]]>
+	<sticky color="yellow" x="36" y="68">
+		<![CDATA[Hello World!]]>
+	</sticky>
+	<sticky color="aqua" x="88" y="105">
+		<![CDATA[This app uses the Cyntaxic framework. It uses a MVC based design pattern created to address everyday coding, while keeping it simple.]]>
 	</sticky>
 	<sticky color="blue" x="25" y="250">
-		<![CDATA[Top level objects like root&#xD;& stage can be referenced statically from the&#xD;Cyntaxic base class. It also comes bundled with a bunch of commonly used utility functions and a built in debuggr.]]>
+		<![CDATA[Top level objects like root&#xD;& stage can be referenced statically from the&#xD;Cyntaxic base class. It also comes bundled with a bunch of commonly used utility functions and a built in debugger.]]>
 	</sticky>
-	<sticky color="lime" x="346" y="250"><![CDATA[<a href="#">Check out the API here</a>.]]></sticky>
-	<sticky color="purple" x="402" y="304"><![CDATA[<a href="#">Download version 0.0.1</a>.]]></sticky>
+	<sticky color="lime" x="346" y="250">
+		<![CDATA[<a href="#">Check out the API here</a>.]]>
+	</sticky>
+	<sticky color="purple" x="402" y="304">
+		<![CDATA[<a href="#">Download version 1.0.0</a>.]]>
+	</sticky>
 	<sticky color="orange" x="310" y="355">
 		<![CDATA[Starting up is easy. Just extend CynModel and CynController, pass them&#xD;in the document class to Cyntaxic.init(), then&#xD;extend CynComposite and CynComponent for the&#xD;views. Your done!]]>
 	</sticky>
