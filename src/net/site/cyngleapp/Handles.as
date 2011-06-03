@@ -13,5 +13,6 @@ package net.site.cyngleapp
 		public static const ADD_STICKY:String = "addSticky";
 		public static const REMOVE_STICKY:String = "removeSticky";
 		public static const ADD_STICKY_TO_STICKIES:String = "addStickyToStickies";
+		public static const GET_STICKIES_DATA:String = "getStickiesData";
 	}
 }

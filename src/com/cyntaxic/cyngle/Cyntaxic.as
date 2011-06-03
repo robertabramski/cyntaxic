@@ -47,6 +47,9 @@ package com.cyntaxic.cyngle
 		
 		public function Cyntaxic(key:Key, doc:DisplayObject, model:CynModel, controller:CynController, props:Object = null)
 		{
+			_MODEL = model.init();
+			_CONTROLLER = controller.init();
+			
 			_VERSION = model.version.number;
 			
 			trace(this + " Started version " + _VERSION + ".");
@@ -67,9 +70,6 @@ package com.cyntaxic.cyngle
 			_DEBUGGER.log(_DEBUGGER, "Debugger is running.");
 			
 			_FLASH_VARS = new FlashVarsVO(doc.root.loaderInfo.parameters);
-			
-			_MODEL = model.init();
-			_CONTROLLER = controller.init();
 		}
 		
 		public static function init(doc:DisplayObject, model:CynModel, controller:CynController, props:Object = null):Cyntaxic

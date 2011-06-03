@@ -19,13 +19,15 @@ package com.cyntaxic.cyngle.controller.helpers
 		
 		private var _timeout:Number = 5;
 		private var _url:String;
+		private var _handle:String;
 		
 		private var loader:URLLoader;
 		private var request:URLRequest;
 		private var timer:Timer = new Timer(timeout * 1000);
 		
-		public function DataCall(url:String, method:String = "get", data:Object = null, contentType:String = "text/plain")
+		public function DataCall(handle:String, url:String, method:String = "get", data:Object = null, contentType:String = "text/plain")
 		{
+			_handle = handle;
 			_url = url;
 			
 			request = new URLRequest(url);
@@ -53,7 +55,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
 			
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
-			dispatchEvent(new DataCallEvent(DataCallEvent.TIMEOUT, vo));
+			dispatchEvent(new DataCallEvent(DataCallEvent.TIMEOUT, _handle, vo));
 		}
 		
 		private function handleComplete(event:Event):void
@@ -66,7 +68,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			timer.removeEventListener(TimerEvent.TIMER_COMPLETE, handleTimeoutError);
 			
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
-			dispatchEvent(new DataCallEvent(DataCallEvent.COMPLETE, vo));
+			dispatchEvent(new DataCallEvent(DataCallEvent.COMPLETE, _handle, vo));
 		}
 		
 		private function handleIOError(event:IOErrorEvent):void
@@ -80,7 +82,7 @@ package com.cyntaxic.cyngle.controller.helpers
 			
 			loader.removeEventListener(Event.COMPLETE, handleComplete);
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, handleIOError);
-			dispatchEvent(new DataCallEvent(DataCallEvent.IO_ERROR, vo));
+			dispatchEvent(new DataCallEvent(DataCallEvent.IO_ERROR, _handle, vo));
 		}
 		
 		public function get url():String 

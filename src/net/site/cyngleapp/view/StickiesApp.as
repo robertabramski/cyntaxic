@@ -2,8 +2,6 @@ package net.site.cyngleapp.view
 {
 	import com.cyntaxic.cyngle.Cyntaxic;
 	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.controller.helpers.DataCall;
-	import com.cyntaxic.cyngle.controller.helpers.DataCallEvent;
 	import com.cyntaxic.cyngle.view.CynComposite;
 	import com.cyntaxic.cyngle.view.CynView;
 	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
@@ -31,7 +29,6 @@ package net.site.cyngleapp.view
 		private var margin:Number = 10;
 		private var header:UIStickyHeader = new UIStickyHeader();
 		private var stickySpawn:StickySpawn = new StickySpawn();
-		private var call:DataCall;
 				
 		public function StickiesApp()
 		{
@@ -50,22 +47,10 @@ package net.site.cyngleapp.view
 		{
 			debug("Received FlashVars: " + vo.describe());
 			
-			call = new DataCall(vo.config);
-			call.addEventListener(DataCallEvent.COMPLETE, addConfigStickies);
-			debug('DataCall for "' + vo.config + '".');
+			// Get XML file with stickies information.
+			controller.execute(Handles.GET_STICKIES_DATA, vo);
 			
 			return this;
-		}
-		
-		private function addConfigStickies(event:DataCallEvent):void
-		{
-			call.removeEventListener(DataCallEvent.COMPLETE, addConfigStickies);
-			
-			debug('Loaded "' + event.data.url + '": ' + event.data.describe());
-			debug('Execute command ' + Handles.ADD_CONFIG_STICKIES + ' in controller.');
-			
-			// Data is loaded. Send to controller to process. Handle matches function name in controller.
-			controller.execute(Handles.ADD_CONFIG_STICKIES, event.data);
 		}
 		
 		public function addSticky(vo:StickyVO):void

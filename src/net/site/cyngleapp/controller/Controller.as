@@ -31,12 +31,12 @@ package net.site.cyngleapp.controller
 			return instance;
 		}
 		
-		public function addConfigStickies(vo:CyntaxicVO):void
+		public function addConfigStickies(vo:DataCallVO):void
 		{
-			model = (cynModel as Model);
+			// After model.get has gotten the data, cast it as XML.
+			var stickies:XML = new XML(vo.data);
 			
-			var stickies:XML = new XML((vo as DataCallVO).data);
-			
+			// Process the returned XML.
 			for(var i:int = 0; i < stickies.sticky.length(); i++)
 			{
 				var id:int = i + 1;
@@ -47,11 +47,22 @@ package net.site.cyngleapp.controller
 				var sticky:CyntaxicVO = new StickyVO(id, message, color, x, y);
 				
 				debug("Dispatched " + Handles.ADD_STICKY + " to views.");
+				
+				//Add each sticky to view.
 				notify(Handles.ADD_STICKY, sticky);
 			}
 			
 			model.id = i + 1;
 			model.currentSticky = model.stickies[i - 1];
+		}
+		
+		public function getStickiesData(vo:CyntaxicVO):void
+		{
+			model = (cynModel as Model);
+			
+			// Use CynModel get or post functions to make data calls to external resource.
+			debug('DataCall for "' + vo.config + '".');
+			model.get(Handles.ADD_CONFIG_STICKIES, vo.config);
 		}
 		
 		public function addSticky(vo:CyntaxicVO):void
