@@ -35,6 +35,12 @@ package net.site.stickies.controller
 		{
 			model = (cynModel as Model);
 			
+			if(!vo.config)
+			{
+				model.id = 1;
+				return;
+			}
+			
 			// Use CynModel get or post functions to make data calls to external resource.
 			// This call returns a DataCallVO with a result property.
 			debug('DataCall for "' + vo.config + '".');

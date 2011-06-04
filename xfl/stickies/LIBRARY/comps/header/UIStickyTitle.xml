@@ -1,0 +1,42 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/header/UIStickyTitle" itemID="4b98152b-000000d7" sourceLibraryItemHRef="Symbol 1" lastModified="1268258091">
+  <timeline>
+    <DOMTimeline name="UIStickyTitle">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText selected="true" width="71.05" height="27" autoExpand="true" antiAliasThickness="57" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.99932861328125" tx="2" ty="4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Stickies</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="3" size="25" face="MarkerFelt-Thin" fillColor="#D0D1D3"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText selected="true" width="71.05" height="27" autoExpand="true" antiAliasThickness="57" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.99932861328125" tx="2" ty="2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Stickies</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="3" size="25" face="MarkerFelt-Thin" fillColor="#2E2E30"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

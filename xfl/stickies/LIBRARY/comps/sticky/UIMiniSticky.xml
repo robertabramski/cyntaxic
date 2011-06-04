@@ -1,0 +1,30 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/sticky/UIMiniSticky" itemID="4b971124-0000003b" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.MiniSticky" linkageClassName="comps.sticky.UIMiniSticky" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307147496" isSpriteSubclass="true">
+  <timeline>
+    <DOMTimeline name="UIMiniSticky">
+      <layers>
+        <DOMLayer name="Layer 1" color="#0000FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape isDrawingObject="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#F8FF71"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!543 519|0 519!0 519|0 0!0 0|543 0!543 0|543 519"/>
+                    <Edge cubics="!543 519(;543,519 0,519 0,519q543 519 0 519);"/>
+                    <Edge cubics="!0 519(;0,519 0,0 0,0q0 519 0 0);"/>
+                    <Edge cubics="!0 0(0,0;0,0 543,0 543,0q0 0 543 0);"/>
+                    <Edge cubics="!543 0(;543,0 543,519 543,519q543 0 543 519);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

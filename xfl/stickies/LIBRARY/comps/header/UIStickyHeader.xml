@@ -1,0 +1,37 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/header/UIStickyHeader" itemID="4b96b09a-000001b9" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.StickyHeader" linkageClassName="comps.header.UIStickyHeader" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307147477" lastUniqueIdentifier="4" isSpriteSubclass="true">
+  <timeline>
+    <DOMTimeline name="UIStickyHeader">
+      <layers>
+        <DOMLayer name="UIStickyTitle" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="comps/header/UIStickyTitle" name="title" centerPoint3DX="47.5" centerPoint3DY="26.5">
+                  <matrix>
+                    <Matrix tx="10" ty="10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="37.5" y="16.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="UIStickyHeaderBack" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="comps/header/UIStickyHeaderBack" name="back" selected="true" centerPoint3DX="400" centerPoint3DY="27.5">
+                  <transformationPoint>
+                    <Point x="400" y="27.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
