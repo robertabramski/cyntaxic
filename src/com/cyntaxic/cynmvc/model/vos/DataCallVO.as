@@ -15,6 +15,8 @@ package com.cyntaxic.cynmvc.model.vos
 		private var _method:String;
 		private var _data:Object;
 		private var _contentType:String;
+		private var _result:String;
+
 		
 		public function DataCallVO(url:String = "", method:String = "get", data:Object = null, contentType:String = "text/plain")
 		{
@@ -35,5 +37,8 @@ package com.cyntaxic.cynmvc.model.vos
 
 		public function get contentType():String { return _contentType; }
 		public function set contentType(value:String):void { _contentType = value; }
+		
+		public function get result():String { return _result; }
+		public function set result(value:String):void { _result = value; }
 	}
 }

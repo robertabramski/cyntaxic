@@ -40,18 +40,26 @@ package com.cyntaxic.cynmvc.model
 		public function get(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
 		{
 			call = new DataCall(handle, url, DataCall.GET, data, contentType);
+			
 			call.addEventListener(DataCallEvent.COMPLETE, dispatchCall);
+			call.addEventListener(DataCallEvent.IO_ERROR, dispatchCall);
+			call.addEventListener(DataCallEvent.TIMEOUT, dispatchCall);
 		}
 		
 		public function post(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
 		{
 			call = new DataCall(handle, url, DataCall.POST, data, contentType);
+			
 			call.addEventListener(DataCallEvent.COMPLETE, dispatchCall);
+			call.addEventListener(DataCallEvent.IO_ERROR, dispatchCall);
+			call.addEventListener(DataCallEvent.TIMEOUT, dispatchCall);
 		}
 		
 		private function dispatchCall(event:DataCallEvent):void
 		{
 			call.removeEventListener(DataCallEvent.COMPLETE, dispatchCall); 
+			call.removeEventListener(DataCallEvent.IO_ERROR, dispatchCall);
+			call.removeEventListener(DataCallEvent.TIMEOUT, dispatchCall);
 			call = null;
 			
 			Cyntaxic.CONTROLLER.execute(event.handle, event.data);

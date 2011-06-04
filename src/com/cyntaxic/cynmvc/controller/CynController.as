@@ -20,8 +20,7 @@ package com.cyntaxic.cynmvc.controller
 		
 		public function CynController(self:CynController)
 		{
-			//if(self != this) 
-				throwError(ErrorCodes.E_1003);
+			if(self != this) throwError(ErrorCodes.E_1003);
 		}
 		
 		cynternal function init():CynController
