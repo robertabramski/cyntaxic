@@ -1,4 +1,4 @@
-package net.site.cyngleapp
+package net.site.stickies
 {
 	/**
 	 * Handles are basically a list of all your controller functions available 

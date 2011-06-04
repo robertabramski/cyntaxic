@@ -1,4 +1,4 @@
-package net.site.cyngleapp.view
+package net.site.stickies.view
 {
 	import com.cyntaxic.cyngle.view.CynComponent;
 	import com.cyntaxic.cyngle.view.interfaces.ICynComponent;

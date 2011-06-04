@@ -1,9 +1,9 @@
-package net.site.cyngleapp.model
+package net.site.stickies.model
 {
 	import com.cyntaxic.cyngle.model.CynModel;
 	
-	import net.site.cyngleapp.model.enums.Colors;
-	import net.site.cyngleapp.view.Sticky;
+	import net.site.stickies.model.enums.Colors;
+	import net.site.stickies.view.Sticky;
 
 	public class Model extends CynModel
 	{

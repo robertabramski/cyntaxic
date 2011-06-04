@@ -1,4 +1,4 @@
-package net.site.cyngleapp.model.enums
+package net.site.stickies.model.enums
 {
 	public class Colors
 	{

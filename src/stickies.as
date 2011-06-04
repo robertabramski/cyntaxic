@@ -7,9 +7,9 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
-	import net.site.cyngleapp.controller.Controller;
-	import net.site.cyngleapp.model.Model;
-	import net.site.cyngleapp.view.StickiesApp;
+	import net.site.stickies.controller.Controller;
+	import net.site.stickies.model.Model;
+	import net.site.stickies.view.StickiesApp;
 	
 	[SWF(backgroundColor="#E6E6E6", pageTitle="Cyntaxic | Stickies Demo")]
 	

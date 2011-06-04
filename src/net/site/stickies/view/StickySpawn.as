@@ -1,4 +1,4 @@
-package net.site.cyngleapp.view
+package net.site.stickies.view
 {
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.view.CynComposite;
@@ -9,10 +9,10 @@ package net.site.cyngleapp.view
 	
 	import flash.events.MouseEvent;
 	
-	import net.site.cyngleapp.Handles;
-	import net.site.cyngleapp.controller.Controller;
-	import net.site.cyngleapp.model.Model;
-	import net.site.cyngleapp.model.enums.Colors;
+	import net.site.stickies.Handles;
+	import net.site.stickies.controller.Controller;
+	import net.site.stickies.model.Model;
+	import net.site.stickies.model.enums.Colors;
 
 	public class StickySpawn extends CynComposite implements ICynView, ICynComposite
 	{

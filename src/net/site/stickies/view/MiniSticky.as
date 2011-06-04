@@ -1,4 +1,4 @@
-package net.site.cyngleapp.view
+package net.site.stickies.view
 {
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.view.CynView;
@@ -9,8 +9,8 @@ package net.site.cyngleapp.view
 	import flash.filters.DropShadowFilter;
 	import flash.geom.ColorTransform;
 	
-	import net.site.cyngleapp.model.enums.Colors;
-	import net.site.cyngleapp.model.vos.StickyVO;
+	import net.site.stickies.model.enums.Colors;
+	import net.site.stickies.model.vos.StickyVO;
 
 	public class MiniSticky extends CynView implements ICynView, ICynComponent
 	{

@@ -1,4 +1,4 @@
-package net.site.cyngleapp.model.vos
+package net.site.stickies.model.vos
 {
 	import com.cyntaxic.cyngle.CyntaxicVO;
 

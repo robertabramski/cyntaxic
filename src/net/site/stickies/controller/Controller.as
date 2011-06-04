@@ -1,4 +1,4 @@
-package net.site.cyngleapp.controller
+package net.site.stickies.controller
 {
 	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.CyntaxicVO;
@@ -7,12 +7,12 @@ package net.site.cyngleapp.controller
 	
 	import flash.geom.Point;
 	
-	import net.site.cyngleapp.Handles;
-	import net.site.cyngleapp.model.Model;
-	import net.site.cyngleapp.model.enums.Colors;
-	import net.site.cyngleapp.model.vos.StickyVO;
-	import net.site.cyngleapp.view.Sticky;
-	import net.site.cyngleapp.view.StickyHeader;
+	import net.site.stickies.Handles;
+	import net.site.stickies.model.Model;
+	import net.site.stickies.model.enums.Colors;
+	import net.site.stickies.model.vos.StickyVO;
+	import net.site.stickies.view.Sticky;
+	import net.site.stickies.view.StickyHeader;
 
 	public class Controller extends CynController
 	{
