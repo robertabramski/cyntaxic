@@ -2,31 +2,31 @@ package com.cyntaxic.cyntils
 {
 	public class CynValidate
 	{
-		public static const VALID:int = 6000;
-		public static const DATE_MONTH_OUT_OF_RANGE:int = 6001;
-		public static const DATE_DAY_OUT_OF_RANGE:int = 6002;
-		public static const DATE_INCORRECT_FORMAT:int = 6003;
-		public static const DATE_TOO_MANY_SEPARATORS:int = 6004;
-		public static const DATE_INCORRECT_YEAR:int = 6005;
-		public static const DATE_CANT_CONVERT_TO_DATE:int = 6006;
-		public static const IP_CONTAINS_INVALID_CHARS:int = 6007;
-		public static const IP_INCORRECT_PERIODS:int = 6008;
-		public static const IP_FIRST_VALUE_ZERO:int = 6009;
-		public static const IP_PART_NOT_VALID_NUM:int = 6010;
-		public static const URL_LENGTH_INVALID:int = 6011;
-		public static const URL_INVALID_PROTOCOL:int = 6012;
-		public static const URL_INVALID_CHARS:int = 6013;
-		public static const URL_INVALID_DOMAIN_NAME:int = 6014;
-		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 6015;
-		public static const EMAIL_INVALID_CHARS:int = 6016;
-		public static const EMAIL_CAN_HAVE_1_AT_SIGN:int = 6017;
-		public static const EMAIL_USERNAME_BLANK:int = 6018;
-		public static const EMAIL_INVALID_DOMAIN:int = 6019;
-		public static const EMAIL_INVALID_DOMAIN_EXT:int = 6020;
-		public static const SSN_INVALID_CHARS:int = 6021;
-		public static const SSN_INVALID_FORMAT:int = 6022;
-		public static const SSN_TOO_MANY_DASHES:int = 6023;
-		public static const SSN_TOO_LONG:int = 6024;
+		public static const VALID:int = 2000;
+		public static const DATE_MONTH_OUT_OF_RANGE:int = 2001;
+		public static const DATE_DAY_OUT_OF_RANGE:int = 2002;
+		public static const DATE_INCORRECT_FORMAT:int = 2003;
+		public static const DATE_TOO_MANY_SEPARATORS:int = 2004;
+		public static const DATE_INCORRECT_YEAR:int = 2005;
+		public static const DATE_CANT_CONVERT_TO_DATE:int = 2006;
+		public static const IP_CONTAINS_INVALID_CHARS:int = 2007;
+		public static const IP_INCORRECT_PERIODS:int = 2008;
+		public static const IP_FIRST_VALUE_ZERO:int = 2009;
+		public static const IP_PART_NOT_VALID_NUM:int = 2010;
+		public static const URL_LENGTH_INVALID:int = 2011;
+		public static const URL_INVALID_PROTOCOL:int = 2012;
+		public static const URL_INVALID_CHARS:int = 2013;
+		public static const URL_INVALID_DOMAIN_NAME:int = 2014;
+		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 2015;
+		public static const EMAIL_INVALID_CHARS:int = 2016;
+		public static const EMAIL_CAN_HAVE_1_AT_SIGN:int = 2017;
+		public static const EMAIL_USERNAME_BLANK:int = 2018;
+		public static const EMAIL_INVALID_DOMAIN:int = 2019;
+		public static const EMAIL_INVALID_DOMAIN_EXT:int = 2020;
+		public static const SSN_INVALID_CHARS:int = 2021;
+		public static const SSN_INVALID_FORMAT:int = 2022;
+		public static const SSN_TOO_MANY_DASHES:int = 2023;
+		public static const SSN_TOO_LONG:int = 2024;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";

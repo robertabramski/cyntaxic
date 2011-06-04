@@ -6,6 +6,7 @@ package com.cyntaxic.cynmvc.controller
 	import com.cyntaxic.cynmvc.CyntaxicHandles;
 	import com.cyntaxic.cynmvc.CyntaxicVO;
 	import com.cyntaxic.cynmvc.controller.enums.ErrorCodes;
+	import com.cyntaxic.cynmvc.controller.errors.CynError;
 	import com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cynmvc.model.CynModel;
 	
@@ -19,7 +20,8 @@ package com.cyntaxic.cynmvc.controller
 		
 		public function CynController(self:CynController)
 		{
-			if(self != this) throwError(ErrorCodes.E_5003);
+			//if(self != this) 
+				throwError(ErrorCodes.E_1003);
 		}
 		
 		cynternal function init():CynController
@@ -45,7 +47,7 @@ package com.cyntaxic.cynmvc.controller
 		
 		cynternal function throwError(vo:CyntaxicVO):void
 		{
-			throw new Error((vo as ErrorCodeVO).message, (vo as ErrorCodeVO).id);
+			throw new CynError((vo as ErrorCodeVO).message, (vo as ErrorCodeVO).id);
 		}
 		
 		cynternal function resizeViews(vo:CyntaxicVO):void
@@ -66,17 +68,17 @@ package com.cyntaxic.cynmvc.controller
 		
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
-			throwError(ErrorCodes.E_5002);
+			throwError(ErrorCodes.E_1002);
 		}
 		
 		override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
 		{
-			throwError(ErrorCodes.E_5002);
+			throwError(ErrorCodes.E_1002);
 		}
 		
 		override public function hasEventListener(type:String):Boolean
 		{
-			throwError(ErrorCodes.E_5002);
+			throwError(ErrorCodes.E_1002);
 			return false;
 		}
 	}

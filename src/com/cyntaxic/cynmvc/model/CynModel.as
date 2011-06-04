@@ -19,7 +19,7 @@ package com.cyntaxic.cynmvc.model
 		
 		public function CynModel(self:CynModel)
 		{
-			if(self != this) Cyntaxic.CONTROLLER.throwError(ErrorCodes.E_5003);
+			if(self != this) Cyntaxic.CONTROLLER.throwError(ErrorCodes.E_1003);
 		}
 		
 		cynternal function init():CynModel
