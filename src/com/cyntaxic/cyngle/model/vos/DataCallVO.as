@@ -1,4 +1,4 @@
-package com.cyntaxic.cyngle.controller.vos
+package com.cyntaxic.cyngle.model.vos
 {
 	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cyngle.Cyntaxic;

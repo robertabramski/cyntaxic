@@ -3,7 +3,7 @@ package net.site.cyngleapp.controller
 	import com.cyntaxic.cyngle.CyntaxicEvent;
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.CynController;
-	import com.cyntaxic.cyngle.controller.vos.DataCallVO;
+	import com.cyntaxic.cyngle.model.vos.DataCallVO;
 	
 	import flash.geom.Point;
 	

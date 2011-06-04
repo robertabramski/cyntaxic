@@ -6,7 +6,7 @@ package com.cyntaxic.cyngle.controller
 	import com.cyntaxic.cyngle.CyntaxicHandles;
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
-	import com.cyntaxic.cyngle.controller.vos.DataCallVO;
+	import com.cyntaxic.cyngle.model.vos.DataCallVO;
 	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cyngle.model.CynModel;
 	import com.cyntaxic.cyngle.view.CynView;

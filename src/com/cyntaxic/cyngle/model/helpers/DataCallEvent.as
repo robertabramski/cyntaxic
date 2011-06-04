@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.controller.helpers
+package com.cyntaxic.cyngle.model.helpers
 {
-	import com.cyntaxic.cyngle.controller.vos.DataCallVO;
+	import com.cyntaxic.cyngle.model.vos.DataCallVO;
 	
 	import flash.events.Event;
 

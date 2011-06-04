@@ -5,8 +5,8 @@ package com.cyntaxic.cyngle.model
 	import com.cyntaxic.cyngle.CyntaxicVO;
 	import com.cyntaxic.cyngle.controller.CynController;
 	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
-	import com.cyntaxic.cyngle.controller.helpers.DataCall;
-	import com.cyntaxic.cyngle.controller.helpers.DataCallEvent;
+	import com.cyntaxic.cyngle.model.helpers.DataCall;
+	import com.cyntaxic.cyngle.model.helpers.DataCallEvent;
 	import com.cyntaxic.cyngle.model.enums.Versions;
 	import com.cyntaxic.cyngle.model.vos.VersionVO;
 	
