@@ -1,0 +1,1 @@
+﻿package com.cyntaxic.cynmvc.view{	import com.cyntaxic.cynmvc.view.interfaces.ICynView;		public class CynComponent extends CynView implements ICynView	{		public function CynComponent()		{					}			}}

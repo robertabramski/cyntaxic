@@ -1,14 +1,13 @@
-package com.cyntaxic.cyngle.model
+package com.cyntaxic.cynmvc.model
 {
 	import com.cyntaxic.cynccess.cynternal;
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.controller.CynController;
-	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
-	import com.cyntaxic.cyngle.model.helpers.DataCall;
-	import com.cyntaxic.cyngle.model.helpers.DataCallEvent;
-	import com.cyntaxic.cyngle.model.enums.Versions;
-	import com.cyntaxic.cyngle.model.vos.VersionVO;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.controller.enums.ErrorCodes;
+	import com.cyntaxic.cynmvc.model.enums.Versions;
+	import com.cyntaxic.cynmvc.model.helpers.DataCall;
+	import com.cyntaxic.cynmvc.model.helpers.DataCallEvent;
+	import com.cyntaxic.cynmvc.model.vos.VersionVO;
 	
 	public dynamic class CynModel extends CyntaxicVO
 	{

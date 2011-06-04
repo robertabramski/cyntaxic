@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.view.interfaces
+package com.cyntaxic.cynmvc.view.interfaces
 {
-	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cynmvc.view.CynView;
 	
 	public interface ICynComposite
 	{

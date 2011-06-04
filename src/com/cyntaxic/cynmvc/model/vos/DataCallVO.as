@@ -1,8 +1,8 @@
-package com.cyntaxic.cyngle.model.vos
+package com.cyntaxic.cynmvc.model.vos
 {
 	import com.cyntaxic.cynccess.cynternal;
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
 
 	public class DataCallVO extends CyntaxicVO
 	{

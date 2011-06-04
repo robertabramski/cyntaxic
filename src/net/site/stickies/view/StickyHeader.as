@@ -1,10 +1,10 @@
 package net.site.stickies.view
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.view.CynComposite;
-	import com.cyntaxic.cyngle.view.interfaces.ICynComposite;
-	import com.cyntaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.view.CynComposite;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynComposite;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynView;
 	
 	import flash.display.MovieClip;
 

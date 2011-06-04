@@ -1,15 +1,13 @@
-package com.cyntaxic.cyngle.controller
+package com.cyntaxic.cynmvc.controller
 {
 	import com.cyntaxic.cynccess.cynternal;
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicEvent;
-	import com.cyntaxic.cyngle.CyntaxicHandles;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.controller.enums.ErrorCodes;
-	import com.cyntaxic.cyngle.model.vos.DataCallVO;
-	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
-	import com.cyntaxic.cyngle.model.CynModel;
-	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.CyntaxicEvent;
+	import com.cyntaxic.cynmvc.CyntaxicHandles;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.controller.enums.ErrorCodes;
+	import com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO;
+	import com.cyntaxic.cynmvc.model.CynModel;
 	
 	import flash.events.EventDispatcher;
 	

@@ -1,7 +1,7 @@
 package
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.view.CynView;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.view.CynView;
 	import com.cyntaxic.cyntils.CynBrowser;
 	
 	import flash.display.Sprite;

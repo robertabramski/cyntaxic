@@ -1,9 +1,9 @@
 package net.site.stickies.controller
 {
-	import com.cyntaxic.cyngle.CyntaxicEvent;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.controller.CynController;
-	import com.cyntaxic.cyngle.model.vos.DataCallVO;
+	import com.cyntaxic.cynmvc.CyntaxicEvent;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.controller.CynController;
+	import com.cyntaxic.cynmvc.model.vos.DataCallVO;
 	
 	import flash.geom.Point;
 	

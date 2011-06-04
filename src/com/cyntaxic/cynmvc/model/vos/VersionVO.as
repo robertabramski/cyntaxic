@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.model.vos
+package com.cyntaxic.cynmvc.model.vos
 {
-	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
 
 	public class VersionVO extends CyntaxicVO
 	{

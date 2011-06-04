@@ -1,6 +1,6 @@
 package net.site.stickies.model
 {
-	import com.cyntaxic.cyngle.model.CynModel;
+	import com.cyntaxic.cynmvc.model.CynModel;
 	
 	import net.site.stickies.model.enums.Colors;
 	import net.site.stickies.view.Sticky;

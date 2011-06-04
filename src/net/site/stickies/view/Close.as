@@ -1,8 +1,8 @@
 package net.site.stickies.view
 {
-	import com.cyntaxic.cyngle.view.CynComponent;
-	import com.cyntaxic.cyngle.view.interfaces.ICynComponent;
-	import com.cyntaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cynmvc.view.CynComponent;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynComponent;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynView;
 	
 	import comps.close.CloseImage;
 	

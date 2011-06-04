@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.controller.enums
+package com.cyntaxic.cynmvc.controller.enums
 {
-	import com.cyntaxic.cyngle.controller.vos.ErrorCodeVO;
+	import com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO;
 	
 	public class ErrorCodes
 	{

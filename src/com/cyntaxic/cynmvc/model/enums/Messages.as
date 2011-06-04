@@ -1,7 +1,5 @@
-package com.cyntaxic.cyngle.model.enums
+package com.cyntaxic.cynmvc.model.enums
 {
-	import com.cyntaxic.cyngle.Cyntaxic;
-	
 	public class Messages
 	{
 		public static const ADDED_TO_STAGE:String = "Was added to stage.";

@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.model.enums
+package com.cyntaxic.cynmvc.model.enums
 {
-	import com.cyntaxic.cyngle.model.vos.VersionVO;
+	import com.cyntaxic.cynmvc.model.vos.VersionVO;
 	
 	public class Versions
 	{

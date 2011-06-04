@@ -1,9 +1,9 @@
 package net.site.stickies.view
 {
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.view.CynView;
-	import com.cyntaxic.cyngle.view.interfaces.ICynComponent;
-	import com.cyntaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.view.CynView;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynComponent;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynView;
 	
 	import flash.display.Shape;
 	import flash.filters.DropShadowFilter;

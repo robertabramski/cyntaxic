@@ -1,12 +1,12 @@
-package com.cyntaxic.cyngle.view
+package com.cyntaxic.cynmvc.view
 {
 	import com.cyntaxic.cynccess.cynternal;
-	import com.cyntaxic.cyngle.Cyntaxic;
-	import com.cyntaxic.cyngle.CyntaxicEvent;
-	import com.cyntaxic.cyngle.CyntaxicVO;
-	import com.cyntaxic.cyngle.controller.CynController;
-	import com.cyntaxic.cyngle.model.CynModel;
-	import com.cyntaxic.cyngle.view.interfaces.ICynView;
+	import com.cyntaxic.cynmvc.Cyntaxic;
+	import com.cyntaxic.cynmvc.CyntaxicEvent;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.controller.CynController;
+	import com.cyntaxic.cynmvc.model.CynModel;
+	import com.cyntaxic.cynmvc.view.interfaces.ICynView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -165,7 +165,7 @@ package com.cyntaxic.cyngle.view
 	}
 }
 
-internal class ListenerVO extends com.cyntaxic.cyngle.CyntaxicVO
+internal class ListenerVO extends com.cyntaxic.cynmvc.CyntaxicVO
 {
 	private var _type:String;
 	private var _listener:Function;

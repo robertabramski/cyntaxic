@@ -1,4 +1,4 @@
-package com.cyntaxic.cyngle
+package com.cyntaxic.cynmvc
 {
 	public class CyntaxicHandles
 	{

@@ -1,6 +1,6 @@
-package com.cyntaxic.cyngle.controller.vos
+package com.cyntaxic.cynmvc.controller.vos
 {
-	import com.cyntaxic.cyngle.CyntaxicVO;
+	import com.cyntaxic.cynmvc.CyntaxicVO;
 	
 	public class ErrorCodeVO extends CyntaxicVO
 	{
