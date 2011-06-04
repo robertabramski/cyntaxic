@@ -4,7 +4,15 @@ package net.site.stickies.model
 	
 	import net.site.stickies.model.enums.Colors;
 	import net.site.stickies.view.Sticky;
-
+	
+	/**
+	 * This is the application's Model class. It must extend CynModel and
+	 * be passed in the Cyntaxic.init function to use the framework. Here is
+	 * where data is stored for the application. CynModel has two functions for 
+	 * getting external data called get and post. They are used for simple calls 
+	 * to an external source.
+	 * 
+	 */
 	public class Model extends CynModel
 	{
 		private static var instance:Model;
@@ -17,11 +25,15 @@ package net.site.stickies.model
 
 		public function Model(key:Key)
 		{
+			// As CynModel is an abstract class and Actionscript doesn't support
+			// abstract classes this line of code is used for enforcement.
 			super(this);
 		}
 		
 		public static function getInstance():Model
 		{
+			// ActionScript also doesn't have private constructors, so this used to 
+			// enforce singleton usage of the Model class.
 			if(!instance) instance = new Model(new Key);
 			return instance;
 		}
@@ -41,4 +53,5 @@ package net.site.stickies.model
 	}
 }
 
+// Internal key for singleton.
 internal class Key { }

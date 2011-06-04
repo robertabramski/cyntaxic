@@ -1,5 +1,11 @@
 package net.site.stickies.model.enums
 {
+	/**
+	 * The Colors class is just enumeration of colors in the app. The enums
+	 * package is a place to keep classes like this that just store enumerated
+	 * collections of data for usage with the model. 
+	 * 
+	 */	
 	public class Colors
 	{
 		public static const YELLOW:String = "yellow";

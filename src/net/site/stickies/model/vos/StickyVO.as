@@ -10,6 +10,12 @@ package net.site.stickies.model.vos
 		private var _x:Number;
 		private var _y:Number;
 		
+		/**
+		 * Value objects are used thoughout the app to transport and store data. All value objects
+		 * made should extend CyntaxicVO for the describe method and the built in dynmaic data appending
+		 * that can be accessed with super(data) where data is an object with properties appended.
+		 * 
+		 */
 		public function StickyVO(id:int, message:String, color:uint, x:Number, y:Number)
 		{
 			this.id = id;

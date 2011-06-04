@@ -3,8 +3,8 @@ package net.site.stickies
 	/**
 	 * Handles are basically a list of all your controller functions available 
 	 * to the application. The string value is extremely important as these strings are 
-	 * what allows functions to be called in the controller. The string should always be
-	 * exactly the same casing and name as your function in the controller. 
+	 * what allows functions to be called in the controller and views. The string should 
+	 * always be exactly the same casing and name as your function in the controller or view. 
 	 * 
 	 */	
 	public class Handles
