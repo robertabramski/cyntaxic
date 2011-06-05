@@ -25,6 +25,8 @@ package com.cyntaxic.cynmvc.view
 	{
 		use namespace cynternal;
 		
+		cynternal var controller:CynController;
+		
 		/**
 		 * A reference to the <code>CynModel</code>.
 		 */
@@ -59,10 +61,10 @@ package com.cyntaxic.cynmvc.view
 				cynModel = Cyntaxic.MODEL;
 				cynController = Cyntaxic.CONTROLLER;
 				
-				cynController.listen(CyntaxicEvent.NOTIFY, update);
+				controller = cynController;
 				cynModel.views.push(this);
 				
-				listeners.push(new ListenerVO(CyntaxicEvent.NOTIFY, update, false, 0, false));
+				//listeners.push(new ListenerVO(CyntaxicEvent.NOTIFY, update, false, 0, false));
 			}
 			else Cyntaxic.throwError(ErrorCodes.E_1004);
 		}

@@ -9,6 +9,7 @@ package com.cyntaxic.cynmvc.controller
 	import com.cyntaxic.cynmvc.controller.errors.CynError;
 	import com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cynmvc.model.CynModel;
+	import com.cyntaxic.cynmvc.view.CynView;
 	
 	import flash.events.EventDispatcher;
 	
@@ -69,8 +70,18 @@ package com.cyntaxic.cynmvc.controller
 		 */		
 		protected function notify(handle:String, vo:CyntaxicVO):void
 		{
-			//TODO: Add selective notification logic.
-			dispatchEvent(new CyntaxicEvent(handle, vo));
+			for(var i:int = 0; i < cynModel.views.length; i++)
+			{
+				var cynView:CynView = cynModel.views[i] as CynView;
+				
+				if(cynView.hasOwnProperty(handle))
+				{
+					cynView.controller.listen(CyntaxicEvent.NOTIFY, cynView.update);
+					dispatchEvent(new CyntaxicEvent(handle, vo));
+					
+					cynView.controller.unlisten(CyntaxicEvent.NOTIFY, cynView.update);
+				}
+			}
 		}
 		
 		/**
