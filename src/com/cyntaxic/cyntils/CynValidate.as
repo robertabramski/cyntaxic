@@ -33,6 +33,36 @@ package com.cyntaxic.cyntils
 		
 		public static var passFail:Boolean = false;
 		
+		/**
+		 * Tests to see if two objects are equal. If strict is set, then it is tested
+		 * strictly with strict equality instead of just the equality operator. 
+		 *  
+		 * @param a The object.
+		 * @param b The compare object. 
+		 * @param strict Flag to decide whether to test strictly.
+		 * @return True if the same.
+		 * 
+		 */		
+		public static function eq(a:Object, b:Object, strict:Boolean = false):Boolean
+		{
+			return strict ? a === b : a == b;
+		}
+		
+		/**
+		 * Tests to see if two objects are not equal. If strict is set, then it is tested
+		 * strictly with strict equality instead of just the equality operator. 
+		 *  
+		 * @param a The object.
+		 * @param b The compare object. 
+		 * @param strict Flag to decide whether to test strictly.
+		 * @return True if different.
+		 * 
+		 */	
+		public static function uneq(a:Object, b:Object, strict:Boolean = false):Boolean
+		{
+			return strict ? !(a === b) : !(a == b);
+		}
+		
 		/** 
 		 * Casts a string as a number. If it fails, returns false.
 		 *
@@ -385,8 +415,8 @@ package com.cyntaxic.cyntils
 		 * Determines whether the integer with a specified range.
 		 *
 		 * @param n The String representing the number to Valid
-		 * @param min The minimum value as a Number (>= comparison)
-		 * @param max The maxium value  as a Number (<= comparison)
+		 * @param min The minimum value as a Number (&gt;= comparison)
+		 * @param max The maxium value  as a Number (&lt;= comparison)
 		 * @return A Boolean true value if the data is within the range
 		 * 
 		 */
