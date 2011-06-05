@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/sticky/UISticky" itemID="4b968c71-000001b2" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.Sticky" linkageClassName="comps.sticky.UISticky" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307147515" isSpriteSubclass="true">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/sticky/UISticky" itemID="4b968c71-000001b2" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.Sticky" linkageClassName="comps.sticky.UISticky" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307235419" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="UISticky">
       <layers>

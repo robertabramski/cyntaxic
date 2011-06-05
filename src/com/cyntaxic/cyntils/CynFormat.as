@@ -1,7 +1,22 @@
 package com.cyntaxic.cyntils
 {
+	/**
+	 * The <code>CynFormat</code> class contains static functions for
+	 * formatting.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
 	public class CynFormat
 	{
+		/**
+		 * Converts a number into a decimal number.
+		 * 
+		 * @param number The number to be converted. 
+		 * @param precision The decimal precision.
+		 * @return The decimal number.
+		 * 
+		 */
 		public static function decimalNumber(number:Number, precision:int):Number
 		{
 			if((precision = Math.abs(precision)) == 0) return Math.round(number);
@@ -9,6 +24,17 @@ package com.cyntaxic.cyntils
 			return parseFloat(Math.floor(number) + "." + Math.floor(number * Math.pow(10, precision)).toString().substr(-precision));	
 		}
 		
+		/**
+		 * Converts a number into a cash string.
+		 *  
+		 * @param number The number to be converted.
+		 * @param symbol The currency symbol.
+		 * @param frontSymbol Flag is use the currency symbol or not.
+		 * @param changeSplit The delimiter between dollars and cents.
+		 * @param billsSplit The delimiter between thousands of dollars.
+		 * @return The cash string.
+		 * 
+		 */
 		public static function cash(number:Number, symbol:String = "$", frontSymbol:Boolean = true, changeSplit:String = ".", billsSplit:String = ","):String
 		{
 			var neg:String = (number > 0 ? "" : "-");
@@ -27,6 +53,13 @@ package com.cyntaxic.cyntils
 			return neg + (frontSymbol ? symbol : "") + bigBills + changeSplit + change + (!frontSymbol ? symbol : "");
 		}
 		
+		/**
+		 * Converts seconds into formatted hours, minutes and seconds.
+		 *  
+		 * @param seconds The seconds to be converted.
+		 * @return The formatted hours, minutes and seconds string.
+		 * 
+		 */
 		public static function time(seconds:Number):String
 		{
 			seconds = decimalNumber(seconds, 0);

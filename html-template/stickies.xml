@@ -6,7 +6,7 @@
 		<![CDATA[This app uses the Cyntaxic framework. It uses a MVC based design pattern created to address everyday coding, while keeping it simple.]]>
 	</sticky>
 	<sticky color="blue" x="25" y="250">
-		<![CDATA[Top level objects like root&#xD;& stage can be referenced statically from the&#xD;Cyntaxic base class. It also comes bundled with a bunch of commonly used utility functions and a built in debugger.]]>
+		<![CDATA[Top level objects like root &#xD;& stage can be referenced statically from the &#xD;Cyntaxic base class. It also comes bundled with a bunch of commonly used utility functions and a built in debugger.]]>
 	</sticky>
 	<sticky color="lime" x="346" y="250">
 		<![CDATA[<a href="#">Check out the API here</a>.]]>

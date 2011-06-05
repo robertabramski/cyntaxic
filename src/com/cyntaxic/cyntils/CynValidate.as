@@ -1,37 +1,150 @@
 package com.cyntaxic.cyntils
 {
+	/**
+	 * The <code>CynValidate</code> class contains static functions for
+	 * validation. Each function can return true or false, or if <code>passFail</code>
+	 * is set to false a result object containing valid, code and text properties is returned.
+	 * Validiation codes returned by the result object are enumerated in the class.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
 	public class CynValidate
 	{
+		/**
+		 * Code for valid. 
+		 */
 		public static const VALID:int = 2000;
+		
+		/**
+		 * Code for date of the month being out of range.  
+		 */		
 		public static const DATE_MONTH_OUT_OF_RANGE:int = 2001;
+		
+		/**
+		 * Code for the day being out of range.  
+		 */
 		public static const DATE_DAY_OUT_OF_RANGE:int = 2002;
+		
+		/**
+		 * Code for date being in incorrect format. 
+		 */		
 		public static const DATE_INCORRECT_FORMAT:int = 2003;
+		
+		/**
+		 * Code for too many separators in a date.
+		 */		
 		public static const DATE_TOO_MANY_SEPARATORS:int = 2004;
+		
+		/**
+		 * Code for an incorrect year. 
+		 */		
 		public static const DATE_INCORRECT_YEAR:int = 2005;
+		
+		/**
+		 * Code for an error in conversion to date.   
+		 */		
 		public static const DATE_CANT_CONVERT_TO_DATE:int = 2006;
+		
+		/**
+		 * Code for invalid characters in an IP address.   
+		 */
 		public static const IP_CONTAINS_INVALID_CHARS:int = 2007;
+		
+		/**
+		 * Code for incorrect number of periods in an IP address.   
+		 */
 		public static const IP_INCORRECT_PERIODS:int = 2008;
+		
+		/**
+		 * Code for first value in an IP being zero.   
+		 */
 		public static const IP_FIRST_VALUE_ZERO:int = 2009;
+		
+		/**
+		 * Code for IP being not a valid number.   
+		 */
 		public static const IP_PART_NOT_VALID_NUM:int = 2010;
+		
+		/**
+		 * Code for a URL being an invalid length.   
+		 */
 		public static const URL_LENGTH_INVALID:int = 2011;
+		
+		/**
+		 * Code for a URL being an invalid protocol.   
+		 */
 		public static const URL_INVALID_PROTOCOL:int = 2012;
+		
+		/**
+		 * Code for a URL having invalid characters.   
+		 */
 		public static const URL_INVALID_CHARS:int = 2013;
+		
+		/**
+		 * Code for an invalid domain name.   
+		 */
 		public static const URL_INVALID_DOMAIN_NAME:int = 2014;
+		
+		/**
+		 * Code for a URl having more than one question mark.    
+		 */
 		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 2015;
+		
+		/**
+		 * Code for an email having invalid characters.   
+		 */
 		public static const EMAIL_INVALID_CHARS:int = 2016;
+		
+		/**
+		 * Code for email having more than one &#64; sign.
+		 */
 		public static const EMAIL_CAN_HAVE_1_AT_SIGN:int = 2017;
+		
+		/**
+		 * Code for an email with a blank username.
+		 */
 		public static const EMAIL_USERNAME_BLANK:int = 2018;
+		
+		/**
+		 * Code for an email with an invalid domain.
+		 */
 		public static const EMAIL_INVALID_DOMAIN:int = 2019;
+		
+		/**
+		 * Code for an email with an invalid extension.
+		 */
 		public static const EMAIL_INVALID_DOMAIN_EXT:int = 2020;
+		
+		/**
+		 * Code for a social security number with invalid characters.
+		 */
 		public static const SSN_INVALID_CHARS:int = 2021;
+		
+		/**
+		 * Code for a social security number with an invalid format.
+		 */
 		public static const SSN_INVALID_FORMAT:int = 2022;
+		
+		/**
+		 * Code for a social security number with too many dashes.
+		 */
 		public static const SSN_TOO_MANY_DASHES:int = 2023;
+		
+		/**
+		 * Code for a social security number that is too long.
+		 */
 		public static const SSN_TOO_LONG:int = 2024;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
 		
-		public static var passFail:Boolean = false;
+		/**
+		 * Flag to determine whether true of false is returned or a result object. Default is true.
+		 * Switch to false to return a result object containing valid, code and text properties if the 
+		 * validation is more complex than true or false.
+		 */
+		public static var passFail:Boolean = true;
 		
 		/**
 		 * Tests to see if two objects are equal. If strict is set, then it is tested
@@ -66,8 +179,8 @@ package com.cyntaxic.cyntils
 		/** 
 		 * Casts a string as a number. If it fails, returns false.
 		 *
-		 * @param n The String of the number to validate
-		 * @return A Boolean true value if the data is valid
+		 * @param n The String of the number to validate.
+		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
 		public static function digit(value:String):Boolean
@@ -81,10 +194,10 @@ package com.cyntaxic.cyntils
 		}
 
 		/**
-		 * Determines if n is within A-Z or a-z
+		 * Determines if the character is within A-Z or a-z.
 		 *
-		 * @param n The character to validate
-		 * @return A Boolean true value if the data is valid
+		 * @param n The character to validate.
+		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
 		public static function letter(value:String):Boolean
@@ -98,10 +211,10 @@ package com.cyntaxic.cyntils
 		}
 
 		/**
-		 * Determines whether the string contains only alphabetic and numeric characters
+		 * Determines whether the string contains only alphabetic and numeric characters.
 		 *
-		 * @param str The string to validate
-		 * @return A Boolean true value if the data is valid
+		 * @param str The string to validate.
+		 * @return A Boolean true value if the data is valid.
 		 */
 		public static function alphaNumeric(value:String):Boolean 
 		{
@@ -109,10 +222,10 @@ package com.cyntaxic.cyntils
 		}
 
 		/**
-		 * Does the character contain an alphabetic character or number
+		 * Determines whether the character is an alphanumeric character.
 		 *
-		 * @param n The character to validate
-		 * @return A Boolean true value if the data is valid
+		 * @param n The character to validate.
+		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
 		public static function letterOrDigit(value:String):Boolean
@@ -123,12 +236,10 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Is a String a valid Social Security Number
-		 * Valid examples are 111-11-1111 or 111111111
+		 * Checks to see if the string is a valid Social Security Number. Valid examples are 111-11-1111 or 111111111.
 		 *
-		 * @param inStr The string that will be validated
-		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
-		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * @param inStr The string that will be validated.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function socialSecurity(value:String):Object
@@ -158,12 +269,11 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determines whether a string is an email address.
-		 * Checks for common email address formats but it does not support the full RFC definition
+		 * Determines whether a string is an email address. Checks for common email address 
+		 * formats but it does not support the full RFC definition.
 		 *
-		 * @param str The string containing the email address
-		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
-		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * @param str The string containing the email address.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function email(value:String):Object
@@ -198,12 +308,11 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Performs basic checks to determine if a string is a valid HTTPS URL
+		 * Performs basic checks to determine if a string is a valid HTTPS URL.
 		 *
-		 * @param str The string containing the HTTPS URL
-		 * @param domain The expected domain for the URL (optional)
-		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
-		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * @param str The string containing the HTTPS URL.
+		 * @param domain The expected domain for the URL.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function urlSecure(value:String):Object
@@ -212,13 +321,12 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Performs basic checks to determine if a string is a valid HTTP or HTTPS URL
+		 * Performs basic checks to determine if a string is a valid HTTP or HTTPS URL.
 		 *
-		 * @param str The string containing the URL
-		 * @param domain The expected domain for the URL (optional)
-		 * @param isSSL A boolean value that is set to true for HTTPS URLs (optional)
-		 * @return An as3ValidationResult.result true value if the data is valid. If the data is invalid, then
-		 * as3Validation.result is set to false and the errorStr provides a brief description.
+		 * @param str The string containing the URL.
+		 * @param domain The expected domain for the URL.
+		 * @param isSSL A boolean value that is set to true for HTTPS URL.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function url(value:String, ssl:Boolean = false):Object
@@ -255,11 +363,10 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determine whether a string is a valid IP address
+		 * Determine whether a string is a valid IP address.
 		 *
-		 * @param value The string containing the IP address
-		 * @return An result true value if the data is valid.  If the data is invalid, then
-		 * result is set to false and the errorStr provides a brief description.
+		 * @param value The string containing the IP address.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function ip(value:String):Object
@@ -335,10 +442,10 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determines whether the string contains a valid day-first format date
+		 * Determines whether the string contains a valid day-first format date.
 		 *
-		 * @param str The string containing a date in a day-first format
-		 * @return A Boolean true value if the date is a valid day-first date
+		 * @param str The string containing a date in a day-first format.
+		 * @return A Boolean true value if the date is a valid day-first date.
 		 * 
 		 */
 		public static function worldDate(value:String):Object
@@ -347,12 +454,12 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determines if the string contains a valid date.
-		 * Valid Examples include 9/30/09, 9-30-09 or 9.30.09
+		 * Determines if the string contains a valid date.Valid examples include 
+		 * 9/30/09, 9-30-09 or 9.30.09.
 		 *
-		 * @param str The String containing the date
-		 * @param dayFirst Whether the date is in a day first format
-		 * @return A result object or boolean value
+		 * @param str The String containing the date.
+		 * @param dayFirst Whether the date is in a day first format.
+		 * @return True, false or a result object.
 		 * 
 		 */
 		public static function date(value:String, dayFirst:Boolean = false):Object
@@ -414,10 +521,10 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the integer with a specified range.
 		 *
-		 * @param n The String representing the number to Valid
-		 * @param min The minimum value as a Number (&gt;= comparison)
-		 * @param max The maxium value  as a Number (&lt;= comparison)
-		 * @return A Boolean true value if the data is within the range
+		 * @param n The string representing the number to valid.
+		 * @param min The minimum value as a Number (&gt;= comparison).
+		 * @param max The maxium value  as a Number (&lt;= comparison).
+		 * @return A Boolean true value if the data is within the range.
 		 * 
 		 */
 		public static function integerInRange(value:String, min:int, max:int):Boolean
@@ -432,11 +539,11 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determines whether the string contains data
+		 * Determines whether the string contains data.
 		 *
-		 * @param str The character to validate
-		 * @param white A boolean when set to false will ignore white space (space, newline, tab)
-		 * @return A Boolean true value if the string is not empty
+		 * @param str The character to validate.
+		 * @param white A boolean when set to false will ignore white space (space, newline, tab).
+		 * @return A Boolean true value if the string is not empty.
 		 * 
 		 */
 		public static function notEmpty(value:String, white:Boolean = false):Boolean

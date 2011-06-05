@@ -1,7 +1,21 @@
 package com.cyntaxic.cyntils
 {
+	/**
+	 * The <code>CynRandom</code> class contains static functions for
+	 * randomization.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
 	public class CynRandom
 	{
+		/**
+		 * Returns an array of zero based indexed numbers randomly.
+		 *  
+		 * @param length The length of the array to be generated.
+		 * @return The array of random numbers in length range.
+		 * 
+		 */
 		public static function arrayOfIndex(length:int = 0):Array
 		{
 			var arr:Array = [];
@@ -13,6 +27,13 @@ package com.cyntaxic.cyntils
 			return arr;
 		}
 		
+		/**
+		 * Returns an array of single digit zero based indexed numbers randomly.
+		 *  
+		 * @param length The length of the array to be generated.
+		 * @return The array of single random numbers in length range.
+		 * 
+		 */
 		public static function arrayOfSingleDigits(length:int = 0):Array
 		{
 			var arr:Array = [];
@@ -21,6 +42,13 @@ package com.cyntaxic.cyntils
 			return arr;
 		}
 		
+		/**
+		 * Returns a random number a specified number of digits long.
+		 *  
+		 * @param length The length of digits to return.
+		 * @return The random number generated.
+		 * 
+		 */
 		public static function numberByLength(length:int = 0):Number
 		{
 			var st:String = "";
@@ -30,6 +58,15 @@ package com.cyntaxic.cyntils
 			return Number(st);
 		}
 		
+		/**
+		 * Returns a random number in range.
+		 *  
+		 * @param low The low range.
+		 * @param high The high range.
+		 * @param integer If false, allow floating point number otherwise integer.
+		 * @return The random number in range generated.
+		 * 
+		 */		
 		public static function numberInRange(low:Number, high:Number, integer:Boolean = true):Number
 		{
 			return integer ? Math.round(Math.random() * (high - low)) + low : Math.random() * (high - low) + low;

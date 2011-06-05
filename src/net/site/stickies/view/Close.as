@@ -21,6 +21,10 @@ package net.site.stickies.view
 		
 		public function Close()
 		{
+			// CynComponent, CynComposite and CynView are abstract 
+			// so this line must be added in the constructor.
+			super(this);
+			
 			// This is a CynComponent class and has no CynView children.
 			// Just adding a bitmap and calling it a day here.
 			addChild(close);

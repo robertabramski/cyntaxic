@@ -2,6 +2,7 @@ package net.site.stickies.view
 {
 	import com.cyntaxic.cynmvc.Cyntaxic;
 	import com.cyntaxic.cynmvc.CyntaxicVO;
+	import com.cyntaxic.cynmvc.controller.vos.ResizeVO;
 	import com.cyntaxic.cynmvc.view.CynComposite;
 	import com.cyntaxic.cynmvc.view.interfaces.ICynComposite;
 	import com.cyntaxic.cynmvc.view.interfaces.ICynView;
@@ -22,6 +23,10 @@ package net.site.stickies.view
 		
 		public function StickyHeader()
 		{
+			// CynComponent, CynComposite and CynView are abstract 
+			// so this line must be added in the constructor.
+			super(this);
+			
 			// Get children in graphic and assign to a variable.
 			title = getChildByName("title") as MovieClip;
 			back = getChildByName("back") as MovieClip;
@@ -34,9 +39,10 @@ package net.site.stickies.view
 		 * the Cyntaxic.fullScaleFlash option which sets up the application for liquid layout.
 		 * 
 		 */
-		override public function resize(vo:CyntaxicVO):void
+		override public function resize(vo:ResizeVO):void
 		{
 			// The static Cyntaxic.STAGE property allows access to stage properties anywhere.
+			// The value object also contains stage dimensions for usage in the function.
 			back.width = Cyntaxic.STAGE.stageWidth;
 			
 			if(Cyntaxic.STAGE.stageWidth < 450) title.visible = false;

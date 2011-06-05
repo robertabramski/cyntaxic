@@ -7,10 +7,10 @@
           <DOMFolderItem name="comps/sticky" itemID="4b968c32-000001b0" isExpanded="true"/>
      </folders>
      <fonts>
-          <DOMFontItem name="comps/fonts/UIMarkerFelt" itemID="4b96b73e-00000219" linkageExportForAS="true" linkageClassName="comps.fonts.UIMarkerFelt" font="MarkerFelt-Thin" size="60" id="1" sourceLastImported="1268168510" embedRanges="9999"/>
+          <DOMFontItem name="comps/fonts/UIMarkerFelt" itemID="4b96b73e-00000219" linkageExportForAS="true" linkageClassName="comps.fonts.UIMarkerFelt" font="MarkerFelt-Thin" size="60" id="1" sourceLastImported="1307235399" embedRanges="9999"/>
      </fonts>
      <media>
-          <DOMBitmapItem name="comps/close/CloseImage" itemID="4b97ec16-00000080" linkageExportForAS="true" linkageClassName="comps.close.CloseImage" sourceExternalFilepath="./LIBRARY/comps/close/CloseImage.png" sourceLastImported="1268247574" sourcePlatform="macintosh" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="comps/close/CloseImage.png" bitmapDataHRef="M 1 1268247549.dat" frameRight="600" frameBottom="600"/>
+          <DOMBitmapItem name="comps/close/CloseImage" itemID="4b97ec16-00000080" linkageExportForAS="true" linkageClassName="comps.close.CloseImage" sourceExternalFilepath="./LIBRARY/comps/close/CloseImage.png" sourceLastImported="1307235392" sourcePlatform="macintosh" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="comps/close/CloseImage.png" bitmapDataHRef="M 1 1268247549.dat" frameRight="600" frameBottom="600"/>
      </media>
      <symbols>
           <Include href="comps/header/UIStickyHeader.xml"/>

@@ -1,7 +1,21 @@
 package com.cyntaxic.cyntils
 {
+	/**
+	 * The <code>CynNumber</code> class contains static functions for 
+	 * manipulation of numbers.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
 	public class CynNumber
 	{
+		/**
+		 * Returns a comma formatted string from a number.
+		 *  
+		 * @param number The number to be formatted.
+		 * @return The comma formatted string.
+		 * 
+		 */
 		public static function commaFormat(number:Number):String 
 		{
 			var numString:String = "";
@@ -38,25 +52,41 @@ package com.cyntaxic.cyntils
 			return out;
 		}
 		
+		/**
+		 * Returns the highest number in an array.
+		 *  
+		 * @param numbers The array of numbers.
+		 * @return The highest number.
+		 * 
+		 */
 		public static function getHighest(numbers:Array):Number
 		{
 			var highest:Number = numbers[0];
 			
 			for(var i:int = 0; i < numbers.length; i++)
 			{
-				if(numbers[i] > highest) highest = numbers[i];
+				if(numbers[i] is Number)
+					if(numbers[i] > highest) highest = numbers[i];
 			}
 			
 			return highest;
 		}
 		
+		/**
+		 * Returns the lowest number in an array.
+		 *  
+		 * @param numbers The array of numbers.
+		 * @return The lowest number.
+		 * 
+		 */
 		public static function getLowest(numbers:Array):Number
 		{
 			var lowest:Number = numbers[0];
 			
 			for(var i:int = 0; i < numbers.length; i++)
 			{
-				if(numbers[i] < lowest) lowest = numbers[i];
+				if(numbers[i] is Number)
+					if(numbers[i] < lowest) lowest = numbers[i];
 			}
 			
 			return lowest;

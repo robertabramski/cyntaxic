@@ -1,5 +1,12 @@
 package com.cyntaxic.cyntils
 {
+	/**
+	 * The <code>CynColor</code> class contains static functions for 
+	 * manipulation of colors.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
 	public class CynColor
 	{
 		/**

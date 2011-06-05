@@ -9,17 +9,33 @@ package com.cyntaxic.cynmvc.model
 	import com.cyntaxic.cynmvc.model.helpers.DataCallEvent;
 	import com.cyntaxic.cynmvc.model.vos.VersionVO;
 	
-	public dynamic class CynModel extends CyntaxicVO
+	/**
+	 * <code>CynModel</code> is an abstract class to be extended by the application being 
+	 * created with the Cyntaxic framework. The model is where all data for the application
+	 * is stored.
+	 *  
+	 * @author robertabramski
+	 * 
+	 */
+	public dynamic class CynModel extends Object
 	{
 		use namespace cynternal;
 		
-		private var _version:VersionVO = Versions.VERSION_1_0_0;
+		private var _version:VersionVO = Versions.VERSION_0_1_0;
 		private var _views:Array = [];
 		private var call:DataCall;
 		
+		/**
+		 * Creates a new instance of <code>CynModel</code>.
+		 * 
+		 * @param self Reference to itself to enforce it as an abstract class.
+		 * 
+		 * @throws CynError If attempted to be extended without super(this).
+		 * 
+		 */
 		public function CynModel(self:CynModel)
 		{
-			if(self != this) Cyntaxic.CONTROLLER.throwError(ErrorCodes.E_1003);
+			if(self != this) Cyntaxic.throwError(ErrorCodes.E_1003);
 		}
 		
 		cynternal function init():CynModel
@@ -37,6 +53,29 @@ package com.cyntaxic.cynmvc.model
 			return _views.slice();
 		}
 		
+		/**
+		 * Returns a valid JSON string describing the object. Objects that can't be 
+		 * used in JSON like the Function object are returned as string literal.
+		 *  
+		 * @param compact If false the string is not compacted.
+		 * @return A valid JSON string. 
+		 * 
+		 */
+		public function describe(compact:Boolean = true):String
+		{
+			return Cyntaxic.describe(this, compact);
+		}
+		
+		/**
+		 * Sends a HTTP GET call. When the call is complete the controller
+		 * <code>execute</code> function is called to handle the returned data.
+		 * 
+		 * @param handle The callback function handle.
+		 * @param url The URL to be called.
+		 * @param data The data to send to the server. 
+		 * @param contentType The content type of the data.
+		 * 
+		 */
 		public function get(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
 		{
 			call = new DataCall(handle, url, DataCall.GET, data, contentType);
@@ -46,6 +85,16 @@ package com.cyntaxic.cynmvc.model
 			call.addEventListener(DataCallEvent.TIMEOUT, dispatchCall);
 		}
 		
+		/**
+		 * Sends a HTTP POST call. When the call is complete the controller
+		 * <code>execute</code> function is called to handle the returned data.
+		 *  
+		 * @param handle The callback function handle.
+		 * @param url The URL to be called.
+		 * @param data The data to send to the server.
+		 * @param contentType The content type of the data.
+		 * 
+		 */
 		public function post(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
 		{
 			call = new DataCall(handle, url, DataCall.POST, data, contentType);
@@ -62,7 +111,7 @@ package com.cyntaxic.cynmvc.model
 			call.removeEventListener(DataCallEvent.TIMEOUT, dispatchCall);
 			call = null;
 			
-			Cyntaxic.CONTROLLER.execute(event.handle, event.data);
+			Cyntaxic.execute(event.handle, event.data);
 		}
 	}
 }

@@ -1,9 +1,17 @@
 package com.cyntaxic.cynmvc
 {
+	import com.cyntaxic.cynccess.cynternal;
+	
+	/**
+	 * @private Enumerated for the framework only for execute.
+	 * 
+	 */	
 	public class CyntaxicHandles
 	{
-		public static const THROW_ERROR:String = "throwError";
-		public static const RESIZE_VIEWS:String = "resizeViews";
-		public static const RESIZE:String = "resize";
+		use namespace cynternal;
+		
+		cynternal static const THROW_ERROR:String = "throwError";
+		cynternal static const RESIZE_VIEWS:String = "resizeViews";
+		cynternal static const RESIZE:String = "resize";
 	}
 }

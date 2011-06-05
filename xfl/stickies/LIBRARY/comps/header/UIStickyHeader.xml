@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/header/UIStickyHeader" itemID="4b96b09a-000001b9" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.StickyHeader" linkageClassName="comps.header.UIStickyHeader" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307147477" lastUniqueIdentifier="4" isSpriteSubclass="true">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="comps/header/UIStickyHeader" itemID="4b96b09a-000001b9" linkageExportForAS="true" linkageBaseClass="net.site.stickies.view.StickyHeader" linkageClassName="comps.header.UIStickyHeader" sourceLibraryItemHRef="comps/Symbol 1" lastModified="1307235408" lastUniqueIdentifier="4" isSpriteSubclass="true">
   <timeline>
     <DOMTimeline name="UIStickyHeader">
       <layers>

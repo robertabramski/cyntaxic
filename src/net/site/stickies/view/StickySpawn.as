@@ -29,6 +29,10 @@ package net.site.stickies.view
 		
 		public function StickySpawn()
 		{
+			// CynComponent, CynComposite and CynView are abstract 
+			// so this line must be added in the constructor.
+			super(this);
+			
 			model = (cynModel as Model);
 			controller = (cynController as Controller);
 			

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="CynBrowser,com.cyntaxic.cyntils.CynBrowser,CHROME,DATE_CANT_CONVERT_TO_DATE,DATE_DAY_OUT_OF_RANGE,DATE_INCORRECT_FORMAT,DATE_INCORRECT_YEAR,DATE_MONTH_OUT_OF_RANGE,DATE_TOO_MANY_SEPARATORS,EMAIL_CAN_HAVE_1_AT_SIGN,EMAIL_INVALID_CHARS,EMAIL_INVALID_DOMAIN,EMAIL_INVALID_DOMAIN_EXT,EMAIL_USERNAME_BLANK,FIREFOX,IP_CONTAINS_INVALID_CHARS,IP_FIRST_VALUE_ZERO,IP_INCORRECT_PERIODS,IP_PART_NOT_VALID_NUM,MSIE,OPERA,SAFARI,SEAMONKEY,SSN_INVALID_CHARS,SSN_INVALID_FORMAT,SSN_TOO_LONG,SSN_TOO_MANY_DASHES,URL_CAN_HAVE_1_QUESTION_MARK,URL_INVALID_CHARS,URL_INVALID_DOMAIN_NAME,URL_INVALID_PROTOCOL,URL_LENGTH_INVALID,VALID,passFail,addBrowserName,addLeadingZero,alphaNumeric,appName,arrayOfIndex,arrayOfSingleDigits,browserName,cash,commaFormat,compact,date,decimalNumber,digit,email,eq,fullVersion,getBrowserNames,getHighest,getLowest,getQueryParam,hex2uint,hsv2rgb,hsv2uint,integerInRange,invalidChars,ip,isBrowser,isChrome,isFirefox,isMSIE,isOpera,isSafari,isSeaMonkey,letter,letterOrDigit,majorVersion,notEmpty,numberByLength,numberInRange,replaceAll,rgb2hsv,rgb2uint,shuffle,socialSecurity,time,trim,uint2hex,uneq,url,url,urlSecure,userAgent,validChars,worldDate"><title>com.cyntaxic.cyntils.CynBrowser</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'CynBrowser - Cyntaxic Framework';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">Cyntaxic Framework</td><td class="titleTableTopNav" align="right"><a href="../../../package-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../class-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../all-index-A.html" onclick="loadClassListFrame('../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../index.html?com/cyntaxic/cyntils/CynBrowser.html&amp;com/cyntaxic/cyntils/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">CynBrowser</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("CynBrowser"); titleBar_setSubNav(true,false,false,false,false,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">com.cyntaxic.cyntils</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  CynBrowser</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">CynBrowser  <img src="../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+	 The <code>CynBrowser</code> class contains static functions for 
+	 get information about the SWF's containing HTML page including browser
+	 detection and URL manipulation. <code>CynBrowser</code> holds all of the 
+	 JavaScript code inline inside the class to prevent needing additional files 
+	 besides the class itself.
+	  
+	 <p></p><br/><hr></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#addBrowserName()" class="signatureLink">addBrowserName</a>(browser:String):void</div><div class="summaryTableDescription">[static] 
+		 Adds a browser string to the browser list.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#appName()" class="signatureLink">appName</a>():String</div><div class="summaryTableDescription">[static] 
+		 Gets navigator.appName from JavaScript.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#browserName()" class="signatureLink">browserName</a>():String</div><div class="summaryTableDescription">[static] 
+		 Gets the name of the browser by extraction from the navigator.userAgent string.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#fullVersion()" class="signatureLink">fullVersion</a>():String</div><div class="summaryTableDescription">[static] 
+		 Gets the full browser version by extraction from the navigator.userAgent string.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getBrowserNames()" class="signatureLink">getBrowserNames</a>():Array</div><div class="summaryTableDescription">[static] 
+		 Makes a shallow copy of the browser strings that are being used for browser detection.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#getQueryParam()" class="signatureLink">getQueryParam</a>(param:String):String</div><div class="summaryTableDescription">[static] 
+		 Gets the value of the query string parameter passed in.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isBrowser()" class="signatureLink">isBrowser</a>(browser:String):Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks to see if the param string is the browser being used.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isChrome()" class="signatureLink">isChrome</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Google Chrome or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isFirefox()" class="signatureLink">isFirefox</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Mozilla Firefox or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isMSIE()" class="signatureLink">isMSIE</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Internet Explorer or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isOpera()" class="signatureLink">isOpera</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Opera or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isSafari()" class="signatureLink">isSafari</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Apple Safari or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#isSeaMonkey()" class="signatureLink">isSeaMonkey</a>():Boolean</div><div class="summaryTableDescription">[static] 
+		 Checks whether browser is Mozilla SeaMonkey or not.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#majorVersion()" class="signatureLink">majorVersion</a>():String</div><div class="summaryTableDescription">[static] 
+		 Gets only the major browser version by extraction from the navigator.userAgent string.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#url()" class="signatureLink">url</a>(base:Boolean = false, protocol:Boolean = true):String</div><div class="summaryTableDescription">[static] 
+		 Returns the JavaScript window.location.href.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#userAgent()" class="signatureLink">userAgent</a>():String</div><div class="summaryTableDescription">[static] 
+		 Gets navigator.userAgent from JavaScript.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#CHROME" class="signatureLink">CHROME</a> : String = Chrome<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the Google Chrome Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#FIREFOX" class="signatureLink">FIREFOX</a> : String = Firefox<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the Mozilla Firefox Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#MSIE" class="signatureLink">MSIE</a> : String = MSIE<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the Internet Explorer Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#OPERA" class="signatureLink">OPERA</a> : String = Opera<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the Opera Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SAFARI" class="signatureLink">SAFARI</a> : String = Safari<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the Apple Safari Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#SEAMONKEY" class="signatureLink">SEAMONKEY</a> : String = SeaMonkey<div class="summaryTableDescription">[static] 
+		 Defines the value of the navigator.userAgent 
+		 string for the SeaMonkey Browser.</div></td><td class="summaryTableOwnerCol">CynBrowser</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="addBrowserName()"></a><a name="addBrowserName(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">addBrowserName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function addBrowserName(browser:String):void</code><p></p><p></p><p>
+		 Adds a browser string to the browser list. This function is everytime 
+		 <code>isBrowser</code> is run so it can check an updated list of browser strings.
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">browser</span>:String</code> &mdash; The browser string to be added to the browser name array. 
+		 
+		 </td></tr></table></p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="appName()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">appName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function appName():String</code><p></p><p></p><p>
+		 Gets <code>navigator.appName</code> from JavaScript. 
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The app name string.
+		 
+		 </td></tr></table></div><a name="browserName()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">browserName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function browserName():String</code><p></p><p></p><p>
+		 Gets the name of the browser by extraction from the <code>navigator.userAgent</code> string. 
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The name of the browser.
+		 
+		 </td></tr></table></div><a name="fullVersion()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">fullVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function fullVersion():String</code><p></p><p></p><p>
+		 Gets the full browser version by extraction from the <code>navigator.userAgent</code> string. 
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The full version of the browser.
+		 
+		 </td></tr></table></div><a name="getBrowserNames()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getBrowserNames</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function getBrowserNames():Array</code><p></p><p></p><p>
+		 Makes a shallow copy of the browser strings that are being used for browser detection.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Array</code> &mdash; A copy of the browser names in the array.
+		 
+		 </td></tr></table></div><a name="getQueryParam()"></a><a name="getQueryParam(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">getQueryParam</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function getQueryParam(param:String):String</code><p></p><p></p><p>
+		 Gets the value of the query string parameter passed in.
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">param</span>:String</code> &mdash; The string value of the query param. 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The value of the param or a blank string.
+		 
+		 </td></tr></table></div><a name="isBrowser()"></a><a name="isBrowser(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isBrowser</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isBrowser(browser:String):Boolean</code><p></p><p></p><p>
+		 Checks to see if the param string is the browser being used. The 
+		 function adds the attempted browser name to the tested browser array using 
+		 <code>getBrowserNames</code>. 
+		  
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">browser</span>:String</code> &mdash; The browser string to check against. 
+		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True if the browser string matches part of <code>navigator.userAgent</code> string.
+		 
+		 </td></tr></table><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#getBrowserNames()" target="">getBrowserNames()</a></div></div><a name="isChrome()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isChrome</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isChrome():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Google Chrome or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is Chrome, otherwise false. 
+		 
+		 </td></tr></table></div><a name="isFirefox()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isFirefox</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isFirefox():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Mozilla Firefox or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is Firefox, otherwise false. 
+		 
+		 </td></tr></table></div><a name="isMSIE()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isMSIE</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isMSIE():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Internet Explorer or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is Internet Explorer, otherwise false. 
+		 
+		 </td></tr></table></div><a name="isOpera()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isOpera</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isOpera():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Opera or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is Opera, otherwise false. 
+		 
+		 </td></tr></table></div><a name="isSafari()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSafari</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isSafari():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Apple Safari or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is Safari, otherwise false. 
+		 
+		 </td></tr></table></div><a name="isSeaMonkey()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">isSeaMonkey</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function isSeaMonkey():Boolean</code><p></p><p></p><p>
+		 Checks whether browser is Mozilla SeaMonkey or not.
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code> &mdash; True is SeaMonkey, otherwise false. 
+		 
+		 </td></tr></table></div><a name="majorVersion()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">majorVersion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function majorVersion():String</code><p></p><p></p><p>
+		 Gets only the major browser version by extraction from the <code>navigator.userAgent</code> string. 
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The major version of the browser.
+		 
+		 </td></tr></table></div><a name="url()"></a><a name="url(Boolean,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">url</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function url(base:Boolean = false, protocol:Boolean = true):String</code><p></p><p></p><p>
+		 Returns the JavaScript <code>window.location.href</code>.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">base</span>:Boolean</code> (default = <code>false</code>)<code></code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">protocol</span>:Boolean</code> (default = <code>true</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The url string affected by parameters.
+		 
+		 </td></tr></table></div><a name="userAgent()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">userAgent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function userAgent():String</code><p></p><p></p><p>
+		 Gets <code>navigator.userAgent</code> from JavaScript. 
+		  
+		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; The user agent string.
+		 
+		 </td></tr></table></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="CHROME"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CHROME</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const CHROME:String = Chrome</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the Google Chrome Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="constantDetail"></a><a name="FIREFOX"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">FIREFOX</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const FIREFOX:String = Firefox</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the Mozilla Firefox Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="constantDetail"></a><a name="MSIE"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MSIE</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const MSIE:String = MSIE</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the Internet Explorer Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="constantDetail"></a><a name="OPERA"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">OPERA</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const OPERA:String = Opera</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the Opera Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="constantDetail"></a><a name="SAFARI"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SAFARI</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SAFARI:String = Safari</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the Apple Safari Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><a name="constantDetail"></a><a name="SEAMONKEY"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">SEAMONKEY</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const SEAMONKEY:String = SeaMonkey</code><p></p><p></p><p>
+		 Defines the value of the <code>navigator.userAgent</code> 
+		 string for the SeaMonkey Browser.
+		 
+		 </p><p><span class="label">See also</span></p><div class="seeAlso"><a href="CynBrowser.html#isBrowser()" target="">isBrowser()</a></div></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Sun Jun 5 2011, 06:47 PM -04:00  </center></div></body></html><!--<br/>Sun Jun 5 2011, 06:47 PM -04:00  -->

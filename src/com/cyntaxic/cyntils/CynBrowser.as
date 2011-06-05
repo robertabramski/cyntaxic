@@ -3,12 +3,11 @@ package com.cyntaxic.cyntils
 	import flash.external.ExternalInterface;
 	
 	/**
-	 * <code>CynBrowser</code> holds a number of static functions to easily 
+	 * The <code>CynBrowser</code> class contains static functions for 
 	 * get information about the SWF's containing HTML page including browser
-	 * detection and URL manipulation.
-	 * 
-	 * <code>CynBrowser</code> holds all of the JavaScript code inline inside the
-	 * class to prevent needing additional files besides the class itself.
+	 * detection and URL manipulation. <code>CynBrowser</code> holds all of the 
+	 * JavaScript code inline inside the class to prevent needing additional files 
+	 * besides the class itself.
 	 *  
 	 * @author robertabramski
 	 * 

@@ -27,6 +27,10 @@ package net.site.stickies.view
 		
 		public function MiniSticky()
 		{
+			// CynComponent, CynComposite and CynView are abstract 
+			// so this line must be added in the constructor.
+			super(this);
+			
 			stickyShape = this.getChildAt(0) as Shape;
 			
 			this.filters = [dropShadow];
