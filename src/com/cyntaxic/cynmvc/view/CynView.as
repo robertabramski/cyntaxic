@@ -202,7 +202,7 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * Removed all the listeners added. 
+		 * Removes all the listeners added. 
 		 * 
 		 */
 		public function removeAllListeners():void
@@ -255,10 +255,10 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * Invoked when Event.RESIZE event is fired. A <code>CyntaxicVO</code>
-		 * is passed in containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
+		 * Invoked when Event.RESIZE event is fired. A <code>ResizeVO</code> is passed 
+		 * in containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
 		 *  
-		 * @param vo An object containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
+		 * @param vo A <code>ResizeVO</code> containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
 		 * 
 		 */
 		public function resize(vo:ResizeVO):void

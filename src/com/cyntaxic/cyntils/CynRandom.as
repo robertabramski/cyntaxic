@@ -28,7 +28,7 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Returns an array of single digit zero based indexed numbers randomly.
+		 * Returns an array of single digit numbers randomly.
 		 *  
 		 * @param length The length of the array to be generated.
 		 * @return The array of single random numbers in length range.

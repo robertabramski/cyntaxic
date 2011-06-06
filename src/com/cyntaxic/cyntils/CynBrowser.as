@@ -4,7 +4,7 @@ package com.cyntaxic.cyntils
 	
 	/**
 	 * The <code>CynBrowser</code> class contains static functions for 
-	 * get information about the SWF's containing HTML page including browser
+	 * get information about the SWFs containing HTML page including browser
 	 * detection and URL manipulation. <code>CynBrowser</code> holds all of the 
 	 * JavaScript code inline inside the class to prevent needing additional files 
 	 * besides the class itself.

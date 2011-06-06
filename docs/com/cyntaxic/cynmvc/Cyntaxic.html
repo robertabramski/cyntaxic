@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="Cyntaxic,com.cyntaxic.cynmvc.Cyntaxic,CONTROLLER,DEBUGGER,FLASH_VARS_VO,MODEL,ROOT,STAGE,VERSION,cmLove,contextMenu,debug,deepDescribe,fullScaleFlash,describe,describe,execute,go,init,throwError"><title>com.cyntaxic.cynmvc.Cyntaxic</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="Cyntaxic,com.cyntaxic.cynmvc.Cyntaxic,CONTROLLER,DEBUGGER,FLASH_VARS_VO,MODEL,ROOT,STAGE,VERSION,cmLove,contextMenu,debug,deepDescribe,fullScaleFlash,describe,describe,go,init"><title>com.cyntaxic.cynmvc.Cyntaxic</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
 				asdocTitle = 'Cyntaxic - Cyntaxic Framework';
 				var baseRef = '../../../';
 				window.onload = configPage;
@@ -43,9 +43,9 @@
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get contextMenu():ContextMenu</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function set contextMenu(value:ContextMenu):void</code><br/></div><a name="propertyDetail"></a><a name="CONTROLLER"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">CONTROLLER</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>CONTROLLER:<a href="../../../com/cyntaxic/cynmvc/controller/CynController.html">CynController</a></code><p></p><p></p><p>
 		 Returns the extended <code>CynController</code> instance. By 
-		 convention this class should be setup as a singleton. This is a 
-		 pseudo getter as it only can be set once by the framework. Attempts  
-		 at setting will throw an <code>CynError</code>. 
+		 convention this class should be setup as a singleton. This is 
+		 pseudo read only as it only can be set once by the framework. Attempts  
+		 at setting will throw a <code>CynError</code>. 
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get CONTROLLER():<a href="../../../com/cyntaxic/cynmvc/controller/CynController.html">CynController</a></code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function set CONTROLLER(value:<a href="../../../com/cyntaxic/cynmvc/controller/CynController.html">CynController</a>):void</code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>CynError </code> &mdash; If attempting to set.
 		 
@@ -56,7 +56,7 @@
 		 Returns the debugger instance. The debugger has one function, <code>log</code>
 		 which takes 2 arguments. The messenger and the message. The controller and views
 		 have shortcut functions for this that assume the first argument as itself. Use this
-		 when the intention is override the messenger parameter. Attempts  
+		 when the intention is to override the messenger parameter. Attempts  
 		 at setting will throw an <code>CynError</code>.
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get DEBUGGER():Debugger</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function set DEBUGGER(value:Debugger):void</code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>CynError </code> &mdash; If attempting to set.
@@ -79,9 +79,9 @@
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get fullScaleFlash():Boolean</code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function set fullScaleFlash(value:Boolean):void</code><br/></div><a name="propertyDetail"></a><a name="MODEL"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">MODEL</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>MODEL:<a href="../../../com/cyntaxic/cynmvc/model/CynModel.html">CynModel</a></code><p></p><p></p><p>
 		 Returns the extended <code>CynModel</code> instance. By 
-		 convention this class should be setup as a singleton. This is a 
-		 pseudo getter as it only can be set once by the framework. Attempts  
-		 at setting will throw an <code>CynError</code>.
+		 convention this class should be setup as a singleton. This is 
+		 pseudo read only as it only can be set once by the framework. Attempts  
+		 at setting will throw a <code>CynError</code>.
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get MODEL():<a href="../../../com/cyntaxic/cynmvc/model/CynModel.html">CynModel</a></code><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function set MODEL(value:<a href="../../../com/cyntaxic/cynmvc/model/CynModel.html">CynModel</a>):void</code><br/><br/><span class="label"> Throws </span><br/><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>CynError </code> &mdash; If attempting to set.
 		 
@@ -102,14 +102,14 @@
 		  
 		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get VERSION():String</code><br/></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="describe()"></a><a name="describe(Object,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">describe</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public static function describe(object:Object, compact:Boolean = true):String</code><p></p><p></p><p>
 		 Returns a valid JSON string describing the object passed in the first argument. 
-		 Objects that can't be used in JSON like the Function object are returned as string literal. 
+		 Objects that can't be used in JSON like the Function object are returned as a string literal. 
 		 The controller and views have shortcut functions for this that assume the first argument as itself. 
 		 Use this when the intention is to describe an object without the <code>describe</code> function. 
 		  
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">object</span>:Object</code> &mdash; If false the string is not compacted.
 		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">compact</span>:Boolean</code> (default = <code>true</code>)<code></code></td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>String</code> &mdash; A valid JSON string. 
 		 
-		 </td></tr></table></div><a name="execute()"></a><a name="execute(String,com.cyntaxic.cynmvc.CyntaxicVO)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">execute</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> cynternal static function execute(handle:String, vo:<a href="../../../com/cyntaxic/cynmvc/CyntaxicVO.html">CyntaxicVO</a>):void</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">handle</span>:String</code></td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">vo</span>:<a href="../../../com/cyntaxic/cynmvc/CyntaxicVO.html">CyntaxicVO</a></code></td></tr></table></p></div><a name="go()"></a><a name="go(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">go</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function go(url:String, target:String):void</code><p></p><p></p><p>
+		 </td></tr></table></div><a name="go()"></a><a name="go(String,String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">go</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public static function go(url:String, target:String):void</code><p></p><p></p><p>
 		 Goes to a webpage. 
 		  
 		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">url</span>:String</code> &mdash; The URL to go to.
@@ -124,4 +124,4 @@
 		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">props</span>:Object</code> (default = <code>null</code>)<code></code> &mdash; A object containing configuration properties for the framework.
 		 </td></tr></table></p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code><a href="../../../com/cyntaxic/cynmvc/Cyntaxic.html">Cyntaxic</a></code> &mdash; The <code>Cyntaxic</code> singleton instance.
 		 
-		 </td></tr></table></div><a name="throwError()"></a><a name="throwError(com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">throwError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> cynternal static function throwError(error:<a href="../../../com/cyntaxic/cynmvc/controller/vos/ErrorCodeVO.html">ErrorCodeVO</a>):void</code><p></p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">error</span>:<a href="../../../com/cyntaxic/cynmvc/controller/vos/ErrorCodeVO.html">ErrorCodeVO</a></code></td></tr></table></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Sun Jun 5 2011, 09:19 PM -04:00  </center></div></body></html><!--<br/>Sun Jun 5 2011, 09:19 PM -04:00  -->
+		 </td></tr></table></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Sun Jun 5 2011, 11:46 PM -04:00  </center></div></body></html><!--<br/>Sun Jun 5 2011, 11:46 PM -04:00  -->

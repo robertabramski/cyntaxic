@@ -13,7 +13,23 @@ package com.cyntaxic.cynmvc.view.interfaces
 	 */
 	public interface ICynView
 	{
+		/**
+		 * Optionally initialize a view. This is useful when extending a graphical
+		 * objects from a Flash library where the constructor is not available.
+		 *  
+		 * @param vo The value object to pass parameters.
+		 * @return The <code>CynView</code> for chainability.
+		 * 
+		 */
 		function init(vo:CyntaxicVO):CynView
+			
+		/**
+		 * Invoked when Event.RESIZE event is fired. A <code>ResizeVO</code> is passed 
+		 * in containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
+		 *  
+		 * @param vo A <code>ResizeVO</code> containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
+		 * 
+		 */
 		function resize(vo:ResizeVO):void
 	}
 }

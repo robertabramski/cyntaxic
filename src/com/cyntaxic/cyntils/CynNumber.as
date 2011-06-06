@@ -55,7 +55,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Returns the highest number in an array.
 		 *  
-		 * @param numbers The array of numbers.
+		 * @param numbers The array.
 		 * @return The highest number.
 		 * 
 		 */
@@ -75,7 +75,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Returns the lowest number in an array.
 		 *  
-		 * @param numbers The array of numbers.
+		 * @param numbers The array.
 		 * @return The lowest number.
 		 * 
 		 */

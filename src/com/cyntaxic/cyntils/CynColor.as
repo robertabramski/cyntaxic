@@ -16,7 +16,7 @@ package com.cyntaxic.cyntils
 		 * @param hex The hexidecmal string to convert.
 		 * 
 		 * @see #uint2hex()
-		 * @return An unit with a equivalent value to the hex. 
+		 * @return An unsigned integer with a equivalent value to the hex. 
 		 * 
 		 */
 		public static function hex2uint(hex:String):uint
@@ -46,7 +46,7 @@ package com.cyntaxic.cyntils
 		 * @param g The green value as an integer.
 		 * @param b The blue value as an integer.
 		 * 
-		 * @return An uint with a equivalent value to the RGB values passed. 
+		 * @return An unsigned integer with a equivalent value to the RGB values passed. 
 		 * 
 		 */
 		public static function rgb2uint(r:int, g:int, b:int):uint
@@ -59,9 +59,9 @@ package com.cyntaxic.cyntils
 		 *  
 		 * @param hue The hue value.
 		 * @param sat The saturation value.
-		 * @param val The brightness value. This also sometimes referred to as value.
+		 * @param val The value value. This also sometimes referred to as brightness.
 		 * 
-		 * @return An uint with a equivalent value to the HSV values passed. 
+		 * @return An unsigned integer with a equivalent value to the HSV values passed. 
 		 * 
 		 */
 		public static function hsv2uint(hue:Number, sat:Number, val:Number):uint

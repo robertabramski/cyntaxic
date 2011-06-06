@@ -3,8 +3,9 @@ package com.cyntaxic.cyntils
 	/**
 	 * The <code>CynValidate</code> class contains static functions for
 	 * validation. Each function can return true or false, or if <code>passFail</code>
-	 * is set to false a result object containing valid, code and text properties is returned.
-	 * Validiation codes returned by the result object are enumerated in the class.
+	 * is set to false a result object containing <code>valid</code>, <code>code</code> 
+	 * and <code>text</code> properties is returned. Validiation codes returned by the result 
+	 * object are enumerated in the class.
 	 *  
 	 * @author robertabramski
 	 * 
@@ -87,7 +88,7 @@ package com.cyntaxic.cyntils
 		public static const URL_INVALID_DOMAIN_NAME:int = 2014;
 		
 		/**
-		 * Code for a URl having more than one question mark.    
+		 * Code for a URL having more than one question mark.    
 		 */
 		public static const URL_CAN_HAVE_1_QUESTION_MARK:int = 2015;
 		
@@ -211,7 +212,7 @@ package com.cyntaxic.cyntils
 		}
 
 		/**
-		 * Determines whether the string contains only alphabetic and numeric characters.
+		 * Determines whether the string contains only alphanumeric characters.
 		 *
 		 * @param str The string to validate.
 		 * @return A Boolean true value if the data is valid.
@@ -222,7 +223,7 @@ package com.cyntaxic.cyntils
 		}
 
 		/**
-		 * Determines whether the character is an alphanumeric character.
+		 * Determines whether the character is a letter or a number.
 		 *
 		 * @param n The character to validate.
 		 * @return A Boolean true value if the data is valid.
@@ -454,7 +455,7 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Determines if the string contains a valid date.Valid examples include 
+		 * Determines if the string contains a valid date. Valid examples include 
 		 * 9/30/09, 9-30-09 or 9.30.09.
 		 *
 		 * @param str The String containing the date.
