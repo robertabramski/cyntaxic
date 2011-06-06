@@ -10,7 +10,14 @@ package com.cyntaxic.cynmvc.controller.vos
 	 */
 	public class ErrorCodeVO extends CyntaxicVO
 	{
+		/**
+		 * The message explaining the error. 
+		 */
 		public var message:String;
+		
+		/**
+		 * The reference number for the specific error message. 
+		 */		
 		public var id:int;
 		
 		/**

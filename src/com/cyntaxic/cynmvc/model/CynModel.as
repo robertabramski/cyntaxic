@@ -30,7 +30,7 @@ package com.cyntaxic.cynmvc.model
 		 * 
 		 * @param self Reference to itself to enforce it as an abstract class.
 		 * 
-		 * @throws CynError If attempted to be extended without super(this).
+		 * @throws CynError If attempted to be extended without <code>super(this)</code>.
 		 * 
 		 */
 		public function CynModel(self:CynModel)
@@ -38,16 +38,34 @@ package com.cyntaxic.cynmvc.model
 			if(self != this) Cyntaxic.throwError(ErrorCodes.E_1003);
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function init():CynModel
 		{
 			return this;
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function get version():VersionVO { return _version; }
 		
-		cynternal function get views():Array { return _views; }
+		/**
+		 * @private
+		 * 
+		 */
+		cynternal function get views():Array { return _views; } /*** @private */
 		cynternal function set views(value:Array):void { _views = value; }
 		
+		/**
+		 * Returns a copy of all active views.
+		 *  
+		 * @return A copy of all active views.
+		 * 
+		 */		
 		public function get cynViews():Array
 		{
 			return _views.slice();
@@ -55,7 +73,7 @@ package com.cyntaxic.cynmvc.model
 		
 		/**
 		 * Returns a valid JSON string describing the object. Objects that can't be 
-		 * used in JSON like the Function object are returned as string literal.
+		 * used in JSON like the Function object are returned as a string literal.
 		 *  
 		 * @param compact If false the string is not compacted.
 		 * @return A valid JSON string. 

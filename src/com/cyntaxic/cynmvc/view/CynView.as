@@ -25,6 +25,10 @@ package com.cyntaxic.cynmvc.view
 	{
 		use namespace cynternal;
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal var controller:CynController;
 		
 		/**
@@ -49,7 +53,7 @@ package com.cyntaxic.cynmvc.view
 		 * 
 		 * @param self Reference to itself to enforce it as an abstract class.
 		 * 
-		 * @throws CynError If attempted to be extended without super(this) or by a class that is not <code>CynComposite</code> or <code>CynComponent</code>.
+		 * @throws CynError If attempted to be extended without <code>super(this)</code> or by a class that is not <code>CynComposite</code> or <code>CynComponent</code>.
 		 * 
 		 */
 		public function CynView(self:CynView)
@@ -93,6 +97,10 @@ package com.cyntaxic.cynmvc.view
 			if(!suppressDebug) Cyntaxic.DEBUGGER.log(this, message);
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function update(event:CyntaxicEvent):void
 		{
 			if(this.hasOwnProperty(event.handle))
@@ -235,7 +243,7 @@ package com.cyntaxic.cynmvc.view
 		
 		/**
 		 * Returns a valid JSON string describing the object. Objects that can't be 
-		 * used in JSON like the Function object are returned as string literal.
+		 * used in JSON like the Function object are returned as a string literal.
 		 *  
 		 * @param compact If false the string is not compacted.
 		 * @return A valid JSON string. 

@@ -35,7 +35,7 @@ package com.cyntaxic.cynmvc.controller
 		 * 
 		 * @param self Reference to itself to enforce it as an abstract class.
 		 * 
-		 * @throws CynError If attempted to be extended without super(this).
+		 * @throws CynError If attempted to be extended without <code>super(this)</code>.
 		 * 
 		 */
 		public function CynController(self:CynController)
@@ -43,6 +43,10 @@ package com.cyntaxic.cynmvc.controller
 			if(self != this) throwError(ErrorCodes.E_1003);
 		}
 		
+		/**
+		 * @private 
+		 * 
+		 */
 		cynternal function init():CynController
 		{
 			cynModel = Cyntaxic.MODEL;
@@ -50,7 +54,7 @@ package com.cyntaxic.cynmvc.controller
 		}
 		
 		/**
-		 * Executes a controller function.
+		 * Executes a controller function based on the string value of the handle parameter.
 		 *  
 		 * @param handle The function handle to be executed.
 		 * @param vo The value object being passed.
@@ -62,7 +66,8 @@ package com.cyntaxic.cynmvc.controller
 		}
 		
 		/**
-		 * Notifies <code>CynView</code> classes to update the view.
+		 * Notifies <code>CynView</code> classes to update. This function looks for 
+		 * public functions named the same as the handle parameter in each view.
 		 *  
 		 * @param handle The function handle to be notified about.
 		 * @param vo The value object being passed.
@@ -94,22 +99,38 @@ package com.cyntaxic.cynmvc.controller
 		{
 			Cyntaxic.DEBUGGER.log(this, message);
 		}
-			
+		
+		/**
+		 * @private
+		 * 
+		 */			
 		cynternal function throwError(vo:ErrorCodeVO):void
 		{
 			throw new CynError(vo.message, vo.id);
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function resizeViews(vo:CyntaxicVO):void
 		{
 			notify(CyntaxicHandles.RESIZE, vo);
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function listen(type:String, listener:Function):void
 		{
 			super.addEventListener(type, listener);
 		}
 		
+		/**
+		 * @private
+		 * 
+		 */
 		cynternal function unlisten(type:String, listener:Function):void
 		{
 			super.removeEventListener(type, listener);

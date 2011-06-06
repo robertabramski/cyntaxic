@@ -1,6 +1,5 @@
 package com.cyntaxic.cynmvc.model.vos
 {
-	import com.cyntaxic.cynccess.cynternal;
 	import com.cyntaxic.cynmvc.Cyntaxic;
 	import com.cyntaxic.cynmvc.CyntaxicVO;
 
@@ -12,8 +11,6 @@ package com.cyntaxic.cynmvc.model.vos
 	 */
 	public class DataCallVO extends CyntaxicVO
 	{
-		use namespace cynternal;
-		
 		/**
 		 * Used to specify the HTTP GET type.
 		 */		

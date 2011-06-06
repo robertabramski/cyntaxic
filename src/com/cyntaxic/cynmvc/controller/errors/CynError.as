@@ -10,8 +10,7 @@ package com.cyntaxic.cynmvc.controller.errors
 	public class CynError extends Error
 	{
 		/**
-		 * Creates a new <code>CynError</code> object. If message is specified, its value is assigned 
-		 * to the object's <code>message</code> property.
+		 * Creates a new <code>CynError</code> object.
 		 *  
 		 * @param message A string associated with the error object.
 		 * @param id A reference number to associate with the specific error message.
