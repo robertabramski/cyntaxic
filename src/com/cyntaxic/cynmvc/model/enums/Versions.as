@@ -16,6 +16,11 @@ package com.cyntaxic.cynmvc.model.enums
 		public static const VERSION_1_0_0:VersionVO = new VersionVO("1.0.0", "Initial public release");
 		
 		/**
+		 * Release 0.1.1 of the framework. 
+		 */
+		public static const VERSION_0_1_1:VersionVO = new VersionVO("0.1.1", "Documentation fixes and demo fixes.");
+		
+		/**
 		 * Release 0.1.0 of the framework. 
 		 */
 		public static const VERSION_0_1_0:VersionVO = new VersionVO("0.1.0", "Documentation and framework completed.");

@@ -45,8 +45,6 @@ package
 				cmLove:true				// Adds framework love link to the root contextual menu. Default is true.  
 			});
 			
-			trace(CynString.trim("This is my trim test\s") + 'ass');
-			
 			// Add the application class and init. Add to display as CynView.
 			app = addChild(new StickiesApp().init(Cyntaxic.FLASH_VARS_VO)) as CynView;
 		}

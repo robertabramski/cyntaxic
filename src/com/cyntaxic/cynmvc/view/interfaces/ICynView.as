@@ -14,7 +14,6 @@ package com.cyntaxic.cynmvc.view.interfaces
 	public interface ICynView
 	{
 		function init(vo:CyntaxicVO):CynView
-		function update(event:CyntaxicEvent):void
 		function resize(vo:ResizeVO):void
 	}
 }

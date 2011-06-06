@@ -93,11 +93,7 @@ package com.cyntaxic.cynmvc.view
 			if(!suppressDebug) Cyntaxic.DEBUGGER.log(this, message);
 		}
 		
-		/**
-		 * @private Not used directly. 
-		 * 
-		 */
-		public function update(event:CyntaxicEvent):void
+		cynternal function update(event:CyntaxicEvent):void
 		{
 			if(this.hasOwnProperty(event.handle))
 			{

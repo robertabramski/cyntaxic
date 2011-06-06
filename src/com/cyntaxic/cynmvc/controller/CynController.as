@@ -52,7 +52,7 @@ package com.cyntaxic.cynmvc.controller
 		/**
 		 * Executes a controller function.
 		 *  
-		 * @param handle The function handle to be notified about.
+		 * @param handle The function handle to be executed.
 		 * @param vo The value object being passed.
 		 * 
 		 */		
@@ -62,7 +62,7 @@ package com.cyntaxic.cynmvc.controller
 		}
 		
 		/**
-		 * Notifies all <code>CynView</code> classes to update the view.
+		 * Notifies <code>CynView</code> classes to update the view.
 		 *  
 		 * @param handle The function handle to be notified about.
 		 * @param vo The value object being passed.

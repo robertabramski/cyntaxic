@@ -21,7 +21,7 @@ package com.cyntaxic.cynmvc.model
 	{
 		use namespace cynternal;
 		
-		private var _version:VersionVO = Versions.VERSION_0_1_0;
+		private var _version:VersionVO = Versions.VERSION_0_1_1;
 		private var _views:Array = [];
 		private var call:DataCall;
 		
