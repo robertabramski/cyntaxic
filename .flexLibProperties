@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" version="1">
+  <includeClasses>
+    <classEntry path="com.cyntaxic.cynccess.cynternal"/>
+    <classEntry path="com.cyntaxic.cynmvc.Cyntaxic"/>
+    <classEntry path="com.cyntaxic.cynmvc.CyntaxicEvent"/>
+    <classEntry path="com.cyntaxic.cynmvc.CyntaxicHandles"/>
+    <classEntry path="com.cyntaxic.cynmvc.CyntaxicVO"/>
+    <classEntry path="com.cyntaxic.cynmvc.controller.CynController"/>
+    <classEntry path="com.cyntaxic.cynmvc.controller.enums.ErrorCodes"/>
+    <classEntry path="com.cyntaxic.cynmvc.controller.errors.CynError"/>
+    <classEntry path="com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO"/>
+    <classEntry path="com.cyntaxic.cynmvc.controller.vos.ResizeVO"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.CynModel"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.enums.Versions"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.helpers.DataCall"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.helpers.DataCallEvent"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.vos.DataCallVO"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.vos.VersionVO"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.CynComponent"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.CynComposite"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.CynView"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.interfaces.ICynComponent"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.interfaces.ICynComposite"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.interfaces.ICynView"/>
+    <classEntry path="com.cyntaxic.cyntils.CynArray"/>
+    <classEntry path="com.cyntaxic.cyntils.CynBrowser"/>
+    <classEntry path="com.cyntaxic.cyntils.CynColor"/>
+    <classEntry path="com.cyntaxic.cyntils.CynFormat"/>
+    <classEntry path="com.cyntaxic.cyntils.CynNumber"/>
+    <classEntry path="com.cyntaxic.cyntils.CynRandom"/>
+    <classEntry path="com.cyntaxic.cyntils.CynString"/>
+    <classEntry path="com.cyntaxic.cyntils.CynValidate"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
