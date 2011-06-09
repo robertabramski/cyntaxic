@@ -9,6 +9,8 @@ package com.cyntaxic.cynmvc.model
 	import com.cyntaxic.cynmvc.model.helpers.DataCallEvent;
 	import com.cyntaxic.cynmvc.model.vos.VersionVO;
 	
+	import flash.events.EventDispatcher;
+	
 	/**
 	 * <code>CynModel</code> is an abstract class to be extended by the application being 
 	 * created with the Cyntaxic framework. The model is where all data for the application
@@ -17,7 +19,7 @@ package com.cyntaxic.cynmvc.model
 	 * @author robertabramski
 	 * 
 	 */
-	public dynamic class CynModel extends Object
+	public dynamic class CynModel extends EventDispatcher
 	{
 		use namespace cynternal;
 		
