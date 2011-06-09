@@ -10,7 +10,9 @@ package com.cyntaxic.cynmvc.controller
 	import com.cyntaxic.cynmvc.controller.vos.ErrorCodeVO;
 	import com.cyntaxic.cynmvc.model.CynModel;
 	import com.cyntaxic.cynmvc.view.CynView;
+	import com.cyntaxic.cynmvc.view.CynViewProxy;
 	
+	import flash.display.DisplayObject;
 	import flash.events.EventDispatcher;
 	
 	/**
@@ -77,14 +79,32 @@ package com.cyntaxic.cynmvc.controller
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
-				var cynView:CynView = cynModel.views[i] as CynView;
+				var view:DisplayObject = cynModel.views[i];
 				
-				if(cynView.hasOwnProperty(handle))
+				if(view is CynViewProxy)
 				{
-					cynView.controller.listen(CyntaxicEvent.NOTIFY, cynView.update);
-					dispatchEvent(new CyntaxicEvent(handle, vo));
+					var proxyView:CynViewProxy = cynModel.views[i] as CynViewProxy;
+					var actualView:DisplayObject = proxyView.actualView;
 					
-					cynView.controller.unlisten(CyntaxicEvent.NOTIFY, cynView.update);
+					if(actualView.hasOwnProperty(handle))
+					{
+						proxyView.controller.listen(CyntaxicEvent.NOTIFY, proxyView.update);
+						dispatchEvent(new CyntaxicEvent(handle, vo, proxyView));
+						
+						proxyView.controller.unlisten(CyntaxicEvent.NOTIFY, proxyView.update);
+					}
+				}
+				else
+				{
+					var cynView:CynView = cynModel.views[i] as CynView;
+					
+					if(cynView.hasOwnProperty(handle))
+					{
+						cynView.controller.listen(CyntaxicEvent.NOTIFY, cynView.update);
+						dispatchEvent(new CyntaxicEvent(handle, vo, cynView));
+						
+						cynView.controller.unlisten(CyntaxicEvent.NOTIFY, cynView.update);
+					}
 				}
 			}
 		}

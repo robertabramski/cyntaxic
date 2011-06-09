@@ -31,6 +31,8 @@
     <classEntry path="com.cyntaxic.cyntils.CynRandom"/>
     <classEntry path="com.cyntaxic.cyntils.CynString"/>
     <classEntry path="com.cyntaxic.cyntils.CynValidate"/>
+    <classEntry path="com.cyntaxic.cynmvc.view.CynViewProxy"/>
+    <classEntry path="com.cyntaxic.cyntils.CynObject"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

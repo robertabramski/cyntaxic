@@ -60,15 +60,13 @@ package com.cyntaxic.cynmvc.view
 		{
 			if(self != this) Cyntaxic.throwError(ErrorCodes.E_1003);
 			
-			if(self is CynComposite || self is CynComponent)
+			if(self is CynComposite || self is CynComponent || self is CynViewProxy)
 			{
 				cynModel = Cyntaxic.MODEL;
 				cynController = Cyntaxic.CONTROLLER;
 				
 				controller = cynController;
 				cynModel.views.push(this);
-				
-				//listeners.push(new ListenerVO(CyntaxicEvent.NOTIFY, update, false, 0, false));
 			}
 			else Cyntaxic.throwError(ErrorCodes.E_1004);
 		}
@@ -98,14 +96,19 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * @private
+		 * @private Calls function handle on view.
 		 * 
 		 */
 		cynternal function update(event:CyntaxicEvent):void
 		{
-			if(this.hasOwnProperty(event.handle))
+			var view:DisplayObject;
+			
+			if(event.view is CynViewProxy) view = (event.view as CynViewProxy).actualView;
+			else view = event.view as CynView;
+			
+			if(view.hasOwnProperty(event.handle))
 			{
-				this[event.handle](event.vo);
+				view[event.handle](event.vo);
 			}
 		}
 		
