@@ -46,6 +46,14 @@ package com.cyntaxic.cynmvc.view
 		 */
 		protected var suppressDebug:Boolean = false;
 		
+		/**
+		 * List of properties to describe on the view when using <code>describe</code>.
+		 * 
+		 * @see #describe()
+		 * 
+		 */		
+		protected var describeProperties:Array = ['x', 'y', 'z', 'width', 'height', 'rotation', 'name'];
+		
 		private var listeners:Array = [];
 		
 		/**
@@ -245,16 +253,25 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * Returns a valid JSON string describing the object. Objects that can't be 
-		 * used in JSON like the Function object are returned as a string literal.
-		 *  
+		 * Returns a valid JSON string describing some commonly used display properties. 
+		 * To add more properties to be described add to the <code>describeProperties</code> array.
+		 * 
 		 * @param compact If false the string is not compacted.
-		 * @return A valid JSON string. 
+		 * @return A valid JSON string.
+		 * 
+		 * @see describeProperties 
 		 * 
 		 */
 		public function describe(compact:Boolean = true):String
 		{
-			return Cyntaxic.describe(this, compact);
+			var describeObject:ViewDescribeVO = new ViewDescribeVO();
+			
+			for(var i:int = 0; i < describeProperties.length; i++)
+			{
+				describeObject[describeProperties[i]] = this[describeProperties[i]];
+			}
+			
+			return Cyntaxic.describe(describeObject, compact);
 		}
 		
 		/**
@@ -268,55 +285,14 @@ package com.cyntaxic.cynmvc.view
 		{
 			
 		}
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get x():Number { return super.x; } /*** @private */
-		override public function set x(value:Number):void { super.x = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get y():Number { return super.y; } /*** @private */
-		override public function set y(value:Number):void { super.y = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get z():Number { return super.z; } /*** @private */
-		override public function set z(value:Number):void { super.z = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get width():Number { return super.width; } /*** @private */
-		override public function set width(value:Number):void { super.width = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get height():Number { return super.height; } /*** @private */
-		override public function set height(value:Number):void { super.height = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get rotation():Number { return super.rotation; } /*** @private */
-		override public function set rotation(value:Number):void { super.rotation = value; }
-		
-		/**
-		 * @private Overridden for shallow describe. 
-		 * 
-		 */
-		override public function get name():String { return super.name; } /*** @private */
-		override public function set name(value:String):void { super.name = value; }
+	}
+}
+
+internal dynamic class ViewDescribeVO extends com.cyntaxic.cynmvc.CyntaxicVO
+{
+	public function ViewDescribeVO(data:Object = null)
+	{
+		super(data);
 	}
 }
 
