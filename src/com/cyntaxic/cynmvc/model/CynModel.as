@@ -63,17 +63,6 @@ package com.cyntaxic.cynmvc.model
 		cynternal function set views(value:Array):void { _views = value; }
 		
 		/**
-		 * Returns a copy of all active views.
-		 *  
-		 * @return A copy of all active views.
-		 * 
-		 */		
-		public function get cynViews():Array
-		{
-			return _views.slice();
-		}
-		
-		/**
 		 * Returns a valid JSON string describing the object. Objects that can't be 
 		 * used in JSON like the Function object are returned as a string literal.
 		 *  
