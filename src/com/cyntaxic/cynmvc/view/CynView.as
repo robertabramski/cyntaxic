@@ -254,7 +254,7 @@ package com.cyntaxic.cynmvc.view
 		
 		/**
 		 * Returns a valid JSON string describing some commonly used display properties. 
-		 * To add more properties to be described add to the <code>describeProperties</code> array.
+		 * To change the properties being described add or remove from <code>describeProperties</code>.
 		 * 
 		 * @param compact If false the string is not compacted.
 		 * @return A valid JSON string.
@@ -264,7 +264,7 @@ package com.cyntaxic.cynmvc.view
 		 */
 		public function describe(compact:Boolean = true):String
 		{
-			var describeObject:ViewDescribeVO = new ViewDescribeVO();
+			var describeObject:CyntaxicVO = new CyntaxicVO();
 			
 			for(var i:int = 0; i < describeProperties.length; i++)
 			{
@@ -285,14 +285,6 @@ package com.cyntaxic.cynmvc.view
 		{
 			
 		}
-	}
-}
-
-internal dynamic class ViewDescribeVO extends com.cyntaxic.cynmvc.CyntaxicVO
-{
-	public function ViewDescribeVO(data:Object = null)
-	{
-		super(data);
 	}
 }
 
