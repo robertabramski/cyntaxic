@@ -15,8 +15,9 @@ package com.cyntaxic.cyntils
 		 * 
 		 * @param hex The hexidecmal string to convert.
 		 * 
+		 * @return An unsigned integer with a equivalent value to the hex.
+		 *  
 		 * @see #uint2hex()
-		 * @return An unsigned integer with a equivalent value to the hex. 
 		 * 
 		 */
 		public static function hex2uint(hex:String):uint
@@ -30,8 +31,9 @@ package com.cyntaxic.cyntils
 		 * 
 		 * @param num The unsigned integer to convert.
 		 * 
-		 * @see #hex2uint()
 		 * @return A hex string with a equivalent value to the uint.
+		 * 
+		 * @see #hex2uint()
 		 * 
 		 */
 		public static function uint2hex(num:uint):String
@@ -59,7 +61,7 @@ package com.cyntaxic.cyntils
 		 *  
 		 * @param hue The hue value.
 		 * @param sat The saturation value.
-		 * @param val The value value. This also sometimes referred to as brightness.
+		 * @param val The value. This also sometimes referred to as brightness.
 		 * 
 		 * @return An unsigned integer with a equivalent value to the HSV values passed. 
 		 * 
@@ -76,10 +78,11 @@ package com.cyntaxic.cyntils
 		 * 
 		 * @param hue The hue value.
 		 * @param sat The saturation value.
-		 * @param val The brightness value. This also sometimes referred to as value.
+		 * @param val The value. This also sometimes referred to as brightness.
+		 * 
+		 * @return A result object containing the properties r for red, g for green and b for blue.
 		 * 
 		 * @see #rgb2hsv()
-		 * @return An object containing the properties r for red, g for green and b for blue.
 		 * 
 		 */
 		public static function hsv2rgb(hue:Number, sat:Number, val:Number):Object
@@ -112,7 +115,7 @@ package com.cyntaxic.cyntils
 			grn = Math.floor(grn * 255);
 			blu = Math.floor(blu * 255);
 			
-			return {r:red, g:grn, b:blu};
+			return new Result({r:red, g:grn, b:blu});
 		}
 		
 		/**
@@ -123,8 +126,9 @@ package com.cyntaxic.cyntils
 		 * @param grn The green value.
 		 * @param blu The blue value.
 		 * 
+		 * @return A result object containing the properties h for hue, s for saturation and v for value.
+		 * 
 		 * @see #hsv2rgb()
-		 * @return An object containing the properties h for hue, s for saturation and v for value.
 		 * 
 		 */
 		public static function rgb2hsv(red:Number, grn:Number, blu:Number):Object
@@ -147,7 +151,21 @@ package com.cyntaxic.cyntils
 			sat = Math.floor(((val - x)/val) * 100);
 			val = Math.floor(val * 100);
 			
-			return {h:hue, s:sat, v:val};
+			return new Result({h:hue, s:sat, v:val});
+		}
+	}
+}
+
+internal dynamic class Result extends Object
+{
+	public function Result(data:Object = null)
+	{
+		if(data)
+		{
+			for(var prop:String in data)
+			{
+				this[prop] = data[prop];
+			}
 		}
 	}
 }

@@ -306,7 +306,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Google Chrome or not.
 		 *  
-		 * @return True is Chrome, otherwise false. 
+		 * @return True if Chrome, otherwise false. 
 		 * 
 		 */
 		public static function isChrome():Boolean
@@ -317,7 +317,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Apple Safari or not.
 		 *  
-		 * @return True is Safari, otherwise false. 
+		 * @return True if Safari, otherwise false. 
 		 * 
 		 */
 		public static function isSafari():Boolean
@@ -328,7 +328,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Opera or not.
 		 *  
-		 * @return True is Opera, otherwise false. 
+		 * @return True if Opera, otherwise false. 
 		 * 
 		 */
 		public static function isOpera():Boolean
@@ -339,7 +339,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Internet Explorer or not.
 		 *  
-		 * @return True is Internet Explorer, otherwise false. 
+		 * @return True if Internet Explorer, otherwise false. 
 		 * 
 		 */
 		public static function isMSIE():Boolean
@@ -350,7 +350,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Mozilla Firefox or not.
 		 *  
-		 * @return True is Firefox, otherwise false. 
+		 * @return True if Firefox, otherwise false. 
 		 * 
 		 */
 		public static function isFirefox():Boolean
@@ -361,7 +361,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks whether browser is Mozilla SeaMonkey or not.
 		 *  
-		 * @return True is SeaMonkey, otherwise false. 
+		 * @return True if SeaMonkey, otherwise false. 
 		 * 
 		 */
 		public static function isSeaMonkey():Boolean
@@ -370,17 +370,20 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Adds a browser string to the browser list. This function is everytime 
+		 * Adds a browser string to the browser list. This function run is every time 
 		 * <code>isBrowser</code> is run so it can check an updated list of browser strings.
 		 *  
-		 * @param browser The browser string to be added to the browser name array. 
+		 * @param browser The browser string to be added to the browser name array.
+		 * 
+		 * @return The new list of browsers names as an array. 
 		 * 
 		 * @see #isBrowser()
 		 * 
 		 */		
-		public static function addBrowserName(browser:String):void
+		public static function addBrowserName(browser:String):Array
 		{
 			if(BROWSER_NAMES.indexOf(browser) == -1) BROWSER_NAMES.push(browser);
+			return getBrowserNames();
 		}
 		
 		/**
