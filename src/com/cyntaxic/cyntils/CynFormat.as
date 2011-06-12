@@ -29,7 +29,7 @@ package com.cyntaxic.cyntils
 		 *  
 		 * @param number The number to be converted.
 		 * @param symbol The currency symbol.
-		 * @param frontSymbol Flag is use the currency symbol or not.
+		 * @param frontSymbol Flag to use the currency symbol or not.
 		 * @param changeSplit The delimiter between dollars and cents.
 		 * @param billsSplit The delimiter between thousands of dollars.
 		 * @return The cash string.
