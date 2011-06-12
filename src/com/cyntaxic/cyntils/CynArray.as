@@ -14,8 +14,9 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param array The array to shuffle.
 		 * 
+		 * @return The shuffled array;
 		 */
-		public static function shuffle(array:Array):void
+		public static function shuffle(array:Array):Array
 		{
 			var len:Number = array.length;
 			var rand:Number;
@@ -28,6 +29,8 @@ package com.cyntaxic.cyntils
 				array[i] = array[rand];
 				array[rand] = temp;
 			}
+			
+			return array;
 		}
 		
 		/**
@@ -40,11 +43,12 @@ package com.cyntaxic.cyntils
 		 */
 		public static function copyShuffle(array:Array):Array
 		{
+			var temp:Array = array.slice();
 			var shuffledArray:Array = [];
 			
-			while(array.length > 0)
+			while(temp.length > 0)
 			{
-				shuffledArray.push(array.splice(Math.round(Math.random() * (array.length - 1)), 1)[0]);
+				shuffledArray.push(temp.splice(Math.round(Math.random() * (temp.length - 1)), 1)[0]);
 			}
 			
 			return shuffledArray;
@@ -54,6 +58,7 @@ package com.cyntaxic.cyntils
 		 * Clones an array.
 		 *
 		 * @param array The array to clone.
+		 * 
 		 * @return A clone of the array.
 		 * 
 		 */
