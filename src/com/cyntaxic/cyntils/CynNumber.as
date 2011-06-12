@@ -66,7 +66,9 @@ package com.cyntaxic.cyntils
 			for(var i:int = 0; i < numbers.length; i++)
 			{
 				if(numbers[i] is Number)
-					if(numbers[i] > highest) highest = numbers[i];
+				{
+					if(numbers[i] > highest || isNaN(highest)) highest = numbers[i];
+				}
 			}
 			
 			return highest;
@@ -86,7 +88,9 @@ package com.cyntaxic.cyntils
 			for(var i:int = 0; i < numbers.length; i++)
 			{
 				if(numbers[i] is Number)
-					if(numbers[i] < lowest) lowest = numbers[i];
+				{
+					if(numbers[i] < lowest || isNaN(lowest)) lowest = numbers[i];
+				}
 			}
 			
 			return lowest;
