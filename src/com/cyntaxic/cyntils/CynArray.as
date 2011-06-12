@@ -14,7 +14,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param array The array to shuffle.
 		 * 
-		 * @return The shuffled array;
+		 * @return The shuffled array.
 		 */
 		public static function shuffle(array:Array):Array
 		{
