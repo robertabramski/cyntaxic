@@ -154,6 +154,7 @@ package com.cyntaxic.cyntils
 		 * @param a The object.
 		 * @param b The compare object. 
 		 * @param strict Flag to decide whether to test strictly.
+		 * 
 		 * @return True if the same.
 		 * 
 		 */		
@@ -169,6 +170,7 @@ package com.cyntaxic.cyntils
 		 * @param a The object.
 		 * @param b The compare object. 
 		 * @param strict Flag to decide whether to test strictly.
+		 * 
 		 * @return True if different.
 		 * 
 		 */	
@@ -180,7 +182,8 @@ package com.cyntaxic.cyntils
 		/** 
 		 * Casts a string as a number. If it fails, returns false.
 		 *
-		 * @param n The String of the number to validate.
+		 * @param value The String of the number to validate.
+		 * 
 		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
@@ -197,7 +200,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines if the character is within A-Z or a-z.
 		 *
-		 * @param n The character to validate.
+		 * @param value The character to validate.
+		 * 
 		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
@@ -214,7 +218,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the string contains only alphanumeric characters.
 		 *
-		 * @param str The string to validate.
+		 * @param value The string to validate.
+		 * 
 		 * @return A Boolean true value if the data is valid.
 		 */
 		public static function alphaNumeric(value:String):Boolean 
@@ -225,7 +230,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the character is a letter or a number.
 		 *
-		 * @param n The character to validate.
+		 * @param value The character to validate.
+		 * 
 		 * @return A Boolean true value if the data is valid.
 		 * 
 		 */
@@ -239,7 +245,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Checks to see if the string is a valid Social Security Number. Valid examples are 111-11-1111 or 111111111.
 		 *
-		 * @param inStr The string that will be validated.
+		 * @param value The string that will be validated.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -273,7 +280,8 @@ package com.cyntaxic.cyntils
 		 * Determines whether a string is an email address. Checks for common email address 
 		 * formats but it does not support the full RFC definition.
 		 *
-		 * @param str The string containing the email address.
+		 * @param value The string containing the email address.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -311,8 +319,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Performs basic checks to determine if a string is a valid HTTPS URL.
 		 *
-		 * @param str The string containing the HTTPS URL.
-		 * @param domain The expected domain for the URL.
+		 * @param value The string containing the HTTPS URL.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -324,9 +332,9 @@ package com.cyntaxic.cyntils
 		/**
 		 * Performs basic checks to determine if a string is a valid HTTP or HTTPS URL.
 		 *
-		 * @param str The string containing the URL.
-		 * @param domain The expected domain for the URL.
+		 * @param value The string containing the URL.
 		 * @param isSSL A boolean value that is set to true for HTTPS URL.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -367,6 +375,7 @@ package com.cyntaxic.cyntils
 		 * Determine whether a string is a valid IP address.
 		 *
 		 * @param value The string containing the IP address.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -445,7 +454,8 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the string contains a valid day-first format date.
 		 *
-		 * @param str The string containing a date in a day-first format.
+		 * @param value The string containing a date in a day-first format.
+		 * 
 		 * @return A Boolean true value if the date is a valid day-first date.
 		 * 
 		 */
@@ -458,8 +468,9 @@ package com.cyntaxic.cyntils
 		 * Determines if the string contains a valid date. Valid examples include 
 		 * 9/30/09, 9-30-09 or 9.30.09.
 		 *
-		 * @param str The String containing the date.
+		 * @param value The String containing the date.
 		 * @param dayFirst Whether the date is in a day first format.
+		 * 
 		 * @return True, false or a result object.
 		 * 
 		 */
@@ -522,9 +533,10 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the integer with a specified range.
 		 *
-		 * @param n The string representing the number to valid.
+		 * @param value The string representing the number to valid.
 		 * @param min The minimum value as a Number (&gt;= comparison).
 		 * @param max The maxium value  as a Number (&lt;= comparison).
+		 * 
 		 * @return A Boolean true value if the data is within the range.
 		 * 
 		 */
@@ -542,8 +554,9 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the string contains data.
 		 *
-		 * @param str The character to validate.
+		 * @param value The character to validate.
 		 * @param white A boolean when set to false will ignore white space (space, newline, tab).
+		 * 
 		 * @return A Boolean true value if the string is not empty.
 		 * 
 		 */

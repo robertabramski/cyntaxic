@@ -16,7 +16,8 @@ package com.cyntaxic.cyntils
 		 * Gets name of object similar to how <code>toString</code> works.
 		 *  
 		 * @param object The object to name.
-		 * @return A bracketed object string name.  
+		 * 
+		 * @return A bracketed object string name.
 		 * 
 		 */
 		public static function getObjectName(object:Object):String
@@ -28,6 +29,7 @@ package com.cyntaxic.cyntils
 		 * Gets name of the object's superclass similar to how <code>toString</code> works.
 		 *  
 		 * @param object The object to name.
+		 * 
 		 * @return A bracketed object string name.
 		 * 
 		 */
@@ -40,6 +42,7 @@ package com.cyntaxic.cyntils
 		 * Gets the classname of the object.
 		 *  
 		 * @param object The object to name.
+		 * 
 		 * @return A string of the class name.
 		 * 
 		 */
@@ -52,7 +55,8 @@ package com.cyntaxic.cyntils
 		 * Gets the classname of the object's superclass.
 		 *  
 		 * @param object The object to name.
-		 * @return A string of the superclass name. 
+		 * 
+		 * @return A string of the superclass name.
 		 * 
 		 */
 		public static function getSuperClassName(object:Object):String

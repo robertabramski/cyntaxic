@@ -13,6 +13,7 @@ package com.cyntaxic.cyntils
 		 * Returns a comma formatted string from a number.
 		 *  
 		 * @param number The number to be formatted.
+		 * 
 		 * @return The comma formatted string.
 		 * 
 		 */
@@ -34,7 +35,7 @@ package com.cyntaxic.cyntils
 		* Formats a number to include a leading zero if it is a single digit
 		* between -1 and 10. 	
 		* 
-		* @param number The number that will be formatted
+		* @param number The number that will be formatted.
 		*
 		* @return A string with single digits between -1 and 10 padded with a 
 		* leading zero.
@@ -56,6 +57,7 @@ package com.cyntaxic.cyntils
 		 * Returns the highest number in an array.
 		 *  
 		 * @param numbers The array.
+		 * 
 		 * @return The highest number.
 		 * 
 		 */
@@ -78,6 +80,7 @@ package com.cyntaxic.cyntils
 		 * Returns the lowest number in an array.
 		 *  
 		 * @param numbers The array.
+		 * 
 		 * @return The lowest number.
 		 * 
 		 */

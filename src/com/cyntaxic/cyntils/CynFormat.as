@@ -14,6 +14,7 @@ package com.cyntaxic.cyntils
 		 * 
 		 * @param number The number to be converted. 
 		 * @param precision The decimal precision.
+		 * 
 		 * @return The decimal number.
 		 * 
 		 */
@@ -32,6 +33,7 @@ package com.cyntaxic.cyntils
 		 * @param frontSymbol Flag to use the currency symbol or not.
 		 * @param changeSplit The delimiter between dollars and cents.
 		 * @param billsSplit The delimiter between thousands of dollars.
+		 * 
 		 * @return The cash string.
 		 * 
 		 */
@@ -57,6 +59,7 @@ package com.cyntaxic.cyntils
 		 * Converts seconds into formatted hours, minutes and seconds.
 		 *  
 		 * @param seconds The seconds to be converted.
+		 * 
 		 * @return The formatted hours, minutes and seconds string.
 		 * 
 		 */

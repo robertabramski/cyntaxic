@@ -148,6 +148,7 @@ package com.cyntaxic.cyntils
 		 * <code>getBrowserNames</code>. 
 		 *  
 		 * @param browser The browser string to check against. 
+		 * 
 		 * @return True if the browser string matches part of <code>navigator.userAgent</code> string.
 		 * 
 		 * @see #getBrowserNames()
@@ -174,6 +175,7 @@ package com.cyntaxic.cyntils
 		 * Gets the value of the query string parameter passed in.
 		 *  
 		 * @param param The string value of the query param. 
+		 * 
 		 * @return The value of the param or a blank string.
 		 * 
 		 */

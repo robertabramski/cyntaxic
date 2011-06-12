@@ -13,6 +13,7 @@ package com.cyntaxic.cyntils
 		 * Returns an array of zero based indexed numbers randomly.
 		 *  
 		 * @param length The length of the array to be generated.
+		 * 
 		 * @return The array of random numbers in length range.
 		 * 
 		 */
@@ -31,6 +32,7 @@ package com.cyntaxic.cyntils
 		 * Returns an array of single digit numbers randomly.
 		 *  
 		 * @param length The length of the array to be generated.
+		 * 
 		 * @return The array of single random numbers in length range.
 		 * 
 		 */
@@ -46,6 +48,7 @@ package com.cyntaxic.cyntils
 		 * Returns a random number a specified number of digits long.
 		 *  
 		 * @param length The length of digits to return.
+		 * 
 		 * @return The random number generated.
 		 * 
 		 */
@@ -64,6 +67,7 @@ package com.cyntaxic.cyntils
 		 * @param low The low range.
 		 * @param high The high range.
 		 * @param integer If false, allow floating point number otherwise integer.
+		 * 
 		 * @return The random number in range generated.
 		 * 
 		 */		
