@@ -114,7 +114,7 @@ package com.cyntaxic.cynmvc.view
 			if(event.view is CynViewProxy) view = (event.view as CynViewProxy).actualView;
 			else view = event.view as CynView;
 			
-			if(view.hasOwnProperty(event.handle))
+			if(view.hasOwnProperty(event.handle) && view[event.handle] is Function)
 			{
 				view[event.handle](event.vo);
 			}

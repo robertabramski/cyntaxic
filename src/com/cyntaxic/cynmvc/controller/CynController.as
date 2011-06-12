@@ -75,7 +75,7 @@ package com.cyntaxic.cynmvc.controller
 		 * @param vo The value object being passed.
 		 * 
 		 */		
-		protected function notify(handle:String, vo:CyntaxicVO):void
+		public function notify(handle:String, vo:CyntaxicVO):void
 		{
 			for(var i:int = 0; i < cynModel.views.length; i++)
 			{
@@ -86,7 +86,7 @@ package com.cyntaxic.cynmvc.controller
 					var proxyView:CynViewProxy = cynModel.views[i] as CynViewProxy;
 					var actualView:DisplayObject = proxyView.actualView;
 					
-					if(actualView.hasOwnProperty(handle))
+					if(actualView.hasOwnProperty(handle) && actualView[handle] is Function)
 					{
 						proxyView.controller.listen(CyntaxicEvent.NOTIFY, proxyView.update);
 						dispatchEvent(new CyntaxicEvent(handle, vo, proxyView));
@@ -98,7 +98,7 @@ package com.cyntaxic.cynmvc.controller
 				{
 					var cynView:CynView = cynModel.views[i] as CynView;
 					
-					if(cynView.hasOwnProperty(handle))
+					if(cynView.hasOwnProperty(handle) && cynView[handle] is Function)
 					{
 						cynView.controller.listen(CyntaxicEvent.NOTIFY, cynView.update);
 						dispatchEvent(new CyntaxicEvent(handle, vo, cynView));
