@@ -10,6 +10,22 @@ package com.cyntaxic.cyntils
 	public class CynNumber
 	{
 		/**
+		 * Trims a floating point number to specified number of places.
+		 * 
+		 * @param number The number to be converted. 
+		 * @param precision The decimal precision.
+		 * 
+		 * @return The decimal number.
+		 * 
+		 */
+		public static function decimalPlaces(number:Number, precision:int):Number
+		{
+			if((precision = Math.abs(precision)) == 0) return Math.round(number);
+			
+			return parseFloat(Math.floor(number) + "." + Math.floor(number * Math.pow(10, precision)).toString().substr(-precision));	
+		}
+		
+		/**
 		 * Returns a comma formatted string from a number.
 		 *  
 		 * @param number The number to be formatted.

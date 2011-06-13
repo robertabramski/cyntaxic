@@ -10,22 +10,6 @@ package com.cyntaxic.cyntils
 	public class CynFormat
 	{
 		/**
-		 * Converts a number into a decimal number.
-		 * 
-		 * @param number The number to be converted. 
-		 * @param precision The decimal precision.
-		 * 
-		 * @return The decimal number.
-		 * 
-		 */
-		public static function decimalNumber(number:Number, precision:int):Number
-		{
-			if((precision = Math.abs(precision)) == 0) return Math.round(number);
-			
-			return parseFloat(Math.floor(number) + "." + Math.floor(number * Math.pow(10, precision)).toString().substr(-precision));	
-		}
-		
-		/**
 		 * Converts a number into a cash string.
 		 *  
 		 * @param number The number to be converted.
@@ -79,6 +63,17 @@ package com.cyntaxic.cyntils
 			var secondString:String = sec < 10 ? "0" + sec : sec.toString();
 			
 			return hourString + minuteString + secondString;
+		}
+		
+		/**
+		 * @private
+		 * 
+		 */
+		private static function decimalNumber(number:Number, precision:int):Number
+		{
+			if((precision = Math.abs(precision)) == 0) return Math.round(number);
+			
+			return parseFloat(Math.floor(number) + "." + Math.floor(number * Math.pow(10, precision)).toString().substr(-precision));	
 		}
 	}
 }

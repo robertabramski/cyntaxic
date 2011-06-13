@@ -135,7 +135,7 @@ package com.cyntaxic.cyntils
 		/**
 		 * Code for a social security number that is too long.
 		 */
-		public static const SSN_TOO_LONG:int = 2024;
+		public static const SSN_WRONG_LENGTH:int = 2024;
 		
 		private static const DECIMAL_DIGITS:String = "01234567890";
 		private static const LC_ROMAN_LETTERS:String = "abcdefghijklmnopqrstuvwxyz";
@@ -149,7 +149,7 @@ package com.cyntaxic.cyntils
 		
 		/**
 		 * Tests to see if two objects are equal. If strict is set, then it is tested
-		 * strictly with strict equality instead of just the equality operator. 
+		 * strictly with strict equality instead of just the equality operator.
 		 *  
 		 * @param a The object.
 		 * @param b The compare object. 
@@ -158,14 +158,14 @@ package com.cyntaxic.cyntils
 		 * @return True if the same.
 		 * 
 		 */		
-		public static function eq(a:Object, b:Object, strict:Boolean = false):Boolean
+		public static function eq(a:*, b:*, strict:Boolean = false):Boolean
 		{
 			return strict ? a === b : a == b;
 		}
 		
 		/**
 		 * Tests to see if two objects are not equal. If strict is set, then it is tested
-		 * strictly with strict equality instead of just the equality operator. 
+		 * strictly with strict equality instead of just the equality operator.
 		 *  
 		 * @param a The object.
 		 * @param b The compare object. 
@@ -174,7 +174,7 @@ package com.cyntaxic.cyntils
 		 * @return True if different.
 		 * 
 		 */	
-		public static function uneq(a:Object, b:Object, strict:Boolean = false):Boolean
+		public static function uneq(a:*, b:*, strict:Boolean = false):Boolean
 		{
 			return strict ? !(a === b) : !(a == b);
 		}
@@ -184,7 +184,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param value The String of the number to validate.
 		 * 
-		 * @return A Boolean true value if the data is valid.
+		 * @return True if the data is valid.
 		 * 
 		 */
 		public static function digit(value:String):Boolean
@@ -202,7 +202,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param value The character to validate.
 		 * 
-		 * @return A Boolean true value if the data is valid.
+		 * @return True if the data is valid.
 		 * 
 		 */
 		public static function letter(value:String):Boolean
@@ -220,7 +220,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param value The string to validate.
 		 * 
-		 * @return A Boolean true value if the data is valid.
+		 * @return True if the data is valid.
 		 */
 		public static function alphaNumeric(value:String):Boolean 
 		{
@@ -232,7 +232,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param value The character to validate.
 		 * 
-		 * @return A Boolean true value if the data is valid.
+		 * @return True if the data is valid.
 		 * 
 		 */
 		public static function letterOrDigit(value:String):Boolean
@@ -271,7 +271,7 @@ package com.cyntaxic.cyntils
 			}
 			
 			if(ss.length != 9)
-				return passFail ? false : new Result(false, SSN_TOO_LONG, "The SSN is too long."); 
+				return passFail ? false : new Result(false, SSN_WRONG_LENGTH, "The SSN is not 9 characters long."); 
 			
 			return passFail ? true : new Result(true, VALID);
 		}
@@ -365,6 +365,9 @@ package com.cyntaxic.cyntils
 			if(!validChars(tempDomain, DECIMAL_DIGITS + LC_ROMAN_LETTERS + "-."))
 				return passFail ? false : new Result(false, URL_INVALID_DOMAIN_NAME, "The URL contans an invalid domain name.");
 			
+			if(value.indexOf(".") == -1) 
+				return passFail ? false : new Result(false, URL_INVALID_DOMAIN_NAME, "The URL contans an invalid domain name.");
+			
 			if((value.indexOf("?") > startLen + 1) && (value.indexOf("?") != value.lastIndexOf("?")))
 				return passFail ? false : new Result(false, URL_CAN_HAVE_1_QUESTION_MARK, 'The URL can contain only one "?" seperator.');
 			
@@ -400,27 +403,6 @@ package com.cyntaxic.cyntils
 			
 			return passFail ? true : new Result(true, VALID);
 		}
-		
-		/**
-		 * Compare a string against a list of characters to determine if the string does not
-		 * contain those characters. This comparison is not case-senstive and it does not
-		 * validate that the characters are in a particular order.
-		 *
-		 * @param value The string that needs to be validated.
-		 * @param chars The list of valid characters for that string.
-		 * 
-		 * @return A Boolean true value if the data is valid.
-		 * 
-		 */
-		public static function invalidChars(value:String, chars:String):Boolean
-		{
-			for(var i:int = 0; i < value.length; i++)
-			{
-				if(chars.indexOf(value.charAt(i))) return true;
-			}
-			
-			return false;
-		}
 
 		/**
 		 * Compare a string against a list of characters to determine if the string contains
@@ -430,7 +412,7 @@ package com.cyntaxic.cyntils
 		 * @param value The string that needs to be validated.
 		 * @param chars The list of valid characters for that string.
 		 * 
-		 * @return A Boolean true value if the data is valid.
+		 * @return True if the data is valid.
 		 * 
 		 */
 		public static function validChars(value:String, chars:String):Boolean
@@ -456,7 +438,7 @@ package com.cyntaxic.cyntils
 		 *
 		 * @param value The string containing a date in a day-first format.
 		 * 
-		 * @return A Boolean true value if the date is a valid day-first date.
+		 * @return True if the date is a valid day-first date.
 		 * 
 		 */
 		public static function worldDate(value:String):Object
@@ -533,11 +515,11 @@ package com.cyntaxic.cyntils
 		/**
 		 * Determines whether the integer with a specified range.
 		 *
-		 * @param value The string representing the number to valid.
-		 * @param min The minimum value as a Number (&gt;= comparison).
-		 * @param max The maxium value  as a Number (&lt;= comparison).
+		 * @param value The string representing the number to validate.
+		 * @param min The minimum value as a number (&gt;= comparison).
+		 * @param max The maxium value  as a number (&lt;= comparison).
 		 * 
-		 * @return A Boolean true value if the data is within the range.
+		 * @return True if the data is within the range.
 		 * 
 		 */
 		public static function integerInRange(value:String, min:int, max:int):Boolean
@@ -557,7 +539,7 @@ package com.cyntaxic.cyntils
 		 * @param value The character to validate.
 		 * @param white A boolean when set to false will ignore white space (space, newline, tab).
 		 * 
-		 * @return A Boolean true value if the string is not empty.
+		 * @return True if the string is not empty.
 		 * 
 		 */
 		public static function notEmpty(value:String, white:Boolean = false):Boolean
