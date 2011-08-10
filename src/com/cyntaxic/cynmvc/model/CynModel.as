@@ -76,7 +76,7 @@ package com.cyntaxic.cynmvc.model
 		}
 		
 		/**
-		 * Sends a HTTP GET call. When the call is complete the controller
+		 * Sends a HTTP GET call. When the call is complete the controller 
 		 * <code>execute</code> function is called to handle the returned data.
 		 * 
 		 * @param handle The callback function handle.
@@ -95,7 +95,7 @@ package com.cyntaxic.cynmvc.model
 		}
 		
 		/**
-		 * Sends a HTTP POST call. When the call is complete the controller
+		 * Sends a HTTP POST call. When the call is complete the controller 
 		 * <code>execute</code> function is called to handle the returned data.
 		 *  
 		 * @param handle The callback function handle.

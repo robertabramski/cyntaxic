@@ -11,7 +11,7 @@ package com.cyntaxic.cynmvc.view
 	 * <code>CynViewProxy</code> is a decorator for setting up views that cannot 
 	 * directly extend <code>CynComponent</code> or the <code>CynComposite</code> classes. 
 	 * Using the <code>add</code> and <code>remove</code> functions allow views to listen 
-	 * and to unlisten for notifications from the controller. Instances of <code>CynViewProxy</code>
+	 * and to unlisten for notifications from the controller. Instances of <code>CynViewProxy</code> 
 	 * are not directly accessible as the constructor is private and the static functions do not 
 	 * return a value.
 	 * 

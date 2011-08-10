@@ -68,7 +68,7 @@ package com.cyntaxic.cyntils
 		}
 		
 		/**
-		 * Removes all occurances of a the given <code>item</code> out of the array.
+		 * Removes all occurances of a the given item out of the array.
 		 *
 		 * @param array The array to remove the item out of.
 		 * @param item The item to remove.
