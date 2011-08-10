@@ -50,9 +50,9 @@ package com.cyntaxic.cynmvc.model
 		}
 		
 		/**
-		 * Returns the version number of the framework.
+		 * Returns the version number and description in a value object.
 		 * 
-		 * @return The version number of the framework.
+		 * @return A version value object.
 		 * 
 		 */
 		public function get version():VersionVO { return _version; }
