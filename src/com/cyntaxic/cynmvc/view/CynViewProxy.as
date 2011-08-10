@@ -77,10 +77,12 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * @private Used in update function. 
+		 * Returns the view proxy.
+		 * 
+		 * @return The view passed in the <code>add</code> function. 
 		 * 
 		 */		
-		cynternal function get actualView():DisplayObject
+		public function get actualView():DisplayObject
 		{
 			return _actualView;
 		}

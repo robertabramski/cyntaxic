@@ -50,10 +50,12 @@ package com.cyntaxic.cynmvc.model
 		}
 		
 		/**
-		 * @private
+		 * Returns the version number of the framework.
+		 * 
+		 * @return The version number of the framework.
 		 * 
 		 */
-		cynternal function get version():VersionVO { return _version; }
+		public function get version():VersionVO { return _version; }
 		
 		/**
 		 * @private
