@@ -27,12 +27,12 @@ package com.cyntaxic.cynmvc.controller.enums
 		public static const E_1002:ErrorCodeVO = new ErrorCodeVO("CynError #1002: Event listening on the controller is not supported.", 1002);
 		
 		/**
-		 *  Used to specify when abstract enforcement hasn't be satisfied. Error code specifies how to correct the issue.
+		 * Used to specify when abstract enforcement hasn't be satisfied. Error code specifies how to correct the issue.
 		 */
 		public static const E_1003:ErrorCodeVO = new ErrorCodeVO("CynError #1003: CynController, CynModel, CynView, CynComposite and CynComponent are meant to be abstract. The extended constructor should pass itself to the superclass. In the constructor write the following: super(this).", 1003);
 		
 		/**
-		 *  Used to specify when <code>CynView</code> is attempted to be used directly. Error code specifies how to correct the issue.  
+		 * Used to specify when <code>CynView</code> is attempted to be used directly. Error code specifies how to correct the issue.  
 		 */
 		public static const E_1004:ErrorCodeVO = new ErrorCodeVO("CynError #1004: CynView is an abstract base class CynComposite and CynComponent. Extend CynComposite or CynComponent instead.", 1004);
 	}

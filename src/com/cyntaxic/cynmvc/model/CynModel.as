@@ -17,7 +17,6 @@ package com.cyntaxic.cynmvc.model
 	 * is stored.
 	 *  
 	 * @author robertabramski
-	 * @hidepropertyhead
 	 * 
 	 */
 	public dynamic class CynModel extends EventDispatcher
