@@ -12,6 +12,8 @@ package com.cyntaxic.cynmvc.model
 	import flash.events.EventDispatcher;
 	
 	/**
+	 * @nopropertylisting Do not show any properties on site.
+	 * 
 	 * <code>CynModel</code> is an abstract class to be extended by the application being 
 	 * created with the Cyntaxic framework. The model is where all data for the application
 	 * is stored.
