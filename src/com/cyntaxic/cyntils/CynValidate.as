@@ -2,7 +2,7 @@ package com.cyntaxic.cyntils
 {
 	/**
 	 * The <code>CynValidate</code> class contains static functions for
-	 * validation. Each function can return true or false, or if <code>passFail</code>
+	 * validation. Each function can return true or false, or if <code>passFail</code> 
 	 * is set to false a result object containing <code>valid</code>, <code>code</code> 
 	 * and <code>text</code> properties is returned. Validiation codes returned by the result 
 	 * object are enumerated in the class.

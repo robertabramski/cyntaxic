@@ -275,7 +275,7 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * Invoked when Event.RESIZE event is fired. A <code>ResizeVO</code> is passed 
+		 * Invoked when <code>Event.RESIZE</code> event is fired. A <code>ResizeVO</code> is passed 
 		 * in containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
 		 *  
 		 * @param vo A <code>ResizeVO</code> containing <code>stage.stageWidth</code> and <code>stage.stageHeight</code> properties.
