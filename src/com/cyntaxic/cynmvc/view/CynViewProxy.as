@@ -39,7 +39,7 @@ package com.cyntaxic.cynmvc.view
 		}
 		
 		/**
-		 * Adds a view to the framework that cannot extend <code>CynComponent</code>
+		 * Adds a view to the framework that cannot extend <code>CynComponent</code> 
 		 * or <code>CynComposite</code>. This allows the view to be notified by the contoller. 
 		 *  
 		 * @param view The proxy view to be added.
