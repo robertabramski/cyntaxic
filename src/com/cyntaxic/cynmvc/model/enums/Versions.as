@@ -11,9 +11,9 @@ package com.cyntaxic.cynmvc.model.enums
 	public class Versions
 	{
 		/**
-		 * Release 1.0.0 of the framework. 
+		 * Release 0.1.2 of the framework. 
 		 */
-		public static const VERSION_1_0_0:VersionVO = new VersionVO("1.0.0", "Initial public release");
+		public static const VERSION_0_1_2:VersionVO = new VersionVO("0.1.2", "Documentation fixes and added some suggestions by Markus Winkler. Added destroySelf and removeSelf functions.");
 		
 		/**
 		 * Release 0.1.1 of the framework. 

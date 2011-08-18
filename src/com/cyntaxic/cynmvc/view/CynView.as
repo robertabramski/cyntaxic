@@ -135,9 +135,25 @@ package com.cyntaxic.cynmvc.view
 			
 			if(!props.useCapture) props.useCapture = false; 
 			if(!props.priority) props.priority = 0; 
-			if(!props.useWeakReference) props.priority = false;
+			if(!props.useWeakReference) props.useWeakReference = false;
 			
 			addEventListener(type, listener, props.useCapture, props.priority, props.useWeakReference);
+		}
+		
+		/**
+		 * Shorthand method for <code>addEventListener</code> using weak reference. The parameters 
+		 * <code>useCapture</code> and <code>priority</code> are set to the default for <code>addEventListener</code>. 
+		 * To change these use <code>addListener</code>.
+		 *  
+		 * @param type The type of the event listener.
+		 * @param listener The listener function.
+		 * 
+		 * @see #addListener()
+		 * 
+		 */
+		public function addWeakListener(type:String, listener:Function):void
+		{
+			addEventListener(type, listener, false, 0, true);
 		}
 		
 		/**
