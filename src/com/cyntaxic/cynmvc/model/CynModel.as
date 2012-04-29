@@ -23,7 +23,7 @@ package com.cyntaxic.cynmvc.model
 	{
 		use namespace cynternal;
 		
-		private var _version:VersionVO = Versions.VERSION_0_1_2;
+		private var _version:VersionVO = Versions.VERSION_0_1_3;
 		private var _views:Array = [];
 		private var call:DataCall;
 		
@@ -85,11 +85,12 @@ package com.cyntaxic.cynmvc.model
 		 * @param url The URL to be called.
 		 * @param data The data to send to the server. 
 		 * @param contentType The content type of the data.
+		 * @param headers The headers to send to the server.
 		 * 
 		 */
-		public function get(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
+		public function get(handle:Object, url:String, data:Object = null, contentType:String = null, headers:Array = null):void
 		{
-			call = new DataCall(handle, url, DataCall.GET, data, contentType);
+			call = new DataCall(handle, url, DataCall.GET, data, contentType, headers);
 			
 			call.addEventListener(DataCallEvent.COMPLETE, dispatchCall);
 			call.addEventListener(DataCallEvent.IO_ERROR, dispatchCall);
@@ -104,11 +105,12 @@ package com.cyntaxic.cynmvc.model
 		 * @param url The URL to be called.
 		 * @param data The data to send to the server.
 		 * @param contentType The content type of the data.
+		 * @param headers The headers to send to the server.
 		 * 
 		 */
-		public function post(handle:String, url:String, data:Object = null, contentType:String = "text/plain"):void
+		public function post(handle:Object, url:String, data:Object = null, contentType:String = null, headers:Array = null):void
 		{
-			call = new DataCall(handle, url, DataCall.POST, data, contentType);
+			call = new DataCall(handle, url, DataCall.POST, data, contentType, headers);
 			
 			call.addEventListener(DataCallEvent.COMPLETE, dispatchCall);
 			call.addEventListener(DataCallEvent.IO_ERROR, dispatchCall);
@@ -117,12 +119,17 @@ package com.cyntaxic.cynmvc.model
 		
 		private function dispatchCall(event:DataCallEvent):void
 		{
-			call.removeEventListener(DataCallEvent.COMPLETE, dispatchCall); 
-			call.removeEventListener(DataCallEvent.IO_ERROR, dispatchCall);
-			call.removeEventListener(DataCallEvent.TIMEOUT, dispatchCall);
-			call = null;
-			
-			Cyntaxic.execute(event.handle, event.data);
+			if(event.handle)
+			{
+				if(event.handle is String)
+				{
+					Cyntaxic.execute(event.handle as String, event.data);
+				}
+				else
+				{
+					event.handle.scope[event.handle.handle](event.data);
+				}
+			}
 		}
 	}
 }

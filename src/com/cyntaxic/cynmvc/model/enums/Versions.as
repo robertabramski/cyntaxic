@@ -11,18 +11,40 @@ package com.cyntaxic.cynmvc.model.enums
 	public class Versions
 	{
 		/**
+		 * Release 0.1.3 of the framework. 
+		 */
+		public static const VERSION_0_1_3:VersionVO = new VersionVO
+		(
+			"0.1.3", 
+			"DataCall bug fixes, cmLove fix. Added 3 CynString functions. Added headers param, scoped callback and SecurityError handling to DataCall. " +
+			"Added httpStatus to DataCallVO."
+		);
+		
+		/**
 		 * Release 0.1.2 of the framework. 
 		 */
-		public static const VERSION_0_1_2:VersionVO = new VersionVO("0.1.2", "Documentation fixes and added some suggestions by Markus Winkler. Added destroySelf and removeSelf functions.");
+		public static const VERSION_0_1_2:VersionVO = new VersionVO
+		(
+			"0.1.2", 
+			"Documentation fixes and added some suggestions by Markus Winkler. Added destroySelf and removeSelf functions."
+		);
 		
 		/**
 		 * Release 0.1.1 of the framework. 
 		 */
-		public static const VERSION_0_1_1:VersionVO = new VersionVO("0.1.1", "Documentation fixes, demo fixes, Flex support and demo.");
+		public static const VERSION_0_1_1:VersionVO = new VersionVO
+		(
+			"0.1.1", 
+			"Documentation fixes, demo fixes, Flex support and demo."
+		);
 		
 		/**
 		 * Release 0.1.0 of the framework. 
 		 */
-		public static const VERSION_0_1_0:VersionVO = new VersionVO("0.1.0", "Documentation and framework completed.");
+		public static const VERSION_0_1_0:VersionVO = new VersionVO
+		(
+			"0.1.0", 
+			"Documentation and framework completed."
+		);
 	}
 }

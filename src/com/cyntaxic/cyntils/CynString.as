@@ -10,6 +10,45 @@ package com.cyntaxic.cyntils
 	public class CynString
 	{
 		/**
+		 * Converts an lower camel case string to a string in title case.
+		 *  
+		 * @param value The string to convert.
+		 * 
+		 * @return The converted title case string.
+		 * 
+		 */
+		public static function lowerCamelToTitle(value:String):String
+		{
+			return upperCaseFirst(value.match(/(\b|[A-Z]+)[a-z]*/g).toString().split(',').join(' '));
+		}
+		
+		/**
+		 * Converts an upper camel case string to a string in title case.
+		 *  
+		 * @param value The string to convert.
+		 * 
+		 * @return The converted title case string.
+		 * 
+		 */
+		public static function upperCamelToTitle(value:String):String
+		{
+			return value.match(/([A-Z]+)[a-z]*/g).toString().split(',').join(' ');
+		}
+		
+		/**
+		 * Upper cases the first letter in the string.
+		 *  
+		 * @param value The string to be upper cased.
+		 * 
+		 * @return The string with an uppercase first character. 
+		 * 
+		 */
+		public static function upperCaseFirst(value:String):String
+		{
+			return value.charAt(0).toUpperCase() + value.substr(1, value.length);
+		}
+		
+		/**
 		 * Replaces all string matches in the string. 
 		 *  
 		 * @param original The string to search.

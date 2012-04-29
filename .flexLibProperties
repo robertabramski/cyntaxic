@@ -33,6 +33,7 @@
     <classEntry path="com.cyntaxic.cyntils.CynValidate"/>
     <classEntry path="com.cyntaxic.cynmvc.view.CynViewProxy"/>
     <classEntry path="com.cyntaxic.cyntils.CynObject"/>
+    <classEntry path="com.cyntaxic.cynmvc.model.vos.ScopeVO"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

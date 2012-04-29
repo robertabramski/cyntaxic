@@ -26,6 +26,8 @@ package com.cyntaxic.cynmvc.model.vos
 		private var _data:Object;
 		private var _contentType:String;
 		private var _result:String;
+		private var _httpStatus:int;
+
 		
 		/**
 		 * Creates a new <code>DataCallVO</code> object.
@@ -36,12 +38,13 @@ package com.cyntaxic.cynmvc.model.vos
 		 * @param contentType The content type to send to the server.
 		 * 
 		 */	
-		public function DataCallVO(url:String = "", method:String = "get", data:Object = null, contentType:String = "text/plain")
+		public function DataCallVO(url:String = "", method:String = "get", data:Object = null, contentType:String = "text/plain", httpStatus:int = 0)
 		{
 			this.url = url;
 			this.method = method;
 			this.data = data;
 			this.contentType = contentType;
+			this.httpStatus = httpStatus;
 		}
 		
 		/**
@@ -88,5 +91,14 @@ package com.cyntaxic.cynmvc.model.vos
 		 */
 		public function get result():String { return _result; }
 		public function set result(value:String):void { _result = value; }
+		
+		/**
+		 * The http status code returned from the server.
+		 *  
+		 * @return The http status code.
+		 * 
+		 */
+		public function get httpStatus():int { return _httpStatus; }
+		public function set httpStatus(value:int):void { _httpStatus = value; }
 	}
 }

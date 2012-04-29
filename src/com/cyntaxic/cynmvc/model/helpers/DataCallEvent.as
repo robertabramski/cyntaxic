@@ -28,8 +28,13 @@ package com.cyntaxic.cynmvc.model.helpers
 		 */		
 		public static const IO_ERROR:String = "ioError";
 		
+		/**
+		 * Used to specify a <code>DataCall</code> security error.
+		 */
+		public static const SECURITY_ERROR:String = "securityError";
+		
 		private var _data:DataCallVO;
-		private var _handle:String;
+		private var _handle:Object;
 		
 		/**
 		 * Creates an <code>DataCallEvent</code> object. The event is fired when the 
@@ -42,7 +47,7 @@ package com.cyntaxic.cynmvc.model.helpers
 		 * @param cancelable Determines whether the Event object can be canceled. Event listeners can access this information through the inherited cancelable property.
 		 * 
 		 */
-		public function DataCallEvent(type:String, handle:String, data:DataCallVO = null, bubbles:Boolean = false, cancelable:Boolean = false)
+		public function DataCallEvent(type:String, handle:Object, data:DataCallVO = null, bubbles:Boolean = false, cancelable:Boolean = false)
 		{
 			_handle = handle;
 			_data = data;
@@ -64,7 +69,7 @@ package com.cyntaxic.cynmvc.model.helpers
 		 * @return The string value of the callback function handle. 
 		 * 
 		 */
-		public function get handle():String { return _handle; }
-		public function set handle(value:String):void { _handle = value; }
+		public function get handle():Object { return _handle; }
+		public function set handle(value:Object):void { _handle = value; }
 	}
 }
